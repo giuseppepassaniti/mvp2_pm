@@ -21,8 +21,8 @@ const tables = [
   { name: 'Risorse',       view: 'Grid view', file: 'risorse.json' },
   { name: 'Time Log',      view: 'Grid view', file: 'timelog.json' },
   { name: 'Imprevisti',    view: 'Grid view', file: 'imprevisti.json' },
-  { name: 'Varianti',      view: 'Grid view', file: 'varianti.json' },
-  { name: 'Decision Log',  view: 'Grid view', file: 'decisionlog.json' },
+  { name: 'Varianti',       file: 'varianti.json' },
+  { name: 'Decision Log', file: 'decisionlog.json' },
 ];
 
 // -------- helper --------
