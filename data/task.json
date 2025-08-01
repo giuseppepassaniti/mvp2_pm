@@ -1,0 +1,912 @@
+[
+  {
+    "Titolo Task": "Saldatura Guscio Principale",
+    "Descrizione Task": "Esecuzione delle saldature principali sul guscio del Pressure Vessel secondo specifiche di progetto",
+    "Owner": [
+      "recVKbPhAFaEwr42O"
+    ],
+    "Progetto": [
+      "recQfUWcES81PFvJ8"
+    ],
+    "Deadline": "2024-04-01",
+    "Stato": "Completato",
+    "Criticità": "Alta",
+    "Start Date": "2024-03-12",
+    "Time Log": [
+      "recdqaYxS0xqAvXlq",
+      "recdzqj0aINYHMF0x",
+      "reczmAVvbWCcxus5l"
+    ],
+    "Tempo Effettivo": 35,
+    "Tempo Stimato": 38,
+    "Produttività Stimata": "🟢 Produttivo",
+    "ID": 184,
+    "Id Task": "184 | Saldatura Guscio Principale | PV-2024-01"
+  },
+  {
+    "Titolo Task": "Controlli NDT sulle Saldature",
+    "Descrizione Task": "Esecuzione di controlli non distruttivi (NDT) sulle saldature principali per verifica integrità",
+    "Owner": [
+      "rectNHdN9nE0IKsIT"
+    ],
+    "Progetto": [
+      "recQfUWcES81PFvJ8"
+    ],
+    "Deadline": "2024-04-10",
+    "Stato": "Completato",
+    "Criticità": "Alta",
+    "Start Date": "2024-04-02",
+    "Time Log": [
+      "recd6RwT4UdT9T5CN",
+      "rec9HwC1j3V2o8mjo"
+    ],
+    "Tempo Effettivo": 18,
+    "Tempo Stimato": 14,
+    "Produttività Stimata": "🔴 Sotto stima",
+    "ID": 185,
+    "Id Task": "185 | Controlli NDT sulle Saldature | PV-2024-01"
+  },
+  {
+    "Titolo Task": "Taglio Lamiere e Assemblaggio Iniziale",
+    "Descrizione Task": "Taglio delle lamiere secondo disegno tecnico e assemblaggio dei primi componenti.",
+    "Owner": [
+      "recpIZOkF0B14ebtq"
+    ],
+    "Progetto": [
+      "recQfUWcES81PFvJ8"
+    ],
+    "Deadline": "2024-03-20",
+    "Stato": "Completato",
+    "Criticità": "Media",
+    "Start Date": "2024-03-10",
+    "Time Log": [
+      "rec6HRV6eGsLPplwV",
+      "reczkAMG5gcaWsG1M"
+    ],
+    "Tempo Effettivo": 22,
+    "Tempo Stimato": 20,
+    "Produttività Stimata": "🟡 Quasi nei tempi",
+    "ID": 186,
+    "Id Task": "186 | Taglio Lamiere e Assemblaggio Iniziale | PV-2024-01"
+  },
+  {
+    "Titolo Task": "Trattamento Termico Post-Saldatura",
+    "Descrizione Task": "Esecuzione del trattamento termico per rilascio delle tensioni residue dopo saldatura",
+    "Owner": [
+      "recdLjIvh7m55Z4b4"
+    ],
+    "Progetto": [
+      "recQfUWcES81PFvJ8"
+    ],
+    "Deadline": "2024-05-25",
+    "Stato": "Completato",
+    "Criticità": "Alta",
+    "Start Date": "2024-05-16",
+    "Time Log": [
+      "recF16F8Gk5HTE6eb",
+      "rec57HT00idMKvIxQ"
+    ],
+    "Tempo Effettivo": 14,
+    "Tempo Stimato": 10,
+    "Produttività Stimata": "🔴 Sotto stima",
+    "ID": 187,
+    "Id Task": "187 | Trattamento Termico Post-Saldatura | PV-2024-01"
+  },
+  {
+    "Titolo Task": "Verniciatura Esterna Pressure Vessel",
+    "Descrizione Task": "Applicazione del rivestimento protettivo esterno secondo specifiche cliente.",
+    "Owner": [
+      "rechjd5Yk4ZVGe6NI"
+    ],
+    "Progetto": [
+      "recQfUWcES81PFvJ8"
+    ],
+    "Deadline": "2024-06-20",
+    "Stato": "Completato",
+    "Criticità": "Media",
+    "Start Date": "2024-06-16",
+    "Time Log": [
+      "rectQEO7C7LZcveAH",
+      "recjmNqMS1yunnNL2"
+    ],
+    "Tempo Effettivo": 10,
+    "Tempo Stimato": 8,
+    "Produttività Stimata": "🟡 Quasi nei tempi",
+    "ID": 188,
+    "Id Task": "188 | Verniciatura Esterna Pressure Vessel | PV-2024-01"
+  },
+  {
+    "Titolo Task": "Preparazione Documentazione di Spedizione",
+    "Descrizione Task": "Preparazione e verifica della documentazione necessaria per la spedizione del Pressure Vessel.",
+    "Owner": [
+      "recoGknqxGzv8Gu2y"
+    ],
+    "Progetto": [
+      "recQfUWcES81PFvJ8"
+    ],
+    "Deadline": "2024-08-02",
+    "Stato": "Completato",
+    "Criticità": "Bassa",
+    "Start Date": "2024-07-29",
+    "Time Log": [
+      "reckiw0QXeC0H08hL",
+      "recw8yBrPipajF0zo"
+    ],
+    "Tempo Effettivo": 7,
+    "Tempo Stimato": 6,
+    "Produttività Stimata": "🟡 Quasi nei tempi",
+    "ID": 189,
+    "Id Task": "189 | Preparazione Documentazione di Spedizione | PV-2024-01"
+  },
+  {
+    "Titolo Task": "Ispezione Qualità Intermedia",
+    "Descrizione Task": "Verifica intermedia della qualità delle lavorazioni e delle saldature secondo standard PED",
+    "Owner": [
+      "rectNHdN9nE0IKsIT"
+    ],
+    "Progetto": [
+      "recQfUWcES81PFvJ8"
+    ],
+    "Deadline": "2024-05-10",
+    "Stato": "Completato",
+    "Criticità": "Media",
+    "Start Date": "2024-05-05",
+    "Time Log": [
+      "recatkdIKwKY80m8r",
+      "recruPdb5EGnVUaCT"
+    ],
+    "Tempo Effettivo": 10,
+    "Tempo Stimato": 8,
+    "Produttività Stimata": "🟡 Quasi nei tempi",
+    "ID": 190,
+    "Id Task": "190 | Ispezione Qualità Intermedia | PV-2024-01"
+  },
+  {
+    "Titolo Task": "Assemblaggio Componenti Interni",
+    "Descrizione Task": "Montaggio e fissaggio dei componenti interni del Pressure Vessel secondo disegno tecnico.",
+    "Owner": [
+      "recpIZOkF0B14ebtq"
+    ],
+    "Progetto": [
+      "recQfUWcES81PFvJ8"
+    ],
+    "Deadline": "2024-04-25",
+    "Stato": "Completato",
+    "Criticità": "Alta",
+    "Start Date": "2024-04-15",
+    "Time Log": [
+      "rectBxsnZ2PMaE3v9",
+      "recWQ3iHGXmU2UPWM"
+    ],
+    "Tempo Effettivo": 16,
+    "Tempo Stimato": 12,
+    "Produttività Stimata": "🔴 Sotto stima",
+    "ID": 191,
+    "Id Task": "191 | Assemblaggio Componenti Interni | PV-2024-01"
+  },
+  {
+    "Titolo Task": "Saldatura Raccordi e Attacchi",
+    "Descrizione Task": "Esecuzione delle saldature per il montaggio di raccordi, bocchelli e attacchi secondari sul Pressure Vessel",
+    "Owner": [
+      "recVKbPhAFaEwr42O"
+    ],
+    "Progetto": [
+      "recQfUWcES81PFvJ8"
+    ],
+    "Deadline": "2024-04-20",
+    "Stato": "Completato",
+    "Criticità": "Alta",
+    "Start Date": "2024-04-05",
+    "Time Log": [
+      "recBdVpGg5cALsXGI",
+      "recIq5fp2Tpqhc8WO",
+      "rec67ZzR3fEBHeTdj"
+    ],
+    "Tempo Effettivo": 30,
+    "Tempo Stimato": 24,
+    "Produttività Stimata": "🟡 Quasi nei tempi",
+    "ID": 192,
+    "Id Task": "192 | Saldatura Raccordi e Attacchi | PV-2024-01"
+  },
+  {
+    "Titolo Task": "Taglio Lamiere e Assemblaggio Iniziale",
+    "Descrizione Task": "Taglio delle lamiere secondo disegno tecnico e assemblaggio dei primi componenti.",
+    "Owner": [
+      "recpIZOkF0B14ebtq"
+    ],
+    "Progetto": [
+      "recb97Ftmgx6WsHpt"
+    ],
+    "Deadline": "2025-05-25",
+    "Stato": "Completato",
+    "Criticità": "Media",
+    "Start Date": "2025-05-15",
+    "Time Log": [
+      "recL7Bs6GJ30p6BJq",
+      "recvrk6HO7jU9WnPj",
+      "recHBs0Bi6DPKx9wR"
+    ],
+    "Tempo Effettivo": 25,
+    "Tempo Stimato": 24,
+    "Produttività Stimata": "🟡 Quasi nei tempi",
+    "ID": 193,
+    "Id Task": "193 | Taglio Lamiere e Assemblaggio Iniziale | PV-2025-01"
+  },
+  {
+    "Titolo Task": "Saldatura Guscio Principale",
+    "Descrizione Task": "Esecuzione delle saldature principali sul guscio del Pressure Vessel secondo specifiche di progetto",
+    "Owner": [
+      "recVKbPhAFaEwr42O"
+    ],
+    "Progetto": [
+      "recb97Ftmgx6WsHpt"
+    ],
+    "Deadline": "2025-06-05",
+    "Stato": "Completato",
+    "Criticità": "Alta",
+    "Start Date": "2025-05-16",
+    "Time Log": [
+      "rec1r3JhT9wN5K62R",
+      "rec96tOjkobYVbRN3",
+      "reckf50YgX4RV0kP4",
+      "recRvWgifuFVy1WQK"
+    ],
+    "Tempo Effettivo": 37,
+    "Tempo Stimato": 40,
+    "Produttività Stimata": "🟢 Produttivo",
+    "ID": 194,
+    "Id Task": "194 | Saldatura Guscio Principale | PV-2025-01"
+  },
+  {
+    "Titolo Task": "Assemblaggio Componenti Interni",
+    "Descrizione Task": "Montaggio e fissaggio dei componenti interni del Pressure Vessel secondo disegno tecnico.",
+    "Owner": [
+      "recpIZOkF0B14ebtq"
+    ],
+    "Progetto": [
+      "recb97Ftmgx6WsHpt"
+    ],
+    "Deadline": "2025-07-25",
+    "Stato": "In corso",
+    "Criticità": "Alta",
+    "Start Date": "2025-07-15",
+    "Time Log": [
+      "recEHugaMSUKbStbo",
+      "recR15u5HR5JZraUR"
+    ],
+    "Tempo Effettivo": 9,
+    "Tempo Stimato": 16,
+    "Produttività Stimata": "🟢 Produttivo",
+    "ID": 198,
+    "Id Task": "198 | Assemblaggio Componenti Interni | PV-2025-01"
+  },
+  {
+    "Titolo Task": "Controlli NDT sulle Saldature",
+    "Descrizione Task": "Esecuzione di controlli non distruttivi (NDT) sulle saldature principali per verifica integrità",
+    "Owner": [
+      "rectNHdN9nE0IKsIT"
+    ],
+    "Progetto": [
+      "recb97Ftmgx6WsHpt"
+    ],
+    "Deadline": "2025-06-15",
+    "Stato": "Completato",
+    "Criticità": "Alta",
+    "Start Date": "2025-06-06",
+    "Time Log": [
+      "recTGNOpdlE2LxnvO",
+      "recTNlj3Wo8PPGQc9",
+      "recFto22Lv40eVz6Z"
+    ],
+    "Tempo Effettivo": 15,
+    "Tempo Stimato": 16,
+    "Produttività Stimata": "🟢 Produttivo",
+    "ID": 195,
+    "Id Task": "195 | Controlli NDT sulle Saldature | PV-2025-01"
+  },
+  {
+    "Titolo Task": "Saldatura Raccordi e Attacchi",
+    "Descrizione Task": "Esecuzione delle saldature per il montaggio di raccordi, bocchelli e attacchi secondari sul Pressure Vessel",
+    "Owner": [
+      "recVKbPhAFaEwr42O"
+    ],
+    "Progetto": [
+      "recb97Ftmgx6WsHpt"
+    ],
+    "Deadline": "2025-07-10",
+    "Stato": "In corso",
+    "Criticità": "Alta",
+    "Start Date": "2025-06-20",
+    "Time Log": [
+      "recuA9OmZPxRrHntk"
+    ],
+    "Tempo Effettivo": 8,
+    "Tempo Stimato": 30,
+    "Produttività Stimata": "🟢 Produttivo",
+    "ID": 196,
+    "Id Task": "196 | Saldatura Raccordi e Attacchi | PV-2025-01"
+  },
+  {
+    "Titolo Task": "Trattamento Termico Post-Saldatura",
+    "Descrizione Task": "Esecuzione del trattamento termico per rilascio delle tensioni residue dopo saldatura",
+    "Owner": [
+      "recdLjIvh7m55Z4b4"
+    ],
+    "Progetto": [
+      "recb97Ftmgx6WsHpt"
+    ],
+    "Deadline": "2025-08-05",
+    "Stato": "Non Iniziata",
+    "Criticità": "Alta",
+    "Start Date": "2025-07-26",
+    "Time Log": [
+      "reczTuctjzXwpZp8T",
+      "recbKD2XqFkwRmnUO"
+    ],
+    "Tempo Effettivo": 12,
+    "Tempo Stimato": 12,
+    "Produttività Stimata": "🟢 Produttivo",
+    "ID": 199,
+    "Id Task": "199 | Trattamento Termico Post-Saldatura | PV-2025-01"
+  },
+  {
+    "Titolo Task": "Ispezione Qualità Intermedia",
+    "Descrizione Task": "Verifica intermedia della qualità delle lavorazioni e delle saldature secondo standard PED",
+    "Owner": [
+      "rectNHdN9nE0IKsIT"
+    ],
+    "Progetto": [
+      "recb97Ftmgx6WsHpt"
+    ],
+    "Deadline": "2025-07-20",
+    "Stato": "In corso",
+    "Criticità": "Media",
+    "Start Date": "2025-07-10",
+    "Time Log": [
+      "recAYPCJId580oH8t",
+      "rec6jmLO4hSSEVlUd"
+    ],
+    "Tempo Effettivo": 6,
+    "Tempo Stimato": 10,
+    "Produttività Stimata": "🟢 Produttivo",
+    "ID": 197,
+    "Id Task": "197 | Ispezione Qualità Intermedia | PV-2025-01"
+  },
+  {
+    "Titolo Task": "Verniciatura Esterna Pressure Vessel",
+    "Descrizione Task": "Applicazione del rivestimento protettivo esterno secondo specifiche cliente.",
+    "Owner": [
+      "rechjd5Yk4ZVGe6NI"
+    ],
+    "Progetto": [
+      "recb97Ftmgx6WsHpt"
+    ],
+    "Deadline": "2025-09-10",
+    "Stato": "Non Iniziata",
+    "Criticità": "Media",
+    "Start Date": "2025-09-06",
+    "Time Log": [
+      "recgyjCIcq8hN3diA",
+      "rec2ORCOuoFZasgUC"
+    ],
+    "Tempo Effettivo": 9,
+    "Tempo Stimato": 8,
+    "Produttività Stimata": "🟡 Quasi nei tempi",
+    "ID": 200,
+    "Id Task": "200 | Verniciatura Esterna Pressure Vessel | PV-2025-01"
+  },
+  {
+    "Titolo Task": "Preparazione Documentazione di Spedizione",
+    "Descrizione Task": "Preparazione e verifica della documentazione necessaria per la spedizione del Pressure Vessel.",
+    "Owner": [
+      "recoGknqxGzv8Gu2y"
+    ],
+    "Progetto": [
+      "recb97Ftmgx6WsHpt"
+    ],
+    "Deadline": "2025-10-25",
+    "Stato": "Non Iniziata",
+    "Criticità": "Bassa",
+    "Start Date": "2025-10-20",
+    "Time Log": [
+      "recWQ6BqxpSTNFxYp",
+      "recvY5fcBfquJSMwh"
+    ],
+    "Tempo Effettivo": 7,
+    "Tempo Stimato": 6,
+    "Produttività Stimata": "🟡 Quasi nei tempi",
+    "ID": 201,
+    "Id Task": "201 | Preparazione Documentazione di Spedizione | PV-2025-01"
+  },
+  {
+    "Titolo Task": "Progettazione Dettagliata Separatori",
+    "Descrizione Task": "Progettazione tecnica dettagliata delle unità di separazione gas-liquido",
+    "Owner": [
+      "receFC1ex8OLG8fJd"
+    ],
+    "Progetto": [
+      "recE63KeYDyZSJq89"
+    ],
+    "Deadline": "2025-04-18",
+    "Stato": "Completato",
+    "Criticità": "Alta",
+    "Start Date": "2025-04-01",
+    "Time Log": [
+      "reclvkfVn9nUdz6L7",
+      "rec7rrjOh7y4lE1Jy",
+      "recNUUuxVArqiEgXD"
+    ],
+    "Tempo Effettivo": 38,
+    "Tempo Stimato": 420,
+    "Produttività Stimata": "🟢 Produttivo",
+    "ID": 228,
+    "Id Task": "228 | Progettazione Dettagliata Separatori | PV-2025-02"
+  },
+  {
+    "Titolo Task": "Ordine Materiali Speciali",
+    "Descrizione Task": "Ordine di materiali speciali per componenti critici del separatore",
+    "Owner": [
+      "recuUN6quFcAzCWle"
+    ],
+    "Progetto": [
+      "recE63KeYDyZSJq89"
+    ],
+    "Deadline": "2025-05-10",
+    "Stato": "Completato",
+    "Criticità": "Alta",
+    "Start Date": "2025-04-20",
+    "Time Log": [
+      "recmADiB71oRowp4O",
+      "recqjKZhwuAOO3EG9"
+    ],
+    "Tempo Effettivo": 32,
+    "Tempo Stimato": 280,
+    "Produttività Stimata": "🟢 Produttivo",
+    "ID": 229,
+    "Id Task": "229 | Ordine Materiali Speciali | PV-2025-02"
+  },
+  {
+    "Titolo Task": "Taglio Lamiere Separatori",
+    "Descrizione Task": "Taglio delle lamiere per la costruzione dei vessel separatori",
+    "Owner": [
+      "recVKbPhAFaEwr42O"
+    ],
+    "Progetto": [
+      "recE63KeYDyZSJq89"
+    ],
+    "Deadline": "2025-05-28",
+    "Stato": "Completato",
+    "Criticità": "Media",
+    "Start Date": "2025-05-15",
+    "Time Log": [
+      "rec9UyOdhrTYMl5Vp",
+      "reccH9kXDzuZQznLB",
+      "recKCI9oZDkvUdez9"
+    ],
+    "Tempo Effettivo": 33,
+    "Tempo Stimato": 350,
+    "Produttività Stimata": "🟢 Produttivo",
+    "ID": 230,
+    "Id Task": "230 | Taglio Lamiere Separatori | PV-2025-02"
+  },
+  {
+    "Titolo Task": "Assemblaggio Internals",
+    "Descrizione Task": "Assemblaggio dei componenti interni del separatore (demister, distributori)",
+    "Owner": [
+      "rectNHdN9nE0IKsIT"
+    ],
+    "Progetto": [
+      "recE63KeYDyZSJq89"
+    ],
+    "Deadline": "2025-06-15",
+    "Stato": "Completato",
+    "Criticità": "Alta",
+    "Start Date": "2025-06-01",
+    "Time Log": [
+      "reclNFMJsOYT9UsUx",
+      "recpywLvFrv4UFr7o",
+      "recFeJ7WQMcw2Xmrh"
+    ],
+    "Tempo Effettivo": 52,
+    "Tempo Stimato": 480,
+    "Produttività Stimata": "🟢 Produttivo",
+    "ID": 231,
+    "Id Task": "231 | Assemblaggio Internals | PV-2025-02"
+  },
+  {
+    "Titolo Task": "Saldatura Gusci Principali",
+    "Descrizione Task": "Saldatura dei gusci principali delle unità di separazione",
+    "Owner": [
+      "recZ9BLBGx7xretbZ"
+    ],
+    "Progetto": [
+      "recE63KeYDyZSJq89"
+    ],
+    "Deadline": "2025-07-08",
+    "Stato": "In corso",
+    "Criticità": "Alta",
+    "Start Date": "2025-06-18",
+    "Time Log": [
+      "recLYFbIEjbHvJgn1",
+      "recsLzntGz3lhCcxk",
+      "reca9dA5tcMnlXS7x"
+    ],
+    "Tempo Effettivo": 28,
+    "Tempo Stimato": 560,
+    "Produttività Stimata": "🟢 Produttivo",
+    "ID": 232,
+    "Id Task": "232 | Saldatura Gusci Principali | PV-2025-02"
+  },
+  {
+    "Titolo Task": "Test Pressione Preliminari",
+    "Descrizione Task": "Esecuzione test di pressione preliminari sui separatori",
+    "Owner": [
+      "rec13Qjo8aRAlo3eo"
+    ],
+    "Progetto": [
+      "recE63KeYDyZSJq89"
+    ],
+    "Deadline": "2025-07-25",
+    "Stato": "Pianificato",
+    "Criticità": "Alta",
+    "Start Date": "2025-07-10",
+    "Tempo Effettivo": 0,
+    "Tempo Stimato": 240,
+    "Produttività Stimata": "⚪️ Non disponibile",
+    "ID": 233,
+    "Id Task": "233 | Test Pressione Preliminari | PV-2025-02"
+  },
+  {
+    "Titolo Task": "Installazione Strumentazione",
+    "Descrizione Task": "Installazione di sensori e strumentazione di controllo",
+    "Owner": [
+      "recaab3TdqCsbvLqD"
+    ],
+    "Progetto": [
+      "recE63KeYDyZSJq89"
+    ],
+    "Deadline": "2025-08-15",
+    "Stato": "Pianificato",
+    "Criticità": "Media",
+    "Start Date": "2025-07-28",
+    "Tempo Effettivo": 0,
+    "Tempo Stimato": 320,
+    "Produttività Stimata": "⚪️ Non disponibile",
+    "ID": 234,
+    "Id Task": "234 | Installazione Strumentazione | PV-2025-02"
+  },
+  {
+    "Titolo Task": "Verniciatura e Finitura",
+    "Descrizione Task": "Verniciatura protettiva e finiture finali delle unità",
+    "Owner": [
+      "rec5hlBQiR0r5Zj9U"
+    ],
+    "Progetto": [
+      "recE63KeYDyZSJq89"
+    ],
+    "Deadline": "2025-09-10",
+    "Stato": "Pianificato",
+    "Criticità": "Bassa",
+    "Start Date": "2025-08-20",
+    "Tempo Effettivo": 0,
+    "Tempo Stimato": 280,
+    "Produttività Stimata": "⚪️ Non disponibile",
+    "ID": 235,
+    "Id Task": "235 | Verniciatura e Finitura | PV-2025-02"
+  },
+  {
+    "Titolo Task": "Survey Topografico Tracciato",
+    "Descrizione Task": "Rilievo topografico dettagliato del tracciato della pipeline",
+    "Owner": [
+      "recptRaZSw5EatE6Q"
+    ],
+    "Progetto": [
+      "recQ9e73aqoD5c71t"
+    ],
+    "Deadline": "2025-02-25",
+    "Stato": "Completato",
+    "Criticità": "Alta",
+    "Start Date": "2025-02-10",
+    "Time Log": [
+      "recVwlwL4Tp9e4k7l",
+      "recADMMK4axYdAQ2x",
+      "recN6QL6glPggYBOg"
+    ],
+    "Tempo Effettivo": 35,
+    "Tempo Stimato": 380,
+    "Produttività Stimata": "🟢 Produttivo",
+    "ID": 236,
+    "Id Task": "236 | Survey Topografico Tracciato | PV-2025-03"
+  },
+  {
+    "Titolo Task": "Ordine Tubazioni API 5L",
+    "Descrizione Task": "Ordine delle tubazioni certificate API 5L per il trasporto gas",
+    "Owner": [
+      "recQ1XcP7F9MkdLVh"
+    ],
+    "Progetto": [
+      "recQ9e73aqoD5c71t"
+    ],
+    "Deadline": "2025-03-20",
+    "Stato": "Completato",
+    "Criticità": "Alta",
+    "Start Date": "2025-02-28",
+    "Time Log": [
+      "rec4nKm33U3rgmg7h",
+      "reclS96K6zf8ytHGZ"
+    ],
+    "Tempo Effettivo": 28,
+    "Tempo Stimato": 240,
+    "Produttività Stimata": "🟢 Produttivo",
+    "ID": 237,
+    "Id Task": "237 | Ordine Tubazioni API 5L | PV-2025-03"
+  },
+  {
+    "Titolo Task": "Preparazione Cantiere",
+    "Descrizione Task": "Allestimento cantiere e preparazione aree di lavoro",
+    "Owner": [
+      "recpIZOkF0B14ebtq"
+    ],
+    "Progetto": [
+      "recQ9e73aqoD5c71t"
+    ],
+    "Deadline": "2025-04-10",
+    "Stato": "Completato",
+    "Criticità": "Media",
+    "Start Date": "2025-03-25",
+    "Time Log": [
+      "recB4Kp5kiBQMKYVk",
+      "recuHC7UpINg5q6Fx",
+      "recA8ci2LRrtwTXO7"
+    ],
+    "Tempo Effettivo": 42,
+    "Tempo Stimato": 450,
+    "Produttività Stimata": "🟢 Produttivo",
+    "ID": 238,
+    "Id Task": "238 | Preparazione Cantiere | PV-2025-03"
+  },
+  {
+    "Titolo Task": "Scavi Meccanizzati Tratto 1",
+    "Descrizione Task": "Esecuzione scavi meccanizzati per posa tubazioni - primo tratto",
+    "Owner": [
+      "recVKbPhAFaEwr42O"
+    ],
+    "Progetto": [
+      "recQ9e73aqoD5c71t"
+    ],
+    "Deadline": "2025-05-15",
+    "Stato": "Completato",
+    "Criticità": "Alta",
+    "Start Date": "2025-04-15",
+    "Time Log": [
+      "recWIe8QhToSpCBmL",
+      "rec1EUjfoJzOmXEH5",
+      "recAsChpWV6KGT8qd",
+      "recgBp9SGRutASFqY"
+    ],
+    "Tempo Effettivo": 78,
+    "Tempo Stimato": 720,
+    "Produttività Stimata": "🟢 Produttivo",
+    "ID": 239,
+    "Id Task": "239 | Scavi Meccanizzati Tratto 1 | PV-2025-03"
+  },
+  {
+    "Titolo Task": "Posa e Allineamento Tubi",
+    "Descrizione Task": "Posa e allineamento delle tubazioni nel primo tratto",
+    "Owner": [
+      "receFC1ex8OLG8fJd"
+    ],
+    "Progetto": [
+      "recQ9e73aqoD5c71t"
+    ],
+    "Deadline": "2025-06-10",
+    "Stato": "In corso",
+    "Criticità": "Alta",
+    "Start Date": "2025-05-20",
+    "Time Log": [
+      "recnAT9WblDe6X3qt",
+      "recI09cvEAy0TpEV4",
+      "recu8bscZEKvIS97E"
+    ],
+    "Tempo Effettivo": 35,
+    "Tempo Stimato": 580,
+    "Produttività Stimata": "🟢 Produttivo",
+    "ID": 240,
+    "Id Task": "240 | Posa e Allineamento Tubi | PV-2025-03"
+  },
+  {
+    "Titolo Task": "Saldatura Giunti Pipeline",
+    "Descrizione Task": "Saldatura dei giunti della pipeline con procedure qualificate",
+    "Owner": [
+      "recZ9BLBGx7xretbZ"
+    ],
+    "Progetto": [
+      "recQ9e73aqoD5c71t"
+    ],
+    "Deadline": "2025-07-25",
+    "Stato": "Pianificato",
+    "Criticità": "Alta",
+    "Start Date": "2025-06-15",
+    "Tempo Effettivo": 0,
+    "Tempo Stimato": 850,
+    "Produttività Stimata": "⚪️ Non disponibile",
+    "ID": 241,
+    "Id Task": "241 | Saldatura Giunti Pipeline | PV-2025-03"
+  },
+  {
+    "Titolo Task": "Controlli Radiografici",
+    "Descrizione Task": "Controlli radiografici su tutte le saldature critiche",
+    "Owner": [
+      "rectNHdN9nE0IKsIT"
+    ],
+    "Progetto": [
+      "recQ9e73aqoD5c71t"
+    ],
+    "Deadline": "2025-08-20",
+    "Stato": "Pianificato",
+    "Criticità": "Alta",
+    "Start Date": "2025-07-30",
+    "Tempo Effettivo": 0,
+    "Tempo Stimato": 420,
+    "Produttività Stimata": "⚪️ Non disponibile",
+    "ID": 242,
+    "Id Task": "242 | Controlli Radiografici | PV-2025-03"
+  },
+  {
+    "Titolo Task": "Test Idraulico Finale",
+    "Descrizione Task": "Test idraulico finale dell'intera pipeline",
+    "Owner": [
+      "rec13Qjo8aRAlo3eo"
+    ],
+    "Progetto": [
+      "recQ9e73aqoD5c71t"
+    ],
+    "Deadline": "2025-09-15",
+    "Stato": "Pianificato",
+    "Criticità": "Alta",
+    "Start Date": "2025-08-25",
+    "Tempo Effettivo": 0,
+    "Tempo Stimato": 360,
+    "Produttività Stimata": "⚪️ Non disponibile",
+    "ID": 243,
+    "Id Task": "243 | Test Idraulico Finale | PV-2025-03"
+  },
+  {
+    "Titolo Task": "Progettazione Strutturale Jacket",
+    "Descrizione Task": "Progettazione strutturale del jacket della piattaforma offshore",
+    "Owner": [
+      "recaab3TdqCsbvLqD"
+    ],
+    "Progetto": [
+      "recI5CcCweinr4QcG"
+    ],
+    "Deadline": "2025-09-18",
+    "Stato": "In corso",
+    "Criticità": "Alta",
+    "Start Date": "2025-09-01",
+    "Time Log": [
+      "recGywO9YPfvOesPe",
+      "rectOhkp6S4VXEhiR",
+      "recX8A5ZG3ttQdB3O"
+    ],
+    "Tempo Effettivo": 32,
+    "Tempo Stimato": 650,
+    "Produttività Stimata": "🟢 Produttivo",
+    "ID": 244,
+    "Id Task": "244 | Progettazione Strutturale Jacket | PV-2025-04"
+  },
+  {
+    "Titolo Task": "Calcoli Dinamici Offshore",
+    "Descrizione Task": "Calcoli dinamici per resistenza a onde e correnti marine",
+    "Owner": [
+      "rec5hlBQiR0r5Zj9U"
+    ],
+    "Progetto": [
+      "recI5CcCweinr4QcG"
+    ],
+    "Deadline": "2025-10-08",
+    "Stato": "Pianificato",
+    "Criticità": "Alta",
+    "Start Date": "2025-09-20",
+    "Tempo Effettivo": 0,
+    "Tempo Stimato": 480,
+    "Produttività Stimata": "⚪️ Non disponibile",
+    "ID": 245,
+    "Id Task": "245 | Calcoli Dinamici Offshore | PV-2025-04"
+  },
+  {
+    "Titolo Task": "Ordine Acciai Strutturali",
+    "Descrizione Task": "Ordine di acciai strutturali certificati per ambiente marino",
+    "Owner": [
+      "recptRaZSw5EatE6Q"
+    ],
+    "Progetto": [
+      "recI5CcCweinr4QcG"
+    ],
+    "Deadline": "2025-10-30",
+    "Stato": "Pianificato",
+    "Criticità": "Alta",
+    "Start Date": "2025-10-10",
+    "Tempo Effettivo": 0,
+    "Tempo Stimato": 320,
+    "Produttività Stimata": "⚪️ Non disponibile",
+    "ID": 246,
+    "Id Task": "246 | Ordine Acciai Strutturali | PV-2025-04"
+  },
+  {
+    "Titolo Task": "Fabbricazione Moduli Topside",
+    "Descrizione Task": "Fabbricazione dei moduli della parte superiore della piattaforma",
+    "Owner": [
+      "recuUN6quFcAzCWle"
+    ],
+    "Progetto": [
+      "recI5CcCweinr4QcG"
+    ],
+    "Deadline": "2025-12-20",
+    "Stato": "Pianificato",
+    "Criticità": "Alta",
+    "Start Date": "2025-11-05",
+    "Tempo Effettivo": 0,
+    "Tempo Stimato": 1200,
+    "Produttività Stimata": "⚪️ Non disponibile",
+    "ID": 247,
+    "Id Task": "247 | Fabbricazione Moduli Topside | PV-2025-04"
+  },
+  {
+    "Titolo Task": "Assemblaggio Jacket",
+    "Descrizione Task": "Assemblaggio della struttura jacket della piattaforma",
+    "Owner": [
+      "receFC1ex8OLG8fJd"
+    ],
+    "Progetto": [
+      "recI5CcCweinr4QcG"
+    ],
+    "Deadline": "2026-02-25",
+    "Stato": "Pianificato",
+    "Criticità": "Alta",
+    "Start Date": "2026-01-05",
+    "Tempo Effettivo": 0,
+    "Tempo Stimato": 950,
+    "Produttività Stimata": "⚪️ Non disponibile",
+    "ID": 248,
+    "Id Task": "248 | Assemblaggio Jacket | PV-2025-04"
+  },
+  {
+    "Titolo Task": "Test Load-Out",
+    "Descrizione Task": "Test di carico e trasferimento su chiatta per trasporto offshore",
+    "Owner": [
+      "recQ1XcP7F9MkdLVh"
+    ],
+    "Progetto": [
+      "recI5CcCweinr4QcG"
+    ],
+    "Deadline": "2026-03-20",
+    "Stato": "Pianificato",
+    "Criticità": "Alta",
+    "Start Date": "2026-03-01",
+    "Tempo Effettivo": 0,
+    "Tempo Stimato": 420,
+    "Produttività Stimata": "⚪️ Non disponibile",
+    "ID": 249,
+    "Id Task": "249 | Test Load-Out | PV-2025-04"
+  },
+  {
+    "Titolo Task": "Installazione Offshore",
+    "Descrizione Task": "Installazione della piattaforma in mare con mezzi specializzati",
+    "Owner": [
+      "recpIZOkF0B14ebtq"
+    ],
+    "Progetto": [
+      "recI5CcCweinr4QcG"
+    ],
+    "Deadline": "2026-04-25",
+    "Stato": "Pianificato",
+    "Criticità": "Alta",
+    "Start Date": "2026-04-05",
+    "Tempo Effettivo": 0,
+    "Tempo Stimato": 780,
+    "Produttività Stimata": "⚪️ Non disponibile",
+    "ID": 250,
+    "Id Task": "250 | Installazione Offshore | PV-2025-04"
+  }
+]

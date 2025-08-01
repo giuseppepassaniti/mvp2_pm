@@ -1,0 +1,167 @@
+[
+  {
+    "Decisione": "Valutazione impatto upgrade strumentazione",
+    "Responsabile": [
+      "receFC1ex8OLG8fJd"
+    ],
+    "Data Decisione": "2025-07-05",
+    "Motivazione": "Analisi costi/benefici per sostituzione sensori livello con radar.",
+    "Progetto": [
+      "recE63KeYDyZSJq89"
+    ]
+  },
+  {
+    "Decisione": "Autorizzazione ordine materiali senza certificazione completa",
+    "Responsabile": [
+      "recuUN6quFcAzCWle"
+    ],
+    "Data Decisione": "2025-04-29",
+    "Motivazione": "Necessità di anticipare l’ordine per rispettare la timeline nonostante ritardo certificazioni.",
+    "Progetto": [
+      "recE63KeYDyZSJq89"
+    ]
+  },
+  {
+    "Decisione": "Autorizzazione Acquisto",
+    "Responsabile": [
+      "recT4SoREDCktZWmb"
+    ],
+    "Data Decisione": "2025-06-19",
+    "Motivazione": "Autorizzazione all’acquisto urgente di raccordi alternativi per evitare fermo produzione",
+    "Progetto": [
+      "recb97Ftmgx6WsHpt"
+    ]
+  },
+  {
+    "Decisione": "Valutazione impatto modulo compressione gas",
+    "Responsabile": [
+      "recaab3TdqCsbvLqD"
+    ],
+    "Data Decisione": "2025-10-20",
+    "Motivazione": "Analisi impatto tempi e costi per integrazione modulo compressione su topside.",
+    "Progetto": [
+      "recI5CcCweinr4QcG"
+    ]
+  },
+  {
+    "Decisione": "Approvazione variante bypass condensa",
+    "Responsabile": [
+      "receFC1ex8OLG8fJd"
+    ],
+    "Data Decisione": "2025-05-20",
+    "Motivazione": "Accolta richiesta cliente per aggiunta linea bypass manuale.",
+    "Progetto": [
+      "recE63KeYDyZSJq89"
+    ]
+  },
+  {
+    "Decisione": "Approvazione variazione tracciato pipeline",
+    "Responsabile": [
+      "recptRaZSw5EatE6Q"
+    ],
+    "Data Decisione": "2025-04-15",
+    "Motivazione": "Spostamento tracciato per vincoli ambientali imprevisti.",
+    "Progetto": [
+      "recQ9e73aqoD5c71t"
+    ]
+  },
+  {
+    "Decisione": "Autorizzazione Manutenzione",
+    "Responsabile": [
+      "recT4SoREDCktZWmb"
+    ],
+    "Data Decisione": "2024-05-18",
+    "Motivazione": "Autorizzazione intervento urgente su forno trattamenti termici.",
+    "Progetto": [
+      "recQfUWcES81PFvJ8"
+    ]
+  },
+  {
+    "Decisione": "Autorizzazione acquisto tubazioni alternative",
+    "Responsabile": [
+      "recQ1XcP7F9MkdLVh"
+    ],
+    "Data Decisione": "2025-03-10",
+    "Motivazione": "Ritardo fornitore principale, necessario acquisto da fornitore alternativo.",
+    "Progetto": [
+      "recQ9e73aqoD5c71t"
+    ]
+  },
+  {
+    "Decisione": "Approvazione cambio materiale bulloni",
+    "Responsabile": [
+      "recaab3TdqCsbvLqD"
+    ],
+    "Data Decisione": "2025-09-25",
+    "Motivazione": "Richiesta ufficio tecnico per utilizzo bulloni ad alta resistenza.",
+    "Progetto": [
+      "recI5CcCweinr4QcG"
+    ]
+  },
+  {
+    "Decisione": "Valutazione impatti ciclo modificato",
+    "Responsabile": [
+      "recT4SoREDCktZWmb"
+    ],
+    "Data Decisione": "2025-08-11",
+    "Motivazione": "Valutazione impatto modifica ciclo verniciatura su tempi e costi.",
+    "Progetto": [
+      "recb97Ftmgx6WsHpt"
+    ]
+  },
+  {
+    "Decisione": "Approvazione variante cliente",
+    "Responsabile": [
+      "recT4SoREDCktZWmb"
+    ],
+    "Data Decisione": "2025-06-26",
+    "Motivazione": "Approvazione variante per attacco supplementare richiesta dal cliente.",
+    "Progetto": [
+      "recb97Ftmgx6WsHpt"
+    ]
+  },
+  {
+    "Decisione": "Approvazione Riparazioni",
+    "Responsabile": [
+      "recT4SoREDCktZWmb"
+    ],
+    "Data Decisione": "2024-04-05",
+    "Motivazione": "Approvazione riparazione saldature difettose e ripetizione controlli NDT.",
+    "Progetto": [
+      "recQfUWcES81PFvJ8"
+    ]
+  },
+  {
+    "Decisione": "Approvazione rivestimento anticorrosione 3LPE",
+    "Responsabile": [
+      "receFC1ex8OLG8fJd"
+    ],
+    "Data Decisione": "2025-06-10",
+    "Motivazione": "Richiesta cliente per maggiore protezione pipeline.",
+    "Progetto": [
+      "recQ9e73aqoD5c71t"
+    ]
+  },
+  {
+    "Decisione": "Autorizzazione revisione calcoli jacket",
+    "Responsabile": [
+      "rec5hlBQiR0r5Zj9U"
+    ],
+    "Data Decisione": "2025-09-12",
+    "Motivazione": "Aggiornamento normativa DNV-GL, necessaria revisione calcoli strutturali.",
+    "Progetto": [
+      "recI5CcCweinr4QcG"
+    ]
+  },
+  {
+    "Decisione": "Approvazione variante Primer",
+    "Responsabile": [
+      "recT4SoREDCktZWmb"
+    ],
+    "Data Decisione": "2024-06-16",
+    "Motivazione": "Necessario per procedere con le lavorazioni",
+    "Progetto": [
+      "recQfUWcES81PFvJ8"
+    ]
+  }
+]

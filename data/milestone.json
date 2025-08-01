@@ -1,0 +1,353 @@
+[
+  {
+    "Milestone": "Approvazione Progettazione Preliminare",
+    "Progetto": [
+      "recb97Ftmgx6WsHpt"
+    ],
+    "Deadline": "2025-04-10",
+    "Start Date": "2025-03-20",
+    "Stato": "Completata"
+  },
+  {
+    "Milestone": "Ordine Materiali e Componenti Critici",
+    "Progetto": [
+      "recb97Ftmgx6WsHpt"
+    ],
+    "Deadline": "2025-05-05",
+    "Start Date": "2025-04-15",
+    "Stato": "Completata"
+  },
+  {
+    "Milestone": "Fabbricazione1: Taglio - Calandra - Saldatura",
+    "Progetto": [
+      "recb97Ftmgx6WsHpt"
+    ],
+    "Deadline": "2025-06-06",
+    "Start Date": "2025-05-15",
+    "Stato": "Completata"
+  },
+  {
+    "Milestone": "Fabbricazione2: Saldature Principali - NDT",
+    "Progetto": [
+      "recb97Ftmgx6WsHpt"
+    ],
+    "Deadline": "2025-07-20",
+    "Start Date": "2025-06-15",
+    "Stato": "Completata"
+  },
+  {
+    "Milestone": "Collaudo: Trattamenti Termici - Test Idraulico",
+    "Progetto": [
+      "recb97Ftmgx6WsHpt"
+    ],
+    "Deadline": "2025-08-30",
+    "Start Date": "2025-07-25",
+    "Stato": "In corso"
+  },
+  {
+    "Milestone": "Completamento: Finitura - Verniciatura - Assemblaggio",
+    "Progetto": [
+      "recb97Ftmgx6WsHpt"
+    ],
+    "Deadline": "2025-09-30",
+    "Start Date": "2025-09-05",
+    "Stato": "Pianificata"
+  },
+  {
+    "Milestone": "Ispezione Finale",
+    "Progetto": [
+      "recb97Ftmgx6WsHpt"
+    ],
+    "Deadline": "2025-10-10",
+    "Start Date": "2025-10-05",
+    "Stato": "Pianificata"
+  },
+  {
+    "Milestone": "Spedizione e Consegna",
+    "Progetto": [
+      "recb97Ftmgx6WsHpt"
+    ],
+    "Deadline": "2025-10-30",
+    "Start Date": "2025-10-20",
+    "Stato": "Pianificata"
+  },
+  {
+    "Milestone": "Approvazione Progettazione Preliminare",
+    "Progetto": [
+      "recQfUWcES81PFvJ8"
+    ],
+    "Deadline": "2024-02-05",
+    "Start Date": "2024-01-15",
+    "Stato": "Completata"
+  },
+  {
+    "Milestone": "Ordine Materiali e Componenti Critici",
+    "Progetto": [
+      "recQfUWcES81PFvJ8"
+    ],
+    "Deadline": "2024-03-01",
+    "Start Date": "2024-02-10",
+    "Stato": "Completata"
+  },
+  {
+    "Milestone": "Inizio Fabbricazione (Taglio e Saldatura Iniziale)",
+    "Progetto": [
+      "recQfUWcES81PFvJ8"
+    ],
+    "Deadline": "2024-04-05",
+    "Start Date": "2024-03-10",
+    "Stato": "Completata"
+  },
+  {
+    "Milestone": "Completamento Saldature Principali e Controlli NDT",
+    "Progetto": [
+      "recQfUWcES81PFvJ8"
+    ],
+    "Deadline": "2024-05-10",
+    "Start Date": "2024-04-10",
+    "Stato": "Completata"
+  },
+  {
+    "Milestone": "Esecuzione Trattamenti Termici e Test Idrostatico",
+    "Progetto": [
+      "recQfUWcES81PFvJ8"
+    ],
+    "Deadline": "2024-06-10",
+    "Start Date": "2024-05-15",
+    "Stato": "Completata"
+  },
+  {
+    "Milestone": "Finitura, Verniciatura e Assemblaggio Final",
+    "Progetto": [
+      "recQfUWcES81PFvJ8"
+    ],
+    "Deadline": "2024-07-10",
+    "Start Date": "2024-06-15",
+    "Stato": "Completata"
+  },
+  {
+    "Milestone": "Ispezione Finale e Certificazione",
+    "Progetto": [
+      "recQfUWcES81PFvJ8"
+    ],
+    "Deadline": "2024-07-25",
+    "Start Date": "2024-07-15",
+    "Stato": "Completata"
+  },
+  {
+    "Milestone": "Spedizione e Consegna al Cliente",
+    "Progetto": [
+      "recQfUWcES81PFvJ8"
+    ],
+    "Deadline": "2024-08-05",
+    "Start Date": "2024-07-28",
+    "Stato": "Completata"
+  },
+  {
+    "Milestone": "Approvazione Progettazione Preliminare",
+    "Progetto": [
+      "recE63KeYDyZSJq89"
+    ],
+    "Deadline": "2025-04-20",
+    "Start Date": "2025-04-01",
+    "Stato": "Completata"
+  },
+  {
+    "Milestone": "Ordine Materiali e Componenti Critici",
+    "Progetto": [
+      "recE63KeYDyZSJq89"
+    ],
+    "Deadline": "2025-05-15",
+    "Start Date": "2025-04-25",
+    "Stato": "Completata"
+  },
+  {
+    "Milestone": "Fabbricazione1: Taglio - Calandra - Saldatura",
+    "Progetto": [
+      "recE63KeYDyZSJq89"
+    ],
+    "Deadline": "2025-06-10",
+    "Start Date": "2025-05-20",
+    "Stato": "Completata"
+  },
+  {
+    "Milestone": "Fabbricazione2: Assemblaggio Separatori - NDT",
+    "Progetto": [
+      "recE63KeYDyZSJq89"
+    ],
+    "Deadline": "2025-07-25",
+    "Start Date": "2025-06-15",
+    "Stato": "In corso"
+  },
+  {
+    "Milestone": "Collaudo: Test Funzionali - Calibrazione Strumenti",
+    "Progetto": [
+      "recE63KeYDyZSJq89"
+    ],
+    "Deadline": "2025-08-30",
+    "Start Date": "2025-07-30",
+    "Stato": "Pianificata"
+  },
+  {
+    "Milestone": "Completamento: Finitura - Verniciatura - Assemblaggio",
+    "Progetto": [
+      "recE63KeYDyZSJq89"
+    ],
+    "Deadline": "2025-09-30",
+    "Start Date": "2025-09-05",
+    "Stato": "Pianificata"
+  },
+  {
+    "Milestone": "Ispezione Finale",
+    "Progetto": [
+      "recE63KeYDyZSJq89"
+    ],
+    "Deadline": "2025-10-15",
+    "Start Date": "2025-10-05",
+    "Stato": "Pianificata"
+  },
+  {
+    "Milestone": "Spedizione e Consegna",
+    "Progetto": [
+      "recE63KeYDyZSJq89"
+    ],
+    "Deadline": "2025-12-20",
+    "Start Date": "2025-10-20",
+    "Stato": "Pianificata"
+  },
+  {
+    "Milestone": "Approvazione Progettazione Preliminare",
+    "Progetto": [
+      "recQ9e73aqoD5c71t"
+    ],
+    "Deadline": "2025-02-28",
+    "Start Date": "2025-02-10",
+    "Stato": "Completata"
+  },
+  {
+    "Milestone": "Ordine Materiali e Tubazioni",
+    "Progetto": [
+      "recQ9e73aqoD5c71t"
+    ],
+    "Deadline": "2025-03-25",
+    "Start Date": "2025-03-05",
+    "Stato": "Completata"
+  },
+  {
+    "Milestone": "Preparazione Sito e Scavi",
+    "Progetto": [
+      "recQ9e73aqoD5c71t"
+    ],
+    "Deadline": "2025-04-30",
+    "Start Date": "2025-04-01",
+    "Stato": "Completata"
+  },
+  {
+    "Milestone": "Posa Tubazioni - Tratto 1",
+    "Progetto": [
+      "recQ9e73aqoD5c71t"
+    ],
+    "Deadline": "2025-06-15",
+    "Start Date": "2025-05-05",
+    "Stato": "In corso"
+  },
+  {
+    "Milestone": "Posa Tubazioni - Tratto 2",
+    "Progetto": [
+      "recQ9e73aqoD5c71t"
+    ],
+    "Deadline": "2025-07-31",
+    "Start Date": "2025-06-20",
+    "Stato": "Pianificata"
+  },
+  {
+    "Milestone": "Saldature e Test di Pressione",
+    "Progetto": [
+      "recQ9e73aqoD5c71t"
+    ],
+    "Deadline": "2025-09-15",
+    "Start Date": "2025-08-05",
+    "Stato": "Pianificata"
+  },
+  {
+    "Milestone": "Installazione Stazioni di Controllo",
+    "Progetto": [
+      "recQ9e73aqoD5c71t"
+    ],
+    "Deadline": "2025-10-15",
+    "Start Date": "2025-09-20",
+    "Stato": "Pianificata"
+  },
+  {
+    "Milestone": "Commissioning e Avviamento",
+    "Progetto": [
+      "recQ9e73aqoD5c71t"
+    ],
+    "Deadline": "2025-11-30",
+    "Start Date": "2025-10-20",
+    "Stato": "Pianificata"
+  },
+  {
+    "Milestone": "Approvazione Progettazione Preliminare",
+    "Progetto": [
+      "recI5CcCweinr4QcG"
+    ],
+    "Deadline": "2025-09-20",
+    "Start Date": "2025-09-01",
+    "Stato": "In corso"
+  },
+  {
+    "Milestone": "Ordine Strutture Metalliche e Equipaggiamenti",
+    "Progetto": [
+      "recI5CcCweinr4QcG"
+    ],
+    "Deadline": "2025-10-15",
+    "Start Date": "2025-09-25",
+    "Stato": "Pianificata"
+  },
+  {
+    "Milestone": "Fabbricazione Jacket e Topside",
+    "Progetto": [
+      "recI5CcCweinr4QcG"
+    ],
+    "Deadline": "2025-12-31",
+    "Start Date": "2025-10-20",
+    "Stato": "Pianificata"
+  },
+  {
+    "Milestone": "Assemblaggio Moduli Offshore",
+    "Progetto": [
+      "recI5CcCweinr4QcG"
+    ],
+    "Deadline": "2026-02-28",
+    "Start Date": "2026-01-05",
+    "Stato": "Pianificata"
+  },
+  {
+    "Milestone": "Test e Collaudi a Terra",
+    "Progetto": [
+      "recI5CcCweinr4QcG"
+    ],
+    "Deadline": "2026-03-31",
+    "Start Date": "2026-03-05",
+    "Stato": "Pianificata"
+  },
+  {
+    "Milestone": "Trasporto e Installazione Offshore",
+    "Progetto": [
+      "recI5CcCweinr4QcG"
+    ],
+    "Deadline": "2026-04-30",
+    "Start Date": "2026-04-05",
+    "Stato": "Pianificata"
+  },
+  {
+    "Milestone": "Commissioning e Hook-up",
+    "Progetto": [
+      "recI5CcCweinr4QcG"
+    ],
+    "Deadline": "2026-05-31",
+    "Start Date": "2026-05-05",
+    "Stato": "Pianificata"
+  }
+]

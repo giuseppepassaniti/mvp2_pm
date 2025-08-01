@@ -1,0 +1,112 @@
+[
+  {
+    "Variante": "Modifica Ciclo Lavoro",
+    "Descrizione Variante": "Modifica del ciclo di verniciatura su richiesta cliente (aggiunta primer speciale)",
+    "Progetto": [
+      "recb97Ftmgx6WsHpt"
+    ],
+    "Impatto Tempi (in giorni)": 3,
+    "Impatto Costi": 7500,
+    "Stato": "In valutazione",
+    "Data Variante": "2025-08-10"
+  },
+  {
+    "Variante": "Rivestimento Anticorrosione",
+    "Descrizione Variante": "Aggiunta rivestimento anticorrosione 3LPE su tutta la pipeline.",
+    "Progetto": [
+      "recQ9e73aqoD5c71t"
+    ],
+    "Impatto Tempi (in giorni)": 5,
+    "Impatto Costi": 15000,
+    "Stato": "In valutazione",
+    "Data Variante": "2025-06-06"
+  },
+  {
+    "Variante": "Sostituzione Materiale",
+    "Descrizione Variante": "Sostituzione materiale raccordi su richiesta cliente.",
+    "Progetto": [
+      "recQfUWcES81PFvJ8"
+    ],
+    "Impatto Tempi (in giorni)": 7,
+    "Impatto Costi": 9500,
+    "Stato": "Approvata",
+    "Data Variante": "2024-04-06"
+  },
+  {
+    "Variante": "Upgrade Strumentazione",
+    "Descrizione Variante": "Sostituzione strumentazione di livello con sensori radar ad alta precisione.",
+    "Progetto": [
+      "recE63KeYDyZSJq89"
+    ],
+    "Impatto Tempi (in giorni)": 3,
+    "Impatto Costi": 18000,
+    "Stato": "In valutazione",
+    "Data Variante": "2025-07-02"
+  },
+  {
+    "Variante": "Cambio Materiale Bulloni",
+    "Descrizione Variante": "Utilizzo bulloni ad alta resistenza 42CrMo4 al posto di A325.",
+    "Progetto": [
+      "recI5CcCweinr4QcG"
+    ],
+    "Impatto Tempi (in giorni)": 6,
+    "Impatto Costi": 28000,
+    "Stato": "Approvata",
+    "Data Variante": "2025-09-22"
+  },
+  {
+    "Variante": "Richiesta Cliente",
+    "Descrizione Variante": "Richiesta cliente di aggiunta di un attacco supplementare DN50",
+    "Progetto": [
+      "recb97Ftmgx6WsHpt"
+    ],
+    "Impatto Tempi (in giorni)": 5,
+    "Impatto Costi": 18000,
+    "Stato": "Approvata",
+    "Data Variante": "2025-06-25"
+  },
+  {
+    "Variante": "Variazione Tracciato",
+    "Descrizione Variante": "Spostamento tracciato di 50 m per evitare area protetta.",
+    "Progetto": [
+      "recQ9e73aqoD5c71t"
+    ],
+    "Impatto Tempi (in giorni)": 8,
+    "Impatto Costi": 35000,
+    "Stato": "Approvata",
+    "Data Variante": "2025-04-12"
+  },
+  {
+    "Variante": "Richiesta Cliente",
+    "Descrizione Variante": "Aggiunta linea di bypass manuale per scarico condensa.",
+    "Progetto": [
+      "recE63KeYDyZSJq89"
+    ],
+    "Impatto Tempi (in giorni)": 4,
+    "Impatto Costi": 12000,
+    "Stato": "Approvata",
+    "Data Variante": "2025-05-18"
+  },
+  {
+    "Variante": "Integrazione Modulo Compressione",
+    "Descrizione Variante": "Aggiunta modulo di compressione gas sul topside per future espansioni.",
+    "Progetto": [
+      "recI5CcCweinr4QcG"
+    ],
+    "Impatto Tempi (in giorni)": 10,
+    "Impatto Costi": 75000,
+    "Stato": "In valutazione",
+    "Data Variante": "2025-10-15"
+  },
+  {
+    "Variante": "Modifica verniciatura",
+    "Descrizione Variante": "Modifica ciclo verniciatura con primer speciale",
+    "Progetto": [
+      "recQfUWcES81PFvJ8"
+    ],
+    "Impatto Tempi (in giorni)": 4,
+    "Impatto Costi": 2800,
+    "Stato": "Approvata",
+    "Data Variante": "2024-06-16"
+  }
+]

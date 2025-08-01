@@ -1,0 +1,170 @@
+[
+  {
+    "Titolo Imprevisto": "Ritardo Consegna Raccordi",
+    "Descrizione Problema": "Ritardo nella consegna dei raccordi speciali da parte del fornitore.",
+    "Tipo": "Fornitore",
+    "Criticità": "Alta",
+    "Progetto": [
+      "recb97Ftmgx6WsHpt"
+    ],
+    "Data Imprevisti": "2025-06-18",
+    "Stato": "Aperto",
+    "Rischio Previsioanle": "Possibile slittamento delle attività di saldatura e assemblaggio."
+  },
+  {
+    "Titolo Imprevisto": "Forno in Manutenzione",
+    "Descrizione Problema": "Malfunzionamento temporaneo del forno per trattamenti termici.",
+    "Tipo": "Tecnico",
+    "Criticità": "Media",
+    "Progetto": [
+      "recb97Ftmgx6WsHpt"
+    ],
+    "Data Imprevisti": "2025-07-27",
+    "Stato": "Risolto",
+    "Rischio Previsioanle": "Ritardo minimo sulle attività di trattamento termico"
+  },
+  {
+    "Titolo Imprevisto": "Difetti Saldature via NDT",
+    "Descrizione Problema": "Difettosità saldature rilevate ai controlli NDT.",
+    "Tipo": "Qualità",
+    "Criticità": "Alta",
+    "Progetto": [
+      "recQfUWcES81PFvJ8"
+    ],
+    "Data Imprevisti": "2024-04-04",
+    "Stato": "Risolto",
+    "Rischio Previsioanle": "Ritardo su completamento saldature e controlli."
+  },
+  {
+    "Titolo Imprevisto": "Guasto forno",
+    "Descrizione Problema": "Guasto forno trattamenti termici.",
+    "Tipo": "Tecnico",
+    "Criticità": "Alta",
+    "Progetto": [
+      "recQfUWcES81PFvJ8"
+    ],
+    "Data Imprevisti": "2024-05-17",
+    "Stato": "Risolto",
+    "Rischio Previsioanle": "Slittamento attività di trattamento termico."
+  },
+  {
+    "Titolo Imprevisto": "Ritardo consegna Primer",
+    "Descrizione Problema": "Ritardo fornitura primer speciale per verniciatura.",
+    "Tipo": "Fornitore",
+    "Criticità": "Media",
+    "Progetto": [
+      "recQfUWcES81PFvJ8"
+    ],
+    "Data Imprevisti": "2024-06-15",
+    "Stato": "Risolto",
+    "Rischio Previsioanle": "Possibile ritardo su verniciatura finale."
+  },
+  {
+    "Titolo Imprevisto": "Ritardo Certificazioni Materiali",
+    "Descrizione Problema": "Ritardo nella consegna delle certificazioni EN 10204 per acciai speciali da parte del fornitore britannico.",
+    "Tipo": "Fornitore",
+    "Criticità": "Alta",
+    "Progetto": [
+      "recE63KeYDyZSJq89"
+    ],
+    "Data Imprevisti": "2025-06-12",
+    "Stato": "Risolto",
+    "Rischio Previsioanle": "Possibile slittamento ordine materiali e avvio fabbricazione."
+  },
+  {
+    "Titolo Imprevisto": "Difetto Saldatura Internals",
+    "Descrizione Problema": "Riscontrata porosità nelle saldature dei supporti interni durante controlli UT.",
+    "Tipo": "Qualità",
+    "Criticità": "Media",
+    "Progetto": [
+      "recE63KeYDyZSJq89"
+    ],
+    "Data Imprevisti": "2025-06-28",
+    "Stato": "Risolto",
+    "Rischio Previsioanle": "Necessaria ripresa saldature con possibile ritardo assemblaggio."
+  },
+  {
+    "Titolo Imprevisto": "Guasto Gru Officina",
+    "Descrizione Problema": "Malfunzionamento della gru principale dell'officina durante movimentazione gusci.",
+    "Tipo": "Tecnico",
+    "Criticità": "Media",
+    "Progetto": [
+      "recE63KeYDyZSJq89"
+    ],
+    "Data Imprevisti": "2025-04-22",
+    "Stato": "Aperto",
+    "Rischio Previsioanle": "Rallentamento nelle operazioni di assemblaggio e saldatura."
+  },
+  {
+    "Titolo Imprevisto": "Ostacolo Roccioso Imprevisto",
+    "Descrizione Problema": "Incontrato banco roccioso non previsto dal survey geologico durante scavi tratto 1.",
+    "Tipo": "Ambientale",
+    "Criticità": "Alta",
+    "Progetto": [
+      "recQ9e73aqoD5c71t"
+    ],
+    "Data Imprevisti": "2025-03-08",
+    "Stato": "Risolto",
+    "Rischio Previsioanle": "Significativo ritardo negli scavi e possibile aumento costi."
+  },
+  {
+    "Titolo Imprevisto": "Ritardo Tubazioni API 5L",
+    "Descrizione Problema": "Ritardo di 10 giorni nella consegna delle tubazioni certificate API 5L dal fornitore spagnolo.",
+    "Tipo": "Fornitore",
+    "Criticità": "Alta",
+    "Progetto": [
+      "recQ9e73aqoD5c71t"
+    ],
+    "Data Imprevisti": "2025-06-02",
+    "Stato": "Risolto",
+    "Rischio Previsioanle": "Slittamento inizio posa tubazioni e attività correlate."
+  },
+  {
+    "Titolo Imprevisto": "Condizioni Meteo Avverse",
+    "Descrizione Problema": "Piogge intense per 3 giorni consecutivi hanno fermato le attività di posa.",
+    "Tipo": "Ambientale",
+    "Criticità": "Media",
+    "Progetto": [
+      "recQ9e73aqoD5c71t"
+    ],
+    "Data Imprevisti": "2025-06-18",
+    "Stato": "Risolto",
+    "Rischio Previsioanle": "Ritardo minimo su posa tubazioni, recuperabile."
+  },
+  {
+    "Titolo Imprevisto": "Problema Saldatrice Pipeline",
+    "Descrizione Problema": "Malfunzionamento della saldatrice automatica per pipeline durante test preliminari.",
+    "Tipo": "Tecnico",
+    "Criticità": "Alta",
+    "Progetto": [
+      "recQ9e73aqoD5c71t"
+    ],
+    "Data Imprevisti": "2025-09-10",
+    "Stato": "Aperto",
+    "Rischio Previsioanle": "Possibile ritardo significativo su saldature giunti pipeline."
+  },
+  {
+    "Titolo Imprevisto": "Revisione Normativa DNV",
+    "Descrizione Problema": "Aggiornamento normativa DNV-GL richiede revisione calcoli strutturali jacket.",
+    "Tipo": "Normativo",
+    "Criticità": "Media",
+    "Progetto": [
+      "recI5CcCweinr4QcG"
+    ],
+    "Data Imprevisti": "2025-09-05",
+    "Stato": "Aperto",
+    "Rischio Previsioanle": "Possibile ritardo su approvazione progettazione strutturale."
+  },
+  {
+    "Titolo Imprevisto": "Ritardo Approvazione Cliente",
+    "Descrizione Problema": "TotalEnergies ha richiesto modifiche ai parametri di progetto dopo kick-off meeting.",
+    "Tipo": "Cliente",
+    "Criticità": "Alta",
+    "Progetto": [
+      "recI5CcCweinr4QcG"
+    ],
+    "Data Imprevisti": "2025-05-09",
+    "Stato": "Aperto",
+    "Rischio Previsioanle": "Significativo impatto su timeline progettazione e procurement."
+  }
+]

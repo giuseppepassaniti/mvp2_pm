@@ -1,0 +1,256 @@
+[
+  {
+    "Id Progetto": "PV-2025-01",
+    "Nome Progetto": "Pressure Vessel_Eni",
+    "Cliente": "ENI S.p.A.",
+    "PM responsabile": [
+      "recT4SoREDCktZWmb"
+    ],
+    "Stato": "In progress",
+    "% Avanzamento": 0.62,
+    "Budget Inziale": 1250000,
+    "Costi Sostenuti": 780000,
+    "Previsione Finale Costi": 1320000,
+    "Data Inizio": "2025-03-15",
+    "Data Fine": "2025-10-10",
+    "Task": [
+      "rectVSrVivtIG9nQy",
+      "rec0Ap4nSo2OA4Ewo",
+      "recEPM6HPcWPlGAXU",
+      "recbTuVu6zEn3zTDw",
+      "recfikmuQZXikEGY0",
+      "recAj1fB7v22tUYgy",
+      "receAGFLnvymEecWH",
+      "recggLNOg2LjQVSqj",
+      "recr6FAZwGGCA8JIK"
+    ],
+    "Imprevisti": [
+      "reckUnh2HRfuLocPp",
+      "recZnubwXjtWHM5um"
+    ],
+    "Milestone": [
+      "recikG9Pux2GXhp4R",
+      "rec1ROrDsXETyQ8SX",
+      "recYYYmzZLMHinmLw",
+      "recqzdHbureFBiYxR",
+      "recXtvPILx1LaiFns",
+      "rec28X0KGXMIVKCs6",
+      "recJejfVovHMrN70G",
+      "rechvq2STQvEdmelV"
+    ],
+    "Varianti": [
+      "recdQTrRE1N7hd7uS",
+      "rec0nRjkF5xzRCBVG"
+    ],
+    "Decision Log": [
+      "rec9YwZglPXmeyDwD",
+      "recnNjVZORrkoAXhy",
+      "reclCrVcqKTyCu3NU"
+    ],
+    "Conteggio Variante": 2,
+    "Conteggio Imprevisti": 2
+  },
+  {
+    "Id Progetto": "PV-2024-01",
+    "Nome Progetto": "Pressure Vessel_Snam",
+    "Cliente": "Snam S.p.A.",
+    "PM responsabile": [
+      "recT4SoREDCktZWmb"
+    ],
+    "Stato": "Completato",
+    "% Avanzamento": 1,
+    "Budget Inziale": 980000,
+    "Costi Sostenuti": 1180000,
+    "Previsione Finale Costi": 1180000,
+    "Data Inizio": "2024-01-10",
+    "Data Fine": "2024-08-05",
+    "Task": [
+      "recRVh4JlBPjAPJ9D",
+      "rec5CjQ3LOafuFS0H",
+      "recsah9vupqls0jdI",
+      "recUJXJCyvQI4s1pU",
+      "recxV8QMGNYzVt8ti",
+      "recwrf9Og12NwiY2X",
+      "rec2cYKFPydIbwOeW",
+      "recRNHLAxgKp7yotg",
+      "rec9d51v1pksAdtpX"
+    ],
+    "Imprevisti": [
+      "reck9CgFRrVBvVgpq",
+      "recu2qsVRSN6Cqtr9",
+      "recnTkOrb8ZrBv4gZ"
+    ],
+    "Milestone": [
+      "recSBnb9D6gUBFMkA",
+      "recPfDxV2HO3ZsZCz",
+      "recDsEkBPcU0WJxAJ",
+      "recasZH0gcxQPkjd4",
+      "recfdJRJJtnBo3JzU",
+      "recQzxwyr9og7OZG4",
+      "rec58QKZLFKB7FBgw",
+      "rec5xEsfRJ8gc8nDR"
+    ],
+    "Varianti": [
+      "rec57qnaHzAzH51tm",
+      "reczfvrTFIHlXVHVJ"
+    ],
+    "Decision Log": [
+      "recq10iJJAyQCxkYk",
+      "recZn24nQtKj3IJwv",
+      "recxvOCN553ORoZrY"
+    ],
+    "Conteggio Variante": 2,
+    "Conteggio Imprevisti": 3
+  },
+  {
+    "Id Progetto": "PV-2025-02",
+    "Nome Progetto": "Separator Unit_Shell",
+    "Cliente": "Shell UK Ltd.",
+    "PM responsabile": [
+      "recT4SoREDCktZWmb"
+    ],
+    "Stato": "In progress",
+    "% Avanzamento": 0.48,
+    "Budget Inziale": 1450000,
+    "Costi Sostenuti": 690000,
+    "Previsione Finale Costi": 1500000,
+    "Data Inizio": "2025-01-04",
+    "Data Fine": "2025-12-20",
+    "Task": [
+      "recITV9ChV1LCko8r",
+      "recWRfSfGGSinWZrr",
+      "recrNKXrt5WkBmvux",
+      "rec2l4P4QhhLG21d7",
+      "recYY2ROBvO1A2029",
+      "recZHPMUbKLrWxW4F",
+      "recvMKjkmC49WhdSp",
+      "recV9eAH9OJY1hZCT"
+    ],
+    "Imprevisti": [
+      "recHoUxKLnuYFMsz3",
+      "recSvvJAfvKaMs5Yb",
+      "recpMNIc3UokHMtUy"
+    ],
+    "Milestone": [
+      "recsRQLZuHa8htQEQ",
+      "recUwifX5HiDRbdE7",
+      "recB9uVX5JlWH6B0G",
+      "recwUITRkTbbhdzcW",
+      "rec5fyWMToRcNaW8f",
+      "recIwSgfFgUIUDLMz",
+      "rec9BesTqCaxq9nSC",
+      "recLSc3JVJIgTiS2S"
+    ],
+    "Varianti": [
+      "recoMxScwoybEgM4W",
+      "recKWHVOjQbG9yRAt"
+    ],
+    "Decision Log": [
+      "recEm2ls5kRf0mvHH",
+      "rec1ao6JVIgTxooWY",
+      "rec1E3e52VgdJvsFR"
+    ],
+    "Conteggio Variante": 2,
+    "Conteggio Imprevisti": 3
+  },
+  {
+    "Id Progetto": "PV-2025-03",
+    "Nome Progetto": "Gas Pipeline_BP",
+    "Cliente": "BP Exploration Ltd.",
+    "PM responsabile": [
+      "recT4SoREDCktZWmb"
+    ],
+    "Stato": "In progress",
+    "% Avanzamento": 0.35,
+    "Budget Inziale": 2100000,
+    "Costi Sostenuti": 730000,
+    "Previsione Finale Costi": 2200000,
+    "Data Inizio": "2025-10-02",
+    "Data Fine": "2025-11-30",
+    "Task": [
+      "recq8dLAKg7yINKEG",
+      "recrIo04ieFJNpSTX",
+      "recjPQPHooehsF6Ds",
+      "recpjlRX9YhFxL09Q",
+      "recmbGuGqhDNsK8yK",
+      "rec7QSAERP92GUls0",
+      "recHsN9Sm3p6tFShk",
+      "recGD8zZshyY9bEJp"
+    ],
+    "Imprevisti": [
+      "recmXOWhcxhJPQfYv",
+      "recVHwSZJg5BWfHnv",
+      "recLblY1IPLQagm4s",
+      "rec3vTSDWPekLpcPT"
+    ],
+    "Milestone": [
+      "recYN5jeXq2QzazxE",
+      "recqG8U9BFIdaJNki",
+      "recDOwLJwOhzqZoWt",
+      "rec7Y91wUsKOf1OuH",
+      "recY260q2psUuYlZz",
+      "recn7eWFfHNgBso1s",
+      "recSOHJVL9HflZYEv",
+      "recIXen4dWsPzqJPL"
+    ],
+    "Varianti": [
+      "recmYJdpGTP0pYEQP",
+      "rec2uwORmAvi4JeeK"
+    ],
+    "Decision Log": [
+      "recN4seVmGqEozajM",
+      "recZxfhgyTMmD15xE",
+      "recsMWc73xhk2k3yC"
+    ],
+    "Conteggio Variante": 2,
+    "Conteggio Imprevisti": 4
+  },
+  {
+    "Id Progetto": "PV-2025-04",
+    "Nome Progetto": "Offshore Platform_Total",
+    "Cliente": "TotalEnergies SE",
+    "PM responsabile": [
+      "recT4SoREDCktZWmb"
+    ],
+    "Stato": "In progress",
+    "% Avanzamento": 0.12,
+    "Budget Inziale": 3200000,
+    "Costi Sostenuti": 380000,
+    "Previsione Finale Costi": 3250000,
+    "Data Inizio": "2025-01-09",
+    "Data Fine": "2026-05-31",
+    "Task": [
+      "recgaI91l32RXQI9c",
+      "recMyfiFin7rokoI1",
+      "recstDhJExk8Fb1aN",
+      "recCaCYmvamzCmLa7",
+      "reco6humMf7gtaUvO",
+      "recyD4I9bJXhIkDUI",
+      "rec6MfK74yvkpXsp4"
+    ],
+    "Imprevisti": [
+      "recG85z0SuUDcDuu5",
+      "reccUIvCoO0diao5s"
+    ],
+    "Milestone": [
+      "rectawGSh7VuyGHNu",
+      "recvhrsWvvn7CEy7G",
+      "recTaj2OIO3ArWsxB",
+      "recSgcCg05PT0ZxKH",
+      "rec4XLQiarjWCNUcP",
+      "rec2mO0bABtBB9k6p",
+      "rec56pjO781X8zsDM"
+    ],
+    "Varianti": [
+      "recRHwwU9RO600oPz",
+      "recp4NK7x8dg01AmS"
+    ],
+    "Decision Log": [
+      "reckOjue8aXEJa4HF",
+      "rectn544q3KFzBJsg",
+      "recD5CkDvCk8HbXup"
+    ],
+    "Conteggio Variante": 2,
+    "Conteggio Imprevisti": 2
+  }
+]

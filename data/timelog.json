@@ -1,0 +1,878 @@
+[
+  {
+    "Data": "2025-05-20",
+    "Risorse": [
+      "recVKbPhAFaEwr42O"
+    ],
+    "Task": [
+      "rec0Ap4nSo2OA4Ewo"
+    ],
+    "Ore Effettive": 9,
+    "Descrizione": "Saldatura longitudinale completata, nessun problema riscontrato.",
+    "ID": 2309
+  },
+  {
+    "Data": "2025-05-22",
+    "Risorse": [
+      "recVKbPhAFaEwr42O"
+    ],
+    "Task": [
+      "rec0Ap4nSo2OA4Ewo"
+    ],
+    "Ore Effettive": 8,
+    "Descrizione": "Saldatura circonferenziale, avanzamento regolare.",
+    "ID": 2310
+  },
+  {
+    "Data": "2025-05-24",
+    "Risorse": [
+      "recVKbPhAFaEwr42O"
+    ],
+    "Task": [
+      "rec0Ap4nSo2OA4Ewo"
+    ],
+    "Ore Effettive": 10,
+    "Descrizione": "Piccolo rallentamento per controllo qualità intermedio",
+    "ID": 2311
+  },
+  {
+    "Data": "2025-06-07",
+    "Risorse": [
+      "rectNHdN9nE0IKsIT"
+    ],
+    "Task": [
+      "recEPM6HPcWPlGAXU"
+    ],
+    "Ore Effettive": 5,
+    "Descrizione": "Controllo radiografico su saldature principali, tutto conforme",
+    "ID": 2312
+  },
+  {
+    "Data": "2025-06-10",
+    "Risorse": [
+      "rectNHdN9nE0IKsIT"
+    ],
+    "Task": [
+      "recEPM6HPcWPlGAXU"
+    ],
+    "Ore Effettive": 4,
+    "Descrizione": "Controllo liquidi penetranti, nessuna difettosità rilevata",
+    "ID": 2313
+  },
+  {
+    "Data": "2025-06-13",
+    "Risorse": [
+      "rectNHdN9nE0IKsIT"
+    ],
+    "Task": [
+      "recEPM6HPcWPlGAXU"
+    ],
+    "Ore Effettive": 6,
+    "Descrizione": "Verifica finale e compilazione report, attività conclusa in anticipo.",
+    "ID": 2314
+  },
+  {
+    "Data": "2025-05-16",
+    "Risorse": [
+      "recpIZOkF0B14ebtq"
+    ],
+    "Task": [
+      "rectVSrVivtIG9nQy"
+    ],
+    "Ore Effettive": 7,
+    "Descrizione": "Taglio lamiere secondo disegno, nessun intoppo",
+    "ID": 2315
+  },
+  {
+    "Data": "2025-05-18",
+    "Risorse": [
+      "recpIZOkF0B14ebtq"
+    ],
+    "Task": [
+      "rectVSrVivtIG9nQy"
+    ],
+    "Ore Effettive": 9,
+    "Descrizione": "Assemblaggio componenti principali, avanzamento regolare",
+    "ID": 2316
+  },
+  {
+    "Data": "2025-05-22",
+    "Risorse": [
+      "recpIZOkF0B14ebtq"
+    ],
+    "Task": [
+      "rectVSrVivtIG9nQy"
+    ],
+    "Ore Effettive": 9,
+    "Descrizione": "Assemblaggio completato, attività chiusa nei tempi previsti",
+    "ID": 2317
+  },
+  {
+    "Data": "2025-07-27",
+    "Risorse": [
+      "recdLjIvh7m55Z4b4"
+    ],
+    "Task": [
+      "receAGFLnvymEecWH"
+    ],
+    "Ore Effettive": 5,
+    "Descrizione": "Caricamento pezzo in forno, avvio ciclo termico.",
+    "ID": 2318
+  },
+  {
+    "Data": "2025-07-29",
+    "Risorse": [
+      "recdLjIvh7m55Z4b4"
+    ],
+    "Task": [
+      "receAGFLnvymEecWH"
+    ],
+    "Ore Effettive": 7,
+    "Descrizione": "Monitoraggio ciclo e scarico pezzo, attività completata in linea con la pianificazione",
+    "ID": 2319
+  },
+  {
+    "Data": "2025-09-07",
+    "Risorse": [
+      "rechjd5Yk4ZVGe6NI"
+    ],
+    "Task": [
+      "recggLNOg2LjQVSqj"
+    ],
+    "Ore Effettive": 5,
+    "Descrizione": "Preparazione superfici e applicazione primer.",
+    "ID": 2320
+  },
+  {
+    "Data": "2025-09-09",
+    "Risorse": [
+      "rechjd5Yk4ZVGe6NI"
+    ],
+    "Task": [
+      "recggLNOg2LjQVSqj"
+    ],
+    "Ore Effettive": 4,
+    "Descrizione": "Verniciatura finale, attività conclusa in anticipo",
+    "ID": 2321
+  },
+  {
+    "Data": "2025-10-21",
+    "Risorse": [
+      "recoGknqxGzv8Gu2y"
+    ],
+    "Task": [
+      "recr6FAZwGGCA8JIK"
+    ],
+    "Ore Effettive": 3,
+    "Descrizione": "Raccolta documenti tecnici e certificazioni.",
+    "ID": 2322
+  },
+  {
+    "Data": "2025-10-24",
+    "Risorse": [
+      "recoGknqxGzv8Gu2y"
+    ],
+    "Task": [
+      "recr6FAZwGGCA8JIK"
+    ],
+    "Ore Effettive": 4,
+    "Descrizione": "Compilazione DDT e verifica finale, attività completata nei tempi.",
+    "ID": 2323
+  },
+  {
+    "Data": "2025-07-12",
+    "Risorse": [
+      "rectNHdN9nE0IKsIT"
+    ],
+    "Task": [
+      "recfikmuQZXikEGY0"
+    ],
+    "Ore Effettive": 4,
+    "Descrizione": "Controllo visivo e verifica dimensionale, nessuna anomalia",
+    "ID": 2324
+  },
+  {
+    "Data": "2025-07-18",
+    "Risorse": [
+      "rectNHdN9nE0IKsIT"
+    ],
+    "Task": [
+      "recfikmuQZXikEGY0"
+    ],
+    "Ore Effettive": 2,
+    "Descrizione": "Aggiornamento report qualità, attività in corso.",
+    "ID": 2325
+  },
+  {
+    "Data": "2025-07-16",
+    "Risorse": [
+      "recpIZOkF0B14ebtq"
+    ],
+    "Task": [
+      "recAj1fB7v22tUYgy"
+    ],
+    "Ore Effettive": 5,
+    "Descrizione": "Montaggio deflettori interni, avanzamento regolare.",
+    "ID": 2326
+  },
+  {
+    "Data": "2025-07-20",
+    "Risorse": [
+      "recpIZOkF0B14ebtq"
+    ],
+    "Task": [
+      "recAj1fB7v22tUYgy"
+    ],
+    "Ore Effettive": 4,
+    "Descrizione": "Fissaggio supporti, attività leggermente in ritardo per attesa materiale.",
+    "ID": 2327
+  },
+  {
+    "Data": "2025-06-22",
+    "Risorse": [
+      "recVKbPhAFaEwr42O"
+    ],
+    "Task": [
+      "recbTuVu6zEn3zTDw"
+    ],
+    "Ore Effettive": 8,
+    "Descrizione": "Saldatura raccordi principali, avanzamento regolare",
+    "ID": 2328
+  },
+  {
+    "Data": "2025-06-28",
+    "Risorse": [
+      "recVKbPhAFaEwr42O"
+    ],
+    "Task": [
+      "rec0Ap4nSo2OA4Ewo"
+    ],
+    "Ore Effettive": 10,
+    "Descrizione": "Saldatura attacchi secondari, attività in leggero ritardo per verifica disegni",
+    "ID": 2329
+  },
+  {
+    "Data": "2024-03-14",
+    "Risorse": [
+      "recVKbPhAFaEwr42O"
+    ],
+    "Task": [
+      "rec5CjQ3LOafuFS0H"
+    ],
+    "Ore Effettive": 10,
+    "Descrizione": "Saldatura longitudinale, rallentamento per difetto materiale",
+    "ID": 2330
+  },
+  {
+    "Data": "2024-03-18",
+    "Risorse": [
+      "recVKbPhAFaEwr42O"
+    ],
+    "Task": [
+      "rec5CjQ3LOafuFS0H"
+    ],
+    "Ore Effettive": 12,
+    "Descrizione": "Saldatura circonferenziale, problemi con allineamento pezzi",
+    "ID": 2331
+  },
+  {
+    "Data": "2024-03-25",
+    "Risorse": [
+      "recVKbPhAFaEwr42O"
+    ],
+    "Task": [
+      "rec5CjQ3LOafuFS0H"
+    ],
+    "Ore Effettive": 13,
+    "Descrizione": "Ripresa saldature per difetti riscontrati ai controlli",
+    "ID": 2332
+  },
+  {
+    "Data": "2024-04-03",
+    "Risorse": [
+      "rectNHdN9nE0IKsIT"
+    ],
+    "Task": [
+      "rec9d51v1pksAdtpX"
+    ],
+    "Ore Effettive": 7,
+    "Descrizione": "Controllo radiografico, riscontrate difettosità",
+    "ID": 2333
+  },
+  {
+    "Data": "2024-04-08",
+    "Risorse": [
+      "rectNHdN9nE0IKsIT"
+    ],
+    "Task": [
+      "rec9d51v1pksAdtpX"
+    ],
+    "Ore Effettive": 11,
+    "Descrizione": "Ripetizione controlli dopo riparazione saldature",
+    "ID": 2334
+  },
+  {
+    "Data": "2024-03-11",
+    "Risorse": [
+      "recpIZOkF0B14ebtq"
+    ],
+    "Task": [
+      "recRVh4JlBPjAPJ9D"
+    ],
+    "Ore Effettive": 8,
+    "Descrizione": "Taglio lamiere, rallentamento per errore disegno",
+    "ID": 2336
+  },
+  {
+    "Data": "2024-03-17",
+    "Risorse": [
+      "recpIZOkF0B14ebtq"
+    ],
+    "Task": [
+      "recRVh4JlBPjAPJ9D"
+    ],
+    "Ore Effettive": 14,
+    "Descrizione": "Assemblaggio, attesa materiale",
+    "ID": 2337
+  },
+  {
+    "Data": "2024-05-17",
+    "Risorse": [
+      "recdLjIvh7m55Z4b4"
+    ],
+    "Task": [
+      "recwrf9Og12NwiY2X"
+    ],
+    "Ore Effettive": 7,
+    "Descrizione": "Caricamento pezzo in forno, guasto temporaneo",
+    "ID": 2339
+  },
+  {
+    "Data": "2024-05-22",
+    "Risorse": [
+      "recdLjIvh7m55Z4b4"
+    ],
+    "Task": [
+      "recwrf9Og12NwiY2X"
+    ],
+    "Ore Effettive": 7,
+    "Descrizione": "Ripresa trattamento dopo riparazione forno",
+    "ID": 2340
+  },
+  {
+    "Data": "2024-06-17",
+    "Risorse": [
+      "rechjd5Yk4ZVGe6NI"
+    ],
+    "Task": [
+      "rec2cYKFPydIbwOeW"
+    ],
+    "Ore Effettive": 6,
+    "Descrizione": "Verniciatura, problemi con primer.",
+    "ID": 2341
+  },
+  {
+    "Data": "2024-06-19",
+    "Risorse": [
+      "rechjd5Yk4ZVGe6NI"
+    ],
+    "Task": [
+      "rec2cYKFPydIbwOeW"
+    ],
+    "Ore Effettive": 4,
+    "Descrizione": "Seconda mano, attività completata",
+    "ID": 2342
+  },
+  {
+    "Data": "2024-07-30",
+    "Risorse": [
+      "recoGknqxGzv8Gu2y"
+    ],
+    "Task": [
+      "recRNHLAxgKp7yotg"
+    ],
+    "Ore Effettive": 4,
+    "Descrizione": "Raccolta documenti, attesa certificazioni",
+    "ID": 2343
+  },
+  {
+    "Data": "2024-08-01",
+    "Risorse": [
+      "recoGknqxGzv8Gu2y"
+    ],
+    "Task": [
+      "recRNHLAxgKp7yotg"
+    ],
+    "Ore Effettive": 3,
+    "Descrizione": "Compilazione DDT, spedizione confermata",
+    "ID": 2344
+  },
+  {
+    "Data": "2024-04-07",
+    "Risorse": [
+      "recVKbPhAFaEwr42O"
+    ],
+    "Task": [
+      "recsah9vupqls0jdI"
+    ],
+    "Ore Effettive": 9,
+    "Descrizione": "Saldatura raccordi principali, rallentamento per verifica materiali.",
+    "ID": 2351
+  },
+  {
+    "Data": "2024-04-13",
+    "Risorse": [
+      "recVKbPhAFaEwr42O"
+    ],
+    "Task": [
+      "recsah9vupqls0jdI"
+    ],
+    "Ore Effettive": 11,
+    "Descrizione": "Saldatura attacchi secondari, necessaria ripresa su alcune giunzioni.",
+    "ID": 2352
+  },
+  {
+    "Data": "2024-04-18",
+    "Risorse": [
+      "recVKbPhAFaEwr42O"
+    ],
+    "Task": [
+      "recsah9vupqls0jdI"
+    ],
+    "Ore Effettive": 10,
+    "Descrizione": "Completamento saldature, attività chiusa con collaudo positivo.",
+    "ID": 2353
+  },
+  {
+    "Data": "2024-04-16",
+    "Risorse": [
+      "recpIZOkF0B14ebtq"
+    ],
+    "Task": [
+      "recxV8QMGNYzVt8ti"
+    ],
+    "Ore Effettive": 7,
+    "Descrizione": "Montaggio deflettori interni, attesa bulloneria speciale.",
+    "ID": 2354
+  },
+  {
+    "Data": "2024-04-21",
+    "Risorse": [
+      "recpIZOkF0B14ebtq"
+    ],
+    "Task": [
+      "recxV8QMGNYzVt8ti"
+    ],
+    "Ore Effettive": 9,
+    "Descrizione": "Fissaggio supporti e verifica allineamento, attività completata",
+    "ID": 2355
+  },
+  {
+    "Data": "2024-05-06",
+    "Risorse": [
+      "rectNHdN9nE0IKsIT"
+    ],
+    "Task": [
+      "recUJXJCyvQI4s1pU"
+    ],
+    "Ore Effettive": 6,
+    "Descrizione": "Controllo visivo e dimensionale, riscontrate alcune non conformità",
+    "ID": 2356
+  },
+  {
+    "Data": "2024-05-09",
+    "Risorse": [
+      "rectNHdN9nE0IKsIT"
+    ],
+    "Task": [
+      "recUJXJCyvQI4s1pU"
+    ],
+    "Ore Effettive": 4,
+    "Descrizione": "Aggiornamento report qualità e verifica correzioni, attività conclusa",
+    "ID": 2357
+  },
+  {
+    "Data": "2025-04-01",
+    "Risorse": [
+      "receFC1ex8OLG8fJd"
+    ],
+    "Task": [
+      "recITV9ChV1LCko8r"
+    ],
+    "Ore Effettive": 8,
+    "Descrizione": "Kick-off progettazione, analisi requisiti cliente.",
+    "ID": 2401
+  },
+  {
+    "Data": "2025-04-05",
+    "Risorse": [
+      "receFC1ex8OLG8fJd"
+    ],
+    "Task": [
+      "recITV9ChV1LCko8r"
+    ],
+    "Ore Effettive": 14,
+    "Descrizione": "Progressi modellazione 3D, revisione tecnica interna.",
+    "ID": 2402
+  },
+  {
+    "Data": "2025-04-12",
+    "Risorse": [
+      "receFC1ex8OLG8fJd"
+    ],
+    "Task": [
+      "recITV9ChV1LCko8r"
+    ],
+    "Ore Effettive": 16,
+    "Descrizione": "Finalizzazione disegni IFC, attività completata nei tempi.",
+    "ID": 2403
+  },
+  {
+    "Data": "2025-04-21",
+    "Risorse": [
+      "recuUN6quFcAzCWle"
+    ],
+    "Task": [
+      "recWRfSfGGSinWZrr"
+    ],
+    "Ore Effettive": 12,
+    "Descrizione": "Invio richieste di offerta a fornitori certificati.",
+    "ID": 2404
+  },
+  {
+    "Data": "2025-05-03",
+    "Risorse": [
+      "recuUN6quFcAzCWle"
+    ],
+    "Task": [
+      "recWRfSfGGSinWZrr"
+    ],
+    "Ore Effettive": 20,
+    "Descrizione": "Chiusura ordine, ritardo per verifica certificazioni.",
+    "ID": 2405
+  },
+  {
+    "Data": "2025-05-16",
+    "Risorse": [
+      "recVKbPhAFaEwr42O"
+    ],
+    "Task": [
+      "recrNKXrt5WkBmvux"
+    ],
+    "Ore Effettive": 11,
+    "Descrizione": "Taglio lamiere secondo disegno, nessun intoppo.",
+    "ID": 2406
+  },
+  {
+    "Data": "2025-05-20",
+    "Risorse": [
+      "recVKbPhAFaEwr42O"
+    ],
+    "Task": [
+      "recrNKXrt5WkBmvux"
+    ],
+    "Ore Effettive": 12,
+    "Descrizione": "Prosecuzione taglio, controllo dimensionale ok.",
+    "ID": 2407
+  },
+  {
+    "Data": "2025-05-25",
+    "Risorse": [
+      "recVKbPhAFaEwr42O"
+    ],
+    "Task": [
+      "recrNKXrt5WkBmvux"
+    ],
+    "Ore Effettive": 10,
+    "Descrizione": "Conclusione taglio, attività chiusa in anticipo.",
+    "ID": 2408
+  },
+  {
+    "Data": "2025-06-02",
+    "Risorse": [
+      "rectNHdN9nE0IKsIT"
+    ],
+    "Task": [
+      "rec2l4P4QhhLG21d7"
+    ],
+    "Ore Effettive": 18,
+    "Descrizione": "Avvio montaggio deflettori interni, piccola revisione disegni.",
+    "ID": 2409
+  },
+  {
+    "Data": "2025-06-08",
+    "Risorse": [
+      "rectNHdN9nE0IKsIT"
+    ],
+    "Task": [
+      "rec2l4P4QhhLG21d7"
+    ],
+    "Ore Effettive": 17,
+    "Descrizione": "Fissaggio distributori, avanzamento regolare.",
+    "ID": 2410
+  },
+  {
+    "Data": "2025-06-14",
+    "Risorse": [
+      "rectNHdN9nE0IKsIT"
+    ],
+    "Task": [
+      "rec2l4P4QhhLG21d7"
+    ],
+    "Ore Effettive": 17,
+    "Descrizione": "Chiusura attività, completata nei tempi previsti.",
+    "ID": 2411
+  },
+  {
+    "Data": "2025-06-19",
+    "Risorse": [
+      "recZ9BLBGx7xretbZ"
+    ],
+    "Task": [
+      "recYY2ROBvO1A2029"
+    ],
+    "Ore Effettive": 10,
+    "Descrizione": "Saldatura gusci longitudinali, leggera attesa materiale.",
+    "ID": 2412
+  },
+  {
+    "Data": "2025-06-25",
+    "Risorse": [
+      "recZ9BLBGx7xretbZ"
+    ],
+    "Task": [
+      "recYY2ROBvO1A2029"
+    ],
+    "Ore Effettive": 9,
+    "Descrizione": "Saldature circonferenziali, verifiche UT intermedie.",
+    "ID": 2413
+  },
+  {
+    "Data": "2025-07-02",
+    "Risorse": [
+      "recZ9BLBGx7xretbZ"
+    ],
+    "Task": [
+      "recYY2ROBvO1A2029"
+    ],
+    "Ore Effettive": 9,
+    "Descrizione": "Riprese minori, attività al 65% del completamento.",
+    "ID": 2414
+  },
+  {
+    "Data": "2025-02-11",
+    "Risorse": [
+      "recptRaZSw5EatE6Q"
+    ],
+    "Task": [
+      "recq8dLAKg7yINKEG"
+    ],
+    "Ore Effettive": 12,
+    "Descrizione": "Rilievo GPS punti chiave, condizioni meteo favorevoli.",
+    "ID": 2415
+  },
+  {
+    "Data": "2025-02-15",
+    "Risorse": [
+      "recptRaZSw5EatE6Q"
+    ],
+    "Task": [
+      "recq8dLAKg7yINKEG"
+    ],
+    "Ore Effettive": 10,
+    "Descrizione": "Completamento rilievi altimetrici, nessun problema riscontrato.",
+    "ID": 2416
+  },
+  {
+    "Data": "2025-02-22",
+    "Risorse": [
+      "recptRaZSw5EatE6Q"
+    ],
+    "Task": [
+      "recq8dLAKg7yINKEG"
+    ],
+    "Ore Effettive": 13,
+    "Descrizione": "Elaborazione dati e consegna mappe, chiusura milestone.",
+    "ID": 2417
+  },
+  {
+    "Data": "2025-03-01",
+    "Risorse": [
+      "recQ1XcP7F9MkdLVh"
+    ],
+    "Task": [
+      "recrIo04ieFJNpSTX"
+    ],
+    "Ore Effettive": 12,
+    "Descrizione": "Richiesta quotazioni, confronto prezzi con fornitore spagnolo.",
+    "ID": 2418
+  },
+  {
+    "Data": "2025-03-10",
+    "Risorse": [
+      "recQ1XcP7F9MkdLVh"
+    ],
+    "Task": [
+      "recrIo04ieFJNpSTX"
+    ],
+    "Ore Effettive": 16,
+    "Descrizione": "Emissione PO, ritardo di 2 giorni per approvazione QA.",
+    "ID": 2419
+  },
+  {
+    "Data": "2025-03-26",
+    "Risorse": [
+      "recpIZOkF0B14ebtq"
+    ],
+    "Task": [
+      "recjPQPHooehsF6Ds"
+    ],
+    "Ore Effettive": 14,
+    "Descrizione": "Allestimento aree di stoccaggio, installazione recinzioni.",
+    "ID": 2420
+  },
+  {
+    "Data": "2025-04-02",
+    "Risorse": [
+      "recpIZOkF0B14ebtq"
+    ],
+    "Task": [
+      "recjPQPHooehsF6Ds"
+    ],
+    "Ore Effettive": 16,
+    "Descrizione": "Movimentazione terra, realizzazione piazzole saldatura.",
+    "ID": 2421
+  },
+  {
+    "Data": "2025-04-08",
+    "Risorse": [
+      "recpIZOkF0B14ebtq"
+    ],
+    "Task": [
+      "recjPQPHooehsF6Ds"
+    ],
+    "Ore Effettive": 12,
+    "Descrizione": "Verifica accessi e sicurezza, attività completata in tempo.",
+    "ID": 2422
+  },
+  {
+    "Data": "2025-04-16",
+    "Risorse": [
+      "recVKbPhAFaEwr42O"
+    ],
+    "Task": [
+      "recpjlRX9YhFxL09Q"
+    ],
+    "Ore Effettive": 20,
+    "Descrizione": "Avvio scavi meccanizzati, incontro ostacolo roccioso.",
+    "ID": 2423
+  },
+  {
+    "Data": "2025-04-25",
+    "Risorse": [
+      "recVKbPhAFaEwr42O"
+    ],
+    "Task": [
+      "recpjlRX9YhFxL09Q"
+    ],
+    "Ore Effettive": 18,
+    "Descrizione": "Rimozione ostacolo, recupero parziale del ritardo.",
+    "ID": 2424
+  },
+  {
+    "Data": "2025-05-03",
+    "Risorse": [
+      "recVKbPhAFaEwr42O"
+    ],
+    "Task": [
+      "recpjlRX9YhFxL09Q"
+    ],
+    "Ore Effettive": 20,
+    "Descrizione": "Prosecuzione scavi, controlli geotecnici ok.",
+    "ID": 2425
+  },
+  {
+    "Data": "2025-05-10",
+    "Risorse": [
+      "recVKbPhAFaEwr42O"
+    ],
+    "Task": [
+      "recpjlRX9YhFxL09Q"
+    ],
+    "Ore Effettive": 20,
+    "Descrizione": "Chiusura scavi tratto 1, attività conclusa con +2 giorni.",
+    "ID": 2426
+  },
+  {
+    "Data": "2025-05-21",
+    "Risorse": [
+      "receFC1ex8OLG8fJd"
+    ],
+    "Task": [
+      "recmbGuGqhDNsK8yK"
+    ],
+    "Ore Effettive": 12,
+    "Descrizione": "Posa tubi sezione 0-500 m, condizioni meteo ottimali.",
+    "ID": 2427
+  },
+  {
+    "Data": "2025-05-28",
+    "Risorse": [
+      "receFC1ex8OLG8fJd"
+    ],
+    "Task": [
+      "recmbGuGqhDNsK8yK"
+    ],
+    "Ore Effettive": 11,
+    "Descrizione": "Allineamento e tack welding, ispezione dimensionale.",
+    "ID": 2428
+  },
+  {
+    "Data": "2025-06-04",
+    "Risorse": [
+      "receFC1ex8OLG8fJd"
+    ],
+    "Task": [
+      "recmbGuGqhDNsK8yK"
+    ],
+    "Ore Effettive": 12,
+    "Descrizione": "Progresso posa 60%, lieve ritardo per pioggia improvvisa.",
+    "ID": 2429
+  },
+  {
+    "Data": "2025-09-02",
+    "Risorse": [
+      "recaab3TdqCsbvLqD"
+    ],
+    "Task": [
+      "recgaI91l32RXQI9c"
+    ],
+    "Ore Effettive": 12,
+    "Descrizione": "Analisi carichi ambientali, definizione parametri base.",
+    "ID": 2430
+  },
+  {
+    "Data": "2025-09-08",
+    "Risorse": [
+      "recaab3TdqCsbvLqD"
+    ],
+    "Task": [
+      "recgaI91l32RXQI9c"
+    ],
+    "Ore Effettive": 10,
+    "Descrizione": "Model update e calcoli FEM, revisione con team inglese.",
+    "ID": 2431
+  },
+  {
+    "Data": "2025-09-15",
+    "Risorse": [
+      "recaab3TdqCsbvLqD"
+    ],
+    "Task": [
+      "recgaI91l32RXQI9c"
+    ],
+    "Ore Effettive": 10,
+    "Descrizione": "Preparazione deliverable preliminare, 50% completata.",
+    "ID": 2432
+  }
+]
