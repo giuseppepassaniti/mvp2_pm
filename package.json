@@ -5,6 +5,6 @@
   "main": "scripts/export.js",
   "license": "MIT",
   "dependencies": {
-    "airtable": "^0.13.2"
+    "airtable": "^0.13.0"
   }
 }
