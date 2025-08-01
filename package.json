@@ -1,0 +1,13 @@
+
+{
+  "name": "engineering-dashboard",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Dashboard KPI per società di progettazione ingegneristica",
+  "scripts": {
+    "export": "node .github/scripts/export.js"
+  },
+  "dependencies": {
+    "airtable": "^0.13.0"
+  }
+}
