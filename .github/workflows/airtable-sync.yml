@@ -1,23 +1,36 @@
-name: Airtable Daily Sync
+name: Sync Airtable → JSON
 
 on:
+  workflow_dispatch:          # avvio manuale
   schedule:
-    - cron: '0 2 * * *'   # ogni giorno alle 02:00 UTC
-  workflow_dispatch:      # pulsante “Run workflow”
+    - cron: '0 2 * * *'       # ogni giorno alle 02:00 UTC
 
 jobs:
-  export:
+  sync:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: npm ci
-      - run: node scripts/export.js
+
+      - name: Install deps
+        run: npm install            # legge il package.json che hai appena aggiunto
+
+      - name: Export Airtable tables
+        run: node scripts/export.js
         env:
           AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
           AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
-      - uses: stefanzweifel/git-auto-commit-action@v5
-        with:
-          commit_message: 'chore(data): daily Airtable sync'
+
+      - name: Commit & push new JSON
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name  "github-actions[bot]"
+          git add data/*.json
+          git commit -m "chore: daily Airtable sync" || echo "niente da committare"
+          git push
