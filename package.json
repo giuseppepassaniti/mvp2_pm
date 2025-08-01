@@ -1,13 +1,10 @@
-
 {
-  "name": "engineering-dashboard",
+  "name": "airtable-sync",
   "version": "1.0.0",
-  "type": "module",
-  "description": "Dashboard KPI per società di progettazione ingegneristica",
-  "scripts": {
-    "export": "node .github/scripts/export.js"
-  },
+  "description": "Sync Airtable tables to JSON files",
+  "main": "scripts/export.js",
+  "license": "MIT",
   "dependencies": {
-    "airtable": "^0.13.0"
+    "airtable": "^0.13.2"
   }
 }
