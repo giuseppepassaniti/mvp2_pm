@@ -1,0 +1,23 @@
+name: Airtable Daily Sync
+
+on:
+  schedule:
+    - cron: '0 2 * * *'   # ogni giorno alle 02:00 UTC
+  workflow_dispatch:      # pulsante “Run workflow”
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - run: npm ci
+      - run: node scripts/export.js
+        env:
+          AIRTABLE_TOKEN: ${{ secrets.AIRTABLE_TOKEN }}
+          AIRTABLE_BASE_ID: ${{ secrets.AIRTABLE_BASE_ID }}
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: 'chore(data): daily Airtable sync'
