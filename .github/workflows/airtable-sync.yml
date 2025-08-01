@@ -5,6 +5,9 @@ on:
   schedule:
     - cron: '0 2 * * *'       # ogni giorno alle 02:00 UTC
 
+permissions:
+  contents: write        # abilita il push con GITHUB_TOKEN
+
 jobs:
   sync:
     runs-on: ubuntu-latest
