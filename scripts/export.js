@@ -27,27 +27,15 @@ const OUT_DIR = 'data';
 
 if (!fs.existsSync(OUT_DIR)) fs.mkdirSync(OUT_DIR);
 
-(async () => {
-  for (const tbl of TABLES) {
-    const rows = [];
-    await base(tbl)
-      .select({ view: 'Grid view' })
-      .eachPage(
-        (page, next) => {
-          rows.push(
-            ...page.map(r => ({
-              id: r.id,
-              ...r.fields
-            }))
-          );
-          next();
-        },
-        err => {
-          if (err) throw err;
-        }
-      );
-    const file = path.join(OUT_DIR, `${tbl.toLowerCase()}.json`);
-    fs.writeFileSync(file, JSON.stringify(rows, null, 2));
-    console.log(`✔  ${tbl} salvata in ${file}`);
+;(async () => {
+  try {
+    await Promise.all(
+      tables.map(t => exportTable(t.name, t.view))   // o come l'hai chiamato
+    )
+    console.log('✅ Export completato senza errori')
+  } catch (err) {
+    console.error('❌ Errore durante l’export:\n', err)
+    process.exit(1)         // fa fallire il job ma con messaggio chiaro
   }
-})();
+})()
+();
