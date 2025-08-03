@@ -166,5 +166,125 @@
     "Data Imprevisti": "2025-05-09",
     "Stato": "Aperto",
     "Rischio Previsioanle": "Significativo impatto su timeline progettazione e procurement."
+  },
+  {
+    "Titolo Imprevisto": "Ritardo consegna vessel principale",
+    "Descrizione Problema": "Il fornitore tedesco ha consegnato il vessel principale con 10 giorni di ritardo.",
+    "Tipo": "Fornitore",
+    "Criticità": "Alta",
+    "Progetto": [
+      "reclvoCbPDdaj8mbg"
+    ],
+    "Data Imprevisti": "2024-03-18",
+    "Stato": "Risolto",
+    "Rischio Previsioanle": "Slittamento avvio assemblaggio skid e test preliminari."
+  },
+  {
+    "Titolo Imprevisto": "Difetto saldatura piping skid",
+    "Descrizione Problema": "Durante i controlli NDT sono state riscontrate porosità in alcune saldature piping.",
+    "Tipo": "Qualità",
+    "Criticità": "Media",
+    "Progetto": [
+      "reclvoCbPDdaj8mbg"
+    ],
+    "Data Imprevisti": "2024-05-10",
+    "Stato": "Risolto",
+    "Rischio Previsioanle": "Necessaria ripresa saldature, ritardo minimo su fabbricazione."
+  },
+  {
+    "Titolo Imprevisto": "Problema software PLC",
+    "Descrizione Problema": "Bug nel software di controllo PLC rilevato durante il commissioning.",
+    "Tipo": "Tecnico",
+    "Criticità": "Media",
+    "Progetto": [
+      "reclvoCbPDdaj8mbg"
+    ],
+    "Data Imprevisti": "2024-08-10",
+    "Stato": "Risolto",
+    "Rischio Previsioanle": "Ritardo di 3 giorni su test funzionali e collaudo."
+  },
+  {
+    "Titolo Imprevisto": "Ritardo doganale componenti elettronici",
+    "Descrizione Problema": "Fermo doganale di 5 giorni su sensori di pressione importati dagli USA.",
+    "Tipo": "Logistica",
+    "Criticità": "Media",
+    "Progetto": [
+      "reclvoCbPDdaj8mbg"
+    ],
+    "Data Imprevisti": "2024-03-28",
+    "Stato": "Risolto",
+    "Rischio Previsioanle": "Ritardo su installazione strumentazione e test preliminari."
+  },
+  {
+    "Titolo Imprevisto": "Guasto pompa collaudo FAT",
+    "Descrizione Problema": "Guasto improvviso della pompa di collaudo durante test FAT.",
+    "Tipo": "Tecnico",
+    "Criticità": "Alta",
+    "Progetto": [
+      "reclvoCbPDdaj8mbg"
+    ],
+    "Data Imprevisti": "2024-09-25",
+    "Stato": "Risolto",
+    "Rischio Previsioanle": "Necessaria sostituzione pompa, slittamento collaudo di 2 giorni."
+  },
+  {
+    "Titolo Imprevisto": "Ritardo consegna fondi vessel",
+    "Descrizione Problema": "Il fornitore ha consegnato i fondi vessel con 7 giorni di ritardo.",
+    "Tipo": "Fornitore",
+    "Criticità": "Alta",
+    "Progetto": [
+      "recCIG6SqTtDxExaF"
+    ],
+    "Data Imprevisti": "2024-04-10",
+    "Stato": "Risolto",
+    "Rischio Previsioanle": "Slittamento avvio saldature guscio e fondi."
+  },
+  {
+    "Titolo Imprevisto": "Difetti saldature rilevati ai controlli NDT",
+    "Descrizione Problema": "Porosità rilevate durante controlli radiografici sulle saldature principali.",
+    "Tipo": "Qualità",
+    "Criticità": "Media",
+    "Progetto": [
+      "recCIG6SqTtDxExaF"
+    ],
+    "Data Imprevisti": "2024-06-15",
+    "Stato": "Risolto",
+    "Rischio Previsioanle": "Necessaria ripresa saldature, ritardo"
+  },
+  {
+    "Titolo Imprevisto": "Guasto forno trattamenti termici",
+    "Descrizione Problema": "Malfunzionamento temporaneo del forno per trattamenti termici.",
+    "Tipo": "Tecnico",
+    "Criticità": "Media",
+    "Progetto": [
+      "recCIG6SqTtDxExaF"
+    ],
+    "Data Imprevisti": "2024-07-27",
+    "Stato": "Risolto",
+    "Rischio Previsioanle": "Ritardo minimo sulle attività di trattamento termico."
+  },
+  {
+    "Titolo Imprevisto": "Ritardo fornitura valvole di sicurezza",
+    "Descrizione Problema": "Fermo doganale di 5 giorni su valvole di sicurezza importate.",
+    "Tipo": "Logistica",
+    "Criticità": "Media",
+    "Progetto": [
+      "recCIG6SqTtDxExaF"
+    ],
+    "Data Imprevisti": "2024-05-02",
+    "Stato": "Risolto",
+    "Rischio Previsioanle": "Ritardo su installazione valvole e test preliminari."
+  },
+  {
+    "Titolo Imprevisto": "Problema taratura strumenti di pressione",
+    "Descrizione Problema": "Errore di taratura rilevato durante collaudo funzionale.",
+    "Tipo": "Tecnico",
+    "Criticità": "Bassa",
+    "Progetto": [
+      "recCIG6SqTtDxExaF"
+    ],
+    "Data Imprevisti": "2024-10-05",
+    "Stato": "Risolto",
+    "Rischio Previsioanle": "Risolto in 2 giorni, nessun impatto su consegna."
   }
 ]

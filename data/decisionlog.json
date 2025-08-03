@@ -33,6 +33,28 @@
     ]
   },
   {
+    "Decisione": "Approvazione sostituzione materiale guarnizioni",
+    "Responsabile": [
+      "recYghHAsaaEXsLfa"
+    ],
+    "Data Decisione": "2024-05-12",
+    "Motivazione": "Richiesta QA per compatibilità con gas acidi.",
+    "Progetto": [
+      "reclvoCbPDdaj8mbg"
+    ]
+  },
+  {
+    "Decisione": "Approvazione sostituzione materiale fondi vessel",
+    "Responsabile": [
+      "receFC1ex8OLG8fJd"
+    ],
+    "Data Decisione": "2024-04-15",
+    "Motivazione": "Accolta richiesta ufficio tecnico per utilizzo acciaio 16Mo3.",
+    "Progetto": [
+      "recCIG6SqTtDxExaF"
+    ]
+  },
+  {
     "Decisione": "Valutazione impatto modulo compressione gas",
     "Responsabile": [
       "recaab3TdqCsbvLqD"
@@ -41,6 +63,17 @@
     "Motivazione": "Analisi impatto tempi e costi per integrazione modulo compressione su topside.",
     "Progetto": [
       "recI5CcCweinr4QcG"
+    ]
+  },
+  {
+    "Decisione": "Approvazione upgrade valvole di sicurezza",
+    "Responsabile": [
+      "recaab3TdqCsbvLqD"
+    ],
+    "Data Decisione": "2024-05-05",
+    "Motivazione": "Richiesta QA per sostituzione valvole con modello SIL3.",
+    "Progetto": [
+      "recCIG6SqTtDxExaF"
     ]
   },
   {
@@ -55,6 +88,50 @@
     ]
   },
   {
+    "Decisione": "Approvazione upgrade strumentazione pressione",
+    "Responsabile": [
+      "recoQKICo0cKv3xQB"
+    ],
+    "Data Decisione": "2024-07-07",
+    "Motivazione": "Accolta proposta tecnica per sostituzione trasmettitori con modelli digitali.",
+    "Progetto": [
+      "reclvoCbPDdaj8mbg"
+    ]
+  },
+  {
+    "Decisione": "Approvazione attacco supplementare DN80",
+    "Responsabile": [
+      "receFC1ex8OLG8fJd"
+    ],
+    "Data Decisione": "2024-05-28",
+    "Motivazione": "Accolta richiesta cliente per attacco supplementare su guscio vessel.",
+    "Progetto": [
+      "recCIG6SqTtDxExaF"
+    ]
+  },
+  {
+    "Decisione": "Approvazione modifica ciclo verniciatura",
+    "Responsabile": [
+      "receFC1ex8OLG8fJd"
+    ],
+    "Data Decisione": "2024-08-12",
+    "Motivazione": "Richiesta cliente per primer epossidico per ambiente marino.",
+    "Progetto": [
+      "recCIG6SqTtDxExaF"
+    ]
+  },
+  {
+    "Decisione": "Autorizzazione implementazione monitoraggio remoto",
+    "Responsabile": [
+      "recoQKICo0cKv3xQB"
+    ],
+    "Data Decisione": "2024-08-22",
+    "Motivazione": "Accolta richiesta cliente per aggiunta sistema di monitoraggio remoto.",
+    "Progetto": [
+      "reclvoCbPDdaj8mbg"
+    ]
+  },
+  {
     "Decisione": "Approvazione variazione tracciato pipeline",
     "Responsabile": [
       "recptRaZSw5EatE6Q"
@@ -63,6 +140,17 @@
     "Motivazione": "Spostamento tracciato per vincoli ambientali imprevisti.",
     "Progetto": [
       "recQ9e73aqoD5c71t"
+    ]
+  },
+  {
+    "Decisione": "Approvazione variante bypass manuale",
+    "Responsabile": [
+      "recoQKICo0cKv3xQB"
+    ],
+    "Data Decisione": "2024-04-18",
+    "Motivazione": "Accolta richiesta cliente per aggiunta valvola bypass su linea principale.",
+    "Progetto": [
+      "reclvoCbPDdaj8mbg"
     ]
   },
   {
@@ -85,6 +173,28 @@
     "Motivazione": "Ritardo fornitore principale, necessario acquisto da fornitore alternativo.",
     "Progetto": [
       "recQ9e73aqoD5c71t"
+    ]
+  },
+  {
+    "Decisione": "Autorizzazione ordine materiali senza certificazione completa",
+    "Responsabile": [
+      "recYghHAsaaEXsLfa"
+    ],
+    "Data Decisione": "2024-03-20",
+    "Motivazione": "Necessità di anticipare l’ordine per rispettare la timeline nonostante",
+    "Progetto": [
+      "reclvoCbPDdaj8mbg"
+    ]
+  },
+  {
+    "Decisione": "Autorizzazione acquisto valvole alternative",
+    "Responsabile": [
+      "recuUN6quFcAzCWle"
+    ],
+    "Data Decisione": "2024-05-03",
+    "Motivazione": "Ritardo fornitura principale, necessario acquisto da fornitore alternativo.",
+    "Progetto": [
+      "recCIG6SqTtDxExaF"
     ]
   },
   {

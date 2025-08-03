@@ -33,6 +33,39 @@
     "Data Variante": "2024-04-06"
   },
   {
+    "Variante": "Aggiunta attacco supplementare DN80",
+    "Descrizione Variante": "Richiesta cliente per attacco supplementare DN80 su guscio.",
+    "Progetto": [
+      "recCIG6SqTtDxExaF"
+    ],
+    "Impatto Tempi (in giorni)": 4,
+    "Impatto Costi": 14500,
+    "Stato": "Approvata",
+    "Data Variante": "2024-05-25"
+  },
+  {
+    "Variante": "Upgrade strumentazione pressione",
+    "Descrizione Variante": "Sostituzione trasmettitori pressione con modelli digitali.",
+    "Progetto": [
+      "reclvoCbPDdaj8mbg"
+    ],
+    "Impatto Tempi (in giorni)": 2,
+    "Impatto Costi": 6200,
+    "Stato": "Approvata",
+    "Data Variante": "2024-07-05"
+  },
+  {
+    "Variante": "Sostituzione materiale guarnizioni",
+    "Descrizione Variante": "Utilizzo guarnizioni in PTFE per compatibilità con gas acidi.",
+    "Progetto": [
+      "reclvoCbPDdaj8mbg"
+    ],
+    "Impatto Tempi (in giorni)": 1,
+    "Impatto Costi": 3200,
+    "Stato": "Approvata",
+    "Data Variante": "2024-05-10"
+  },
+  {
     "Variante": "Upgrade Strumentazione",
     "Descrizione Variante": "Sostituzione strumentazione di livello con sensori radar ad alta precisione.",
     "Progetto": [
@@ -55,6 +88,17 @@
     "Data Variante": "2025-09-22"
   },
   {
+    "Variante": "Upgrade valvole di sicurezza",
+    "Descrizione Variante": "Sostituzione valvole di sicurezza con modello certificato SIL3.",
+    "Progetto": [
+      "recCIG6SqTtDxExaF"
+    ],
+    "Impatto Tempi (in giorni)": 2,
+    "Impatto Costi": 5600,
+    "Stato": "Approvata",
+    "Data Variante": "2024-05-02"
+  },
+  {
     "Variante": "Richiesta Cliente",
     "Descrizione Variante": "Richiesta cliente di aggiunta di un attacco supplementare DN50",
     "Progetto": [
@@ -64,6 +108,28 @@
     "Impatto Costi": 18000,
     "Stato": "Approvata",
     "Data Variante": "2025-06-25"
+  },
+  {
+    "Variante": "Implementazione monitoraggio remoto",
+    "Descrizione Variante": "Aggiunta sistema di monitoraggio remoto su richiesta cliente.",
+    "Progetto": [
+      "reclvoCbPDdaj8mbg"
+    ],
+    "Impatto Tempi (in giorni)": 4,
+    "Impatto Costi": 12500,
+    "Stato": "Approvata",
+    "Data Variante": "2024-08-20"
+  },
+  {
+    "Variante": "Aggiunta valvola bypass manuale",
+    "Descrizione Variante": "Richiesta cliente per aggiunta valvola bypass su linea principale.",
+    "Progetto": [
+      "reclvoCbPDdaj8mbg"
+    ],
+    "Impatto Tempi (in giorni)": 3,
+    "Impatto Costi": 9500,
+    "Stato": "Approvata",
+    "Data Variante": "2024-04-15"
   },
   {
     "Variante": "Variazione Tracciato",
@@ -97,6 +163,28 @@
     "Impatto Costi": 75000,
     "Stato": "In valutazione",
     "Data Variante": "2025-10-15"
+  },
+  {
+    "Variante": "Sostituzione materiale fondi vessel",
+    "Descrizione Variante": "Utilizzo acciaio 16Mo3 al posto di P355NL2 per i fondi vessel.",
+    "Progetto": [
+      "recCIG6SqTtDxExaF"
+    ],
+    "Impatto Tempi (in giorni)": 5,
+    "Impatto Costi": 9800,
+    "Stato": "Approvata",
+    "Data Variante": "2024-04-12"
+  },
+  {
+    "Variante": "Modifica ciclo verniciatura",
+    "Descrizione Variante": "Aggiunta primer epossidico per ambiente marino.",
+    "Progetto": [
+      "recCIG6SqTtDxExaF"
+    ],
+    "Impatto Tempi (in giorni)": 3,
+    "Impatto Costi": 7200,
+    "Stato": "Approvata",
+    "Data Variante": "2024-08-10"
   },
   {
     "Variante": "Modifica verniciatura",
