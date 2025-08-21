@@ -1,5 +1,6 @@
 [
   {
+    "id": "rec0nRjkF5xzRCBVG",
     "Variante": "Modifica Ciclo Lavoro",
     "Descrizione Variante": "Modifica del ciclo di verniciatura su richiesta cliente (aggiunta primer speciale)",
     "Progetto": [
@@ -11,6 +12,7 @@
     "Data Variante": "2025-08-10"
   },
   {
+    "id": "rec2uwORmAvi4JeeK",
     "Variante": "Rivestimento Anticorrosione",
     "Descrizione Variante": "Aggiunta rivestimento anticorrosione 3LPE su tutta la pipeline.",
     "Progetto": [
@@ -22,6 +24,7 @@
     "Data Variante": "2025-06-06"
   },
   {
+    "id": "rec57qnaHzAzH51tm",
     "Variante": "Sostituzione Materiale",
     "Descrizione Variante": "Sostituzione materiale raccordi su richiesta cliente.",
     "Progetto": [
@@ -33,6 +36,7 @@
     "Data Variante": "2024-04-06"
   },
   {
+    "id": "rec9nXqtj4oc9MMVF",
     "Variante": "Aggiunta attacco supplementare DN80",
     "Descrizione Variante": "Richiesta cliente per attacco supplementare DN80 su guscio.",
     "Progetto": [
@@ -44,6 +48,7 @@
     "Data Variante": "2024-05-25"
   },
   {
+    "id": "recFNvH7IWZLCapEW",
     "Variante": "Upgrade strumentazione pressione",
     "Descrizione Variante": "Sostituzione trasmettitori pressione con modelli digitali.",
     "Progetto": [
@@ -55,6 +60,7 @@
     "Data Variante": "2024-07-05"
   },
   {
+    "id": "recJ92M3wkqxJ8JFE",
     "Variante": "Sostituzione materiale guarnizioni",
     "Descrizione Variante": "Utilizzo guarnizioni in PTFE per compatibilità con gas acidi.",
     "Progetto": [
@@ -66,6 +72,7 @@
     "Data Variante": "2024-05-10"
   },
   {
+    "id": "recKWHVOjQbG9yRAt",
     "Variante": "Upgrade Strumentazione",
     "Descrizione Variante": "Sostituzione strumentazione di livello con sensori radar ad alta precisione.",
     "Progetto": [
@@ -77,6 +84,7 @@
     "Data Variante": "2025-07-02"
   },
   {
+    "id": "recRHwwU9RO600oPz",
     "Variante": "Cambio Materiale Bulloni",
     "Descrizione Variante": "Utilizzo bulloni ad alta resistenza 42CrMo4 al posto di A325.",
     "Progetto": [
@@ -88,6 +96,7 @@
     "Data Variante": "2025-09-22"
   },
   {
+    "id": "recaf5btcXoVe8PA1",
     "Variante": "Upgrade valvole di sicurezza",
     "Descrizione Variante": "Sostituzione valvole di sicurezza con modello certificato SIL3.",
     "Progetto": [
@@ -99,6 +108,7 @@
     "Data Variante": "2024-05-02"
   },
   {
+    "id": "recdQTrRE1N7hd7uS",
     "Variante": "Richiesta Cliente",
     "Descrizione Variante": "Richiesta cliente di aggiunta di un attacco supplementare DN50",
     "Progetto": [
@@ -110,6 +120,7 @@
     "Data Variante": "2025-06-25"
   },
   {
+    "id": "recdhB7RgEJzIuBoV",
     "Variante": "Implementazione monitoraggio remoto",
     "Descrizione Variante": "Aggiunta sistema di monitoraggio remoto su richiesta cliente.",
     "Progetto": [
@@ -121,6 +132,7 @@
     "Data Variante": "2024-08-20"
   },
   {
+    "id": "receyiHdbCDjHbUzf",
     "Variante": "Aggiunta valvola bypass manuale",
     "Descrizione Variante": "Richiesta cliente per aggiunta valvola bypass su linea principale.",
     "Progetto": [
@@ -132,6 +144,7 @@
     "Data Variante": "2024-04-15"
   },
   {
+    "id": "recmYJdpGTP0pYEQP",
     "Variante": "Variazione Tracciato",
     "Descrizione Variante": "Spostamento tracciato di 50 m per evitare area protetta.",
     "Progetto": [
@@ -143,6 +156,7 @@
     "Data Variante": "2025-04-12"
   },
   {
+    "id": "recoMxScwoybEgM4W",
     "Variante": "Richiesta Cliente",
     "Descrizione Variante": "Aggiunta linea di bypass manuale per scarico condensa.",
     "Progetto": [
@@ -154,6 +168,7 @@
     "Data Variante": "2025-05-18"
   },
   {
+    "id": "recp4NK7x8dg01AmS",
     "Variante": "Integrazione Modulo Compressione",
     "Descrizione Variante": "Aggiunta modulo di compressione gas sul topside per future espansioni.",
     "Progetto": [
@@ -165,6 +180,7 @@
     "Data Variante": "2025-10-15"
   },
   {
+    "id": "recuDbg7C0ApNysPU",
     "Variante": "Sostituzione materiale fondi vessel",
     "Descrizione Variante": "Utilizzo acciaio 16Mo3 al posto di P355NL2 per i fondi vessel.",
     "Progetto": [
@@ -176,6 +192,7 @@
     "Data Variante": "2024-04-12"
   },
   {
+    "id": "recyoUTrap1KkAe3e",
     "Variante": "Modifica ciclo verniciatura",
     "Descrizione Variante": "Aggiunta primer epossidico per ambiente marino.",
     "Progetto": [
@@ -187,6 +204,7 @@
     "Data Variante": "2024-08-10"
   },
   {
+    "id": "reczfvrTFIHlXVHVJ",
     "Variante": "Modifica verniciatura",
     "Descrizione Variante": "Modifica ciclo verniciatura con primer speciale",
     "Progetto": [

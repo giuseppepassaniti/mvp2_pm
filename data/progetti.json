@@ -1,5 +1,6 @@
 [
   {
+    "id": "recb97Ftmgx6WsHpt",
     "Id Progetto": "PV-2025-01",
     "Nome Progetto": "Pressure Vessel_Eni",
     "Cliente": "ENI S.p.A.",
@@ -51,6 +52,7 @@
     "Conteggio Imprevisti": 2
   },
   {
+    "id": "recQfUWcES81PFvJ8",
     "Id Progetto": "PV-2024-01",
     "Nome Progetto": "Pressure Vessel_Snam",
     "Cliente": "Snam S.p.A.",
@@ -103,6 +105,7 @@
     "Conteggio Imprevisti": 3
   },
   {
+    "id": "recE63KeYDyZSJq89",
     "Id Progetto": "SEP-2025-02",
     "Nome Progetto": "Separator Unit_Shell",
     "Cliente": "Shell UK Ltd.",
@@ -154,6 +157,7 @@
     "Conteggio Imprevisti": 3
   },
   {
+    "id": "recQ9e73aqoD5c71t",
     "Id Progetto": "G.PIPE-2025-03",
     "Nome Progetto": "Gas Pipeline_BP",
     "Cliente": "BP Exploration Ltd.",
@@ -206,6 +210,7 @@
     "Conteggio Imprevisti": 4
   },
   {
+    "id": "recI5CcCweinr4QcG",
     "Id Progetto": "OFF.P-2025-04",
     "Nome Progetto": "Offshore Platform_Total",
     "Cliente": "TotalEnergies SE",
@@ -254,6 +259,7 @@
     "Conteggio Imprevisti": 2
   },
   {
+    "id": "reclvoCbPDdaj8mbg",
     "Id Progetto": "G.Dh-2024-02",
     "Nome Progetto": "Gas Dehydration Skid_Exxon",
     "Cliente": "ExxonMobil Ltd.",
@@ -307,6 +313,7 @@
     "Conteggio Imprevisti": 5
   },
   {
+    "id": "recCIG6SqTtDxExaF",
     "Id Progetto": "PV-2024-03",
     "Nome Progetto": "Pressure Vessel_Total",
     "Cliente": "TotalEnergies SE",

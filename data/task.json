@@ -1,5 +1,6 @@
 [
   {
+    "id": "rec5CjQ3LOafuFS0H",
     "Titolo Task": "Saldatura Guscio Principale",
     "Descrizione Task": "Esecuzione delle saldature principali sul guscio del Pressure Vessel secondo specifiche di progetto",
     "Owner": [
@@ -24,6 +25,7 @@
     "Id Task": "184 | Saldatura Guscio Principale | PV-2024-01"
   },
   {
+    "id": "rec9d51v1pksAdtpX",
     "Titolo Task": "Controlli NDT sulle Saldature",
     "Descrizione Task": "Esecuzione di controlli non distruttivi (NDT) sulle saldature principali per verifica integrità",
     "Owner": [
@@ -47,6 +49,7 @@
     "Id Task": "185 | Controlli NDT sulle Saldature | PV-2024-01"
   },
   {
+    "id": "recRVh4JlBPjAPJ9D",
     "Titolo Task": "Taglio Lamiere e Assemblaggio Iniziale",
     "Descrizione Task": "Taglio delle lamiere secondo disegno tecnico e assemblaggio dei primi componenti.",
     "Owner": [
@@ -70,6 +73,7 @@
     "Id Task": "186 | Taglio Lamiere e Assemblaggio Iniziale | PV-2024-01"
   },
   {
+    "id": "recwrf9Og12NwiY2X",
     "Titolo Task": "Trattamento Termico Post-Saldatura",
     "Descrizione Task": "Esecuzione del trattamento termico per rilascio delle tensioni residue dopo saldatura",
     "Owner": [
@@ -93,6 +97,7 @@
     "Id Task": "187 | Trattamento Termico Post-Saldatura | PV-2024-01"
   },
   {
+    "id": "rec2cYKFPydIbwOeW",
     "Titolo Task": "Verniciatura Esterna Pressure Vessel",
     "Descrizione Task": "Applicazione del rivestimento protettivo esterno secondo specifiche cliente.",
     "Owner": [
@@ -116,6 +121,7 @@
     "Id Task": "188 | Verniciatura Esterna Pressure Vessel | PV-2024-01"
   },
   {
+    "id": "recRNHLAxgKp7yotg",
     "Titolo Task": "Preparazione Documentazione di Spedizione",
     "Descrizione Task": "Preparazione e verifica della documentazione necessaria per la spedizione del Pressure Vessel.",
     "Owner": [
@@ -139,6 +145,7 @@
     "Id Task": "189 | Preparazione Documentazione di Spedizione | PV-2024-01"
   },
   {
+    "id": "recUJXJCyvQI4s1pU",
     "Titolo Task": "Ispezione Qualità Intermedia",
     "Descrizione Task": "Verifica intermedia della qualità delle lavorazioni e delle saldature secondo standard PED",
     "Owner": [
@@ -162,6 +169,7 @@
     "Id Task": "190 | Ispezione Qualità Intermedia | PV-2024-01"
   },
   {
+    "id": "recxV8QMGNYzVt8ti",
     "Titolo Task": "Assemblaggio Componenti Interni",
     "Descrizione Task": "Montaggio e fissaggio dei componenti interni del Pressure Vessel secondo disegno tecnico.",
     "Owner": [
@@ -185,6 +193,7 @@
     "Id Task": "191 | Assemblaggio Componenti Interni | PV-2024-01"
   },
   {
+    "id": "recsah9vupqls0jdI",
     "Titolo Task": "Saldatura Raccordi e Attacchi",
     "Descrizione Task": "Esecuzione delle saldature per il montaggio di raccordi, bocchelli e attacchi secondari sul Pressure Vessel",
     "Owner": [
@@ -209,6 +218,7 @@
     "Id Task": "192 | Saldatura Raccordi e Attacchi | PV-2024-01"
   },
   {
+    "id": "rectVSrVivtIG9nQy",
     "Titolo Task": "Taglio Lamiere e Assemblaggio Iniziale",
     "Descrizione Task": "Taglio delle lamiere secondo disegno tecnico e assemblaggio dei primi componenti.",
     "Owner": [
@@ -233,6 +243,7 @@
     "Id Task": "193 | Taglio Lamiere e Assemblaggio Iniziale | PV-2025-01"
   },
   {
+    "id": "rec0Ap4nSo2OA4Ewo",
     "Titolo Task": "Saldatura Guscio Principale",
     "Descrizione Task": "Esecuzione delle saldature principali sul guscio del Pressure Vessel secondo specifiche di progetto",
     "Owner": [
@@ -258,6 +269,7 @@
     "Id Task": "194 | Saldatura Guscio Principale | PV-2025-01"
   },
   {
+    "id": "recAj1fB7v22tUYgy",
     "Titolo Task": "Assemblaggio Componenti Interni",
     "Descrizione Task": "Montaggio e fissaggio dei componenti interni del Pressure Vessel secondo disegno tecnico.",
     "Owner": [
@@ -281,6 +293,7 @@
     "Id Task": "198 | Assemblaggio Componenti Interni | PV-2025-01"
   },
   {
+    "id": "recEPM6HPcWPlGAXU",
     "Titolo Task": "Controlli NDT sulle Saldature",
     "Descrizione Task": "Esecuzione di controlli non distruttivi (NDT) sulle saldature principali per verifica integrità",
     "Owner": [
@@ -305,6 +318,7 @@
     "Id Task": "195 | Controlli NDT sulle Saldature | PV-2025-01"
   },
   {
+    "id": "recbTuVu6zEn3zTDw",
     "Titolo Task": "Saldatura Raccordi e Attacchi",
     "Descrizione Task": "Esecuzione delle saldature per il montaggio di raccordi, bocchelli e attacchi secondari sul Pressure Vessel",
     "Owner": [
@@ -327,6 +341,7 @@
     "Id Task": "196 | Saldatura Raccordi e Attacchi | PV-2025-01"
   },
   {
+    "id": "receAGFLnvymEecWH",
     "Titolo Task": "Trattamento Termico Post-Saldatura",
     "Descrizione Task": "Esecuzione del trattamento termico per rilascio delle tensioni residue dopo saldatura",
     "Owner": [
@@ -350,6 +365,7 @@
     "Id Task": "199 | Trattamento Termico Post-Saldatura | PV-2025-01"
   },
   {
+    "id": "recfikmuQZXikEGY0",
     "Titolo Task": "Ispezione Qualità Intermedia",
     "Descrizione Task": "Verifica intermedia della qualità delle lavorazioni e delle saldature secondo standard PED",
     "Owner": [
@@ -373,6 +389,7 @@
     "Id Task": "197 | Ispezione Qualità Intermedia | PV-2025-01"
   },
   {
+    "id": "recggLNOg2LjQVSqj",
     "Titolo Task": "Verniciatura Esterna Pressure Vessel",
     "Descrizione Task": "Applicazione del rivestimento protettivo esterno secondo specifiche cliente.",
     "Owner": [
@@ -396,6 +413,7 @@
     "Id Task": "200 | Verniciatura Esterna Pressure Vessel | PV-2025-01"
   },
   {
+    "id": "recr6FAZwGGCA8JIK",
     "Titolo Task": "Preparazione Documentazione di Spedizione",
     "Descrizione Task": "Preparazione e verifica della documentazione necessaria per la spedizione del Pressure Vessel.",
     "Owner": [
@@ -419,6 +437,7 @@
     "Id Task": "201 | Preparazione Documentazione di Spedizione | PV-2025-01"
   },
   {
+    "id": "recITV9ChV1LCko8r",
     "Titolo Task": "Progettazione Dettagliata Separatori",
     "Descrizione Task": "Progettazione tecnica dettagliata delle unità di separazione gas-liquido",
     "Owner": [
@@ -443,6 +462,7 @@
     "Id Task": "228 | Progettazione Dettagliata Separatori | SEP-2025-02"
   },
   {
+    "id": "recWRfSfGGSinWZrr",
     "Titolo Task": "Ordine Materiali Speciali",
     "Descrizione Task": "Ordine di materiali speciali per componenti critici del separatore",
     "Owner": [
@@ -466,6 +486,7 @@
     "Id Task": "229 | Ordine Materiali Speciali | SEP-2025-02"
   },
   {
+    "id": "recrNKXrt5WkBmvux",
     "Titolo Task": "Taglio Lamiere Separatori",
     "Descrizione Task": "Taglio delle lamiere per la costruzione dei vessel separatori",
     "Owner": [
@@ -490,6 +511,7 @@
     "Id Task": "230 | Taglio Lamiere Separatori | SEP-2025-02"
   },
   {
+    "id": "rec2l4P4QhhLG21d7",
     "Titolo Task": "Assemblaggio Internals",
     "Descrizione Task": "Assemblaggio dei componenti interni del separatore (demister, distributori)",
     "Owner": [
@@ -514,6 +536,7 @@
     "Id Task": "231 | Assemblaggio Internals | SEP-2025-02"
   },
   {
+    "id": "recYY2ROBvO1A2029",
     "Titolo Task": "Saldatura Gusci Principali",
     "Descrizione Task": "Saldatura dei gusci principali delle unità di separazione",
     "Owner": [
@@ -538,6 +561,7 @@
     "Id Task": "232 | Saldatura Gusci Principali | SEP-2025-02"
   },
   {
+    "id": "recZHPMUbKLrWxW4F",
     "Titolo Task": "Test Pressione Preliminari",
     "Descrizione Task": "Esecuzione test di pressione preliminari sui separatori",
     "Owner": [
@@ -557,6 +581,7 @@
     "Id Task": "233 | Test Pressione Preliminari | SEP-2025-02"
   },
   {
+    "id": "recvMKjkmC49WhdSp",
     "Titolo Task": "Installazione Strumentazione",
     "Descrizione Task": "Installazione di sensori e strumentazione di controllo",
     "Owner": [
@@ -576,6 +601,7 @@
     "Id Task": "234 | Installazione Strumentazione | SEP-2025-02"
   },
   {
+    "id": "recV9eAH9OJY1hZCT",
     "Titolo Task": "Verniciatura e Finitura",
     "Descrizione Task": "Verniciatura protettiva e finiture finali delle unità",
     "Owner": [
@@ -595,6 +621,7 @@
     "Id Task": "235 | Verniciatura e Finitura | SEP-2025-02"
   },
   {
+    "id": "recq8dLAKg7yINKEG",
     "Titolo Task": "Survey Topografico Tracciato",
     "Descrizione Task": "Rilievo topografico dettagliato del tracciato della pipeline",
     "Owner": [
@@ -619,6 +646,7 @@
     "Id Task": "236 | Survey Topografico Tracciato | G.PIPE-2025-03"
   },
   {
+    "id": "recrIo04ieFJNpSTX",
     "Titolo Task": "Ordine Tubazioni API 5L",
     "Descrizione Task": "Ordine delle tubazioni certificate API 5L per il trasporto gas",
     "Owner": [
@@ -642,6 +670,7 @@
     "Id Task": "237 | Ordine Tubazioni API 5L | G.PIPE-2025-03"
   },
   {
+    "id": "recjPQPHooehsF6Ds",
     "Titolo Task": "Preparazione Cantiere",
     "Descrizione Task": "Allestimento cantiere e preparazione aree di lavoro",
     "Owner": [
@@ -666,6 +695,7 @@
     "Id Task": "238 | Preparazione Cantiere | G.PIPE-2025-03"
   },
   {
+    "id": "recpjlRX9YhFxL09Q",
     "Titolo Task": "Scavi Meccanizzati Tratto 1",
     "Descrizione Task": "Esecuzione scavi meccanizzati per posa tubazioni - primo tratto",
     "Owner": [
@@ -691,6 +721,7 @@
     "Id Task": "239 | Scavi Meccanizzati Tratto 1 | G.PIPE-2025-03"
   },
   {
+    "id": "recmbGuGqhDNsK8yK",
     "Titolo Task": "Posa e Allineamento Tubi",
     "Descrizione Task": "Posa e allineamento delle tubazioni nel primo tratto",
     "Owner": [
@@ -715,6 +746,7 @@
     "Id Task": "240 | Posa e Allineamento Tubi | G.PIPE-2025-03"
   },
   {
+    "id": "rec7QSAERP92GUls0",
     "Titolo Task": "Saldatura Giunti Pipeline",
     "Descrizione Task": "Saldatura dei giunti della pipeline con procedure qualificate",
     "Owner": [
@@ -734,6 +766,7 @@
     "Id Task": "241 | Saldatura Giunti Pipeline | G.PIPE-2025-03"
   },
   {
+    "id": "recHsN9Sm3p6tFShk",
     "Titolo Task": "Controlli Radiografici",
     "Descrizione Task": "Controlli radiografici su tutte le saldature critiche",
     "Owner": [
@@ -753,6 +786,7 @@
     "Id Task": "242 | Controlli Radiografici | G.PIPE-2025-03"
   },
   {
+    "id": "recGD8zZshyY9bEJp",
     "Titolo Task": "Test Idraulico Finale",
     "Descrizione Task": "Test idraulico finale dell'intera pipeline",
     "Owner": [
@@ -772,6 +806,7 @@
     "Id Task": "243 | Test Idraulico Finale | G.PIPE-2025-03"
   },
   {
+    "id": "recgaI91l32RXQI9c",
     "Titolo Task": "Progettazione Strutturale Jacket",
     "Descrizione Task": "Progettazione strutturale del jacket della piattaforma offshore",
     "Owner": [
@@ -796,6 +831,7 @@
     "Id Task": "244 | Progettazione Strutturale Jacket | OFF.P-2025-04"
   },
   {
+    "id": "recMyfiFin7rokoI1",
     "Titolo Task": "Calcoli Dinamici Offshore",
     "Descrizione Task": "Calcoli dinamici per resistenza a onde e correnti marine",
     "Owner": [
@@ -815,6 +851,7 @@
     "Id Task": "245 | Calcoli Dinamici Offshore | OFF.P-2025-04"
   },
   {
+    "id": "recstDhJExk8Fb1aN",
     "Titolo Task": "Ordine Acciai Strutturali",
     "Descrizione Task": "Ordine di acciai strutturali certificati per ambiente marino",
     "Owner": [
@@ -834,6 +871,7 @@
     "Id Task": "246 | Ordine Acciai Strutturali | OFF.P-2025-04"
   },
   {
+    "id": "recCaCYmvamzCmLa7",
     "Titolo Task": "Fabbricazione Moduli Topside",
     "Descrizione Task": "Fabbricazione dei moduli della parte superiore della piattaforma",
     "Owner": [
@@ -853,6 +891,7 @@
     "Id Task": "247 | Fabbricazione Moduli Topside | OFF.P-2025-04"
   },
   {
+    "id": "reco6humMf7gtaUvO",
     "Titolo Task": "Assemblaggio Jacket",
     "Descrizione Task": "Assemblaggio della struttura jacket della piattaforma",
     "Owner": [
@@ -872,6 +911,7 @@
     "Id Task": "248 | Assemblaggio Jacket | OFF.P-2025-04"
   },
   {
+    "id": "recyD4I9bJXhIkDUI",
     "Titolo Task": "Test Load-Out",
     "Descrizione Task": "Test di carico e trasferimento su chiatta per trasporto offshore",
     "Owner": [
@@ -891,6 +931,7 @@
     "Id Task": "249 | Test Load-Out | OFF.P-2025-04"
   },
   {
+    "id": "rec6MfK74yvkpXsp4",
     "Titolo Task": "Installazione Offshore",
     "Descrizione Task": "Installazione della piattaforma in mare con mezzi specializzati",
     "Owner": [
@@ -910,6 +951,7 @@
     "Id Task": "250 | Installazione Offshore | OFF.P-2025-04"
   },
   {
+    "id": "reca8mc0COSt2y9wD",
     "Titolo Task": "Progettazione Dettagliata Skid",
     "Descrizione Task": "Sviluppo disegni esecutivi e specifiche tecniche per lo skid di disidratazione.",
     "Owner": [
@@ -935,6 +977,7 @@
     "Id Task": "252 | Progettazione Dettagliata Skid | G.Dh-2024-02"
   },
   {
+    "id": "recyzgNrwfrQso2Hm",
     "Titolo Task": "Ordine Materiali Principali",
     "Descrizione Task": "Gestione ordini per vessel, piping, strumenti e valvole principali.",
     "Owner": [
@@ -959,6 +1002,7 @@
     "Id Task": "253 | Ordine Materiali Principali | G.Dh-2024-02"
   },
   {
+    "id": "recAT3xIkM8BTRMZH",
     "Titolo Task": "Assemblaggio Struttura Skid",
     "Descrizione Task": "Assemblaggio carpenteria e posizionamento vessel e piping.",
     "Owner": [
@@ -986,6 +1030,7 @@
     "Id Task": "254 | Assemblaggio Struttura Skid | G.Dh-2024-02"
   },
   {
+    "id": "rec9wvy1zd4FUfOU3",
     "Titolo Task": "Installazione Strumentazione e Cablaggi",
     "Descrizione Task": "Installazione strumenti di processo, cablaggi e quadri elettrici.",
     "Owner": [
@@ -1011,6 +1056,7 @@
     "Id Task": "255 | Installazione Strumentazione e Cablaggi | G.Dh-2024-02"
   },
   {
+    "id": "recBbQhw5ju2M4OTt",
     "Titolo Task": "Controlli Qualità e Collaudi Interni",
     "Descrizione Task": "Esecuzione controlli dimensionali, NDT e collaudi funzionali.",
     "Owner": [
@@ -1035,6 +1081,7 @@
     "Id Task": "256 | Controlli Qualità e Collaudi Interni | G.Dh-2024-02"
   },
   {
+    "id": "recXFRq8rJEqeiDuQ",
     "Titolo Task": "Preparazione Spedizione e Documentazione",
     "Descrizione Task": "Preparazione imballi, DDT, certificati e organizzazione trasporto.",
     "Owner": [
@@ -1059,6 +1106,7 @@
     "Id Task": "257 | Preparazione Spedizione e Documentazione | G.Dh-2024-02"
   },
   {
+    "id": "recg3AHFmifW3L9gP",
     "Titolo Task": "Progettazione Dettagliata Pressure Vessel",
     "Descrizione Task": "Sviluppo disegni esecutivi e specifiche tecniche vessel.",
     "Owner": [
@@ -1083,6 +1131,7 @@
     "Id Task": "260 | Progettazione Dettagliata Pressure Vessel | PV-2024-03"
   },
   {
+    "id": "recMu409r48Eb8tMf",
     "Titolo Task": "Ordine Materiali e Componenti Critici",
     "Descrizione Task": "Gestione ordini per lamiere, fondi, raccordi e valvole.",
     "Owner": [
@@ -1106,6 +1155,7 @@
     "Id Task": "261 | Ordine Materiali e Componenti Critici | PV-2024-03"
   },
   {
+    "id": "rec7rBZGCDOpQiQJ2",
     "Titolo Task": "Taglio Lamiere e Calandratura",
     "Descrizione Task": "Taglio e calandratura lamiere per guscio e fondi vessel.",
     "Owner": [
@@ -1130,6 +1180,7 @@
     "Id Task": "262 | Taglio Lamiere e Calandratura | PV-2024-03"
   },
   {
+    "id": "rec8z20uFtImMUKtF",
     "Titolo Task": "Saldatura Guscio e Fondi",
     "Descrizione Task": "Saldatura longitudinale e circonferenziale guscio e fondi.",
     "Owner": [
@@ -1154,6 +1205,7 @@
     "Id Task": "263 | Saldatura Guscio e Fondi | PV-2024-03"
   },
   {
+    "id": "recxYhYKsVCRATiEA",
     "Titolo Task": "Controlli NDT su Saldature",
     "Descrizione Task": "Controlli radiografici e liquidi penetranti su tutte le saldature.",
     "Owner": [
@@ -1178,6 +1230,7 @@
     "Id Task": "264 | Controlli NDT su Saldature | PV-2024-03"
   },
   {
+    "id": "recHg40tFUqQeCFeu",
     "Titolo Task": "Trattamento Termico Post-Saldatura",
     "Descrizione Task": "Trattamento termico in forno per rilascio tensioni.",
     "Owner": [
@@ -1201,6 +1254,7 @@
     "Id Task": "265 | Trattamento Termico Post-Saldatura | PV-2024-03"
   },
   {
+    "id": "rec4vYAha6owbjDAI",
     "Titolo Task": "Collaudo Funzionale e Test Idraulico",
     "Descrizione Task": "Test idraulico vessel e collaudo funzionale.",
     "Owner": [
@@ -1224,6 +1278,7 @@
     "Id Task": "266 | Collaudo Funzionale e Test Idraulico | PV-2024-03"
   },
   {
+    "id": "recVw6eBX51C1TIIY",
     "Titolo Task": "Preparazione Spedizione e Documentazione",
     "Descrizione Task": "Preparazione imballi, DDT, certificati e organizzazione trasporto.",
     "Owner": [

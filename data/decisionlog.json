@@ -1,5 +1,6 @@
 [
   {
+    "id": "rec1E3e52VgdJvsFR",
     "Decisione": "Valutazione impatto upgrade strumentazione",
     "Responsabile": [
       "receFC1ex8OLG8fJd"
@@ -11,6 +12,7 @@
     ]
   },
   {
+    "id": "rec1ao6JVIgTxooWY",
     "Decisione": "Autorizzazione ordine materiali senza certificazione completa",
     "Responsabile": [
       "recuUN6quFcAzCWle"
@@ -22,6 +24,7 @@
     ]
   },
   {
+    "id": "rec9YwZglPXmeyDwD",
     "Decisione": "Autorizzazione Acquisto",
     "Responsabile": [
       "recT4SoREDCktZWmb"
@@ -33,6 +36,7 @@
     ]
   },
   {
+    "id": "recAJKyV9CC3nVQUA",
     "Decisione": "Approvazione sostituzione materiale guarnizioni",
     "Responsabile": [
       "recYghHAsaaEXsLfa"
@@ -44,6 +48,7 @@
     ]
   },
   {
+    "id": "recBHE7L7xqgQCoXn",
     "Decisione": "Approvazione sostituzione materiale fondi vessel",
     "Responsabile": [
       "receFC1ex8OLG8fJd"
@@ -55,6 +60,7 @@
     ]
   },
   {
+    "id": "recD5CkDvCk8HbXup",
     "Decisione": "Valutazione impatto modulo compressione gas",
     "Responsabile": [
       "recaab3TdqCsbvLqD"
@@ -66,6 +72,7 @@
     ]
   },
   {
+    "id": "recEhPl6fbxJrtioK",
     "Decisione": "Approvazione upgrade valvole di sicurezza",
     "Responsabile": [
       "recaab3TdqCsbvLqD"
@@ -77,6 +84,7 @@
     ]
   },
   {
+    "id": "recEm2ls5kRf0mvHH",
     "Decisione": "Approvazione variante bypass condensa",
     "Responsabile": [
       "receFC1ex8OLG8fJd"
@@ -88,6 +96,7 @@
     ]
   },
   {
+    "id": "recIqXorhNI8V9fFS",
     "Decisione": "Approvazione upgrade strumentazione pressione",
     "Responsabile": [
       "recoQKICo0cKv3xQB"
@@ -99,6 +108,7 @@
     ]
   },
   {
+    "id": "recJjfrpM3pa1OQKM",
     "Decisione": "Approvazione attacco supplementare DN80",
     "Responsabile": [
       "receFC1ex8OLG8fJd"
@@ -110,6 +120,7 @@
     ]
   },
   {
+    "id": "recMBjwwI5YIancsu",
     "Decisione": "Approvazione modifica ciclo verniciatura",
     "Responsabile": [
       "receFC1ex8OLG8fJd"
@@ -121,6 +132,7 @@
     ]
   },
   {
+    "id": "recMSP9cirtLnQ1sQ",
     "Decisione": "Autorizzazione implementazione monitoraggio remoto",
     "Responsabile": [
       "recoQKICo0cKv3xQB"
@@ -132,6 +144,7 @@
     ]
   },
   {
+    "id": "recN4seVmGqEozajM",
     "Decisione": "Approvazione variazione tracciato pipeline",
     "Responsabile": [
       "recptRaZSw5EatE6Q"
@@ -143,6 +156,7 @@
     ]
   },
   {
+    "id": "recSn51XnlzoMStP9",
     "Decisione": "Approvazione variante bypass manuale",
     "Responsabile": [
       "recoQKICo0cKv3xQB"
@@ -154,6 +168,7 @@
     ]
   },
   {
+    "id": "recZn24nQtKj3IJwv",
     "Decisione": "Autorizzazione Manutenzione",
     "Responsabile": [
       "recT4SoREDCktZWmb"
@@ -165,6 +180,7 @@
     ]
   },
   {
+    "id": "recZxfhgyTMmD15xE",
     "Decisione": "Autorizzazione acquisto tubazioni alternative",
     "Responsabile": [
       "recQ1XcP7F9MkdLVh"
@@ -176,6 +192,7 @@
     ]
   },
   {
+    "id": "rechfbotX5VyT5rtw",
     "Decisione": "Autorizzazione ordine materiali senza certificazione completa",
     "Responsabile": [
       "recYghHAsaaEXsLfa"
@@ -187,6 +204,7 @@
     ]
   },
   {
+    "id": "recifyCvXoKFgzZMe",
     "Decisione": "Autorizzazione acquisto valvole alternative",
     "Responsabile": [
       "recuUN6quFcAzCWle"
@@ -198,6 +216,7 @@
     ]
   },
   {
+    "id": "reckOjue8aXEJa4HF",
     "Decisione": "Approvazione cambio materiale bulloni",
     "Responsabile": [
       "recaab3TdqCsbvLqD"
@@ -209,6 +228,7 @@
     ]
   },
   {
+    "id": "reclCrVcqKTyCu3NU",
     "Decisione": "Valutazione impatti ciclo modificato",
     "Responsabile": [
       "recT4SoREDCktZWmb"
@@ -220,6 +240,7 @@
     ]
   },
   {
+    "id": "recnNjVZORrkoAXhy",
     "Decisione": "Approvazione variante cliente",
     "Responsabile": [
       "recT4SoREDCktZWmb"
@@ -231,6 +252,7 @@
     ]
   },
   {
+    "id": "recq10iJJAyQCxkYk",
     "Decisione": "Approvazione Riparazioni",
     "Responsabile": [
       "recT4SoREDCktZWmb"
@@ -242,6 +264,7 @@
     ]
   },
   {
+    "id": "recsMWc73xhk2k3yC",
     "Decisione": "Approvazione rivestimento anticorrosione 3LPE",
     "Responsabile": [
       "receFC1ex8OLG8fJd"
@@ -253,6 +276,7 @@
     ]
   },
   {
+    "id": "rectn544q3KFzBJsg",
     "Decisione": "Autorizzazione revisione calcoli jacket",
     "Responsabile": [
       "rec5hlBQiR0r5Zj9U"
@@ -264,6 +288,7 @@
     ]
   },
   {
+    "id": "recxvOCN553ORoZrY",
     "Decisione": "Approvazione variante Primer",
     "Responsabile": [
       "recT4SoREDCktZWmb"

@@ -1,5 +1,6 @@
 [
   {
+    "id": "recikG9Pux2GXhp4R",
     "Milestone": "Approvazione Progettazione Preliminare",
     "Progetto": [
       "recb97Ftmgx6WsHpt"
@@ -9,6 +10,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "rec1ROrDsXETyQ8SX",
     "Milestone": "Ordine Materiali e Componenti Critici",
     "Progetto": [
       "recb97Ftmgx6WsHpt"
@@ -18,6 +20,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "recYYYmzZLMHinmLw",
     "Milestone": "Fabbricazione1: Taglio - Calandra - Saldatura",
     "Progetto": [
       "recb97Ftmgx6WsHpt"
@@ -27,6 +30,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "recqzdHbureFBiYxR",
     "Milestone": "Fabbricazione2: Saldature Principali - NDT",
     "Progetto": [
       "recb97Ftmgx6WsHpt"
@@ -36,6 +40,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "recXtvPILx1LaiFns",
     "Milestone": "Collaudo: Trattamenti Termici - Test Idraulico",
     "Progetto": [
       "recb97Ftmgx6WsHpt"
@@ -45,6 +50,7 @@
     "Stato": "In corso"
   },
   {
+    "id": "rec28X0KGXMIVKCs6",
     "Milestone": "Completamento: Finitura - Verniciatura - Assemblaggio",
     "Progetto": [
       "recb97Ftmgx6WsHpt"
@@ -54,6 +60,7 @@
     "Stato": "Pianificata"
   },
   {
+    "id": "recJejfVovHMrN70G",
     "Milestone": "Ispezione Finale",
     "Progetto": [
       "recb97Ftmgx6WsHpt"
@@ -63,6 +70,7 @@
     "Stato": "Pianificata"
   },
   {
+    "id": "rechvq2STQvEdmelV",
     "Milestone": "Spedizione e Consegna",
     "Progetto": [
       "recb97Ftmgx6WsHpt"
@@ -72,6 +80,7 @@
     "Stato": "Pianificata"
   },
   {
+    "id": "recSBnb9D6gUBFMkA",
     "Milestone": "Approvazione Progettazione Preliminare",
     "Progetto": [
       "recQfUWcES81PFvJ8"
@@ -81,6 +90,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "recPfDxV2HO3ZsZCz",
     "Milestone": "Ordine Materiali e Componenti Critici",
     "Progetto": [
       "recQfUWcES81PFvJ8"
@@ -90,6 +100,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "recDsEkBPcU0WJxAJ",
     "Milestone": "Inizio Fabbricazione (Taglio e Saldatura Iniziale)",
     "Progetto": [
       "recQfUWcES81PFvJ8"
@@ -99,6 +110,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "recasZH0gcxQPkjd4",
     "Milestone": "Completamento Saldature Principali e Controlli NDT",
     "Progetto": [
       "recQfUWcES81PFvJ8"
@@ -108,6 +120,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "recfdJRJJtnBo3JzU",
     "Milestone": "Esecuzione Trattamenti Termici e Test Idrostatico",
     "Progetto": [
       "recQfUWcES81PFvJ8"
@@ -117,6 +130,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "recQzxwyr9og7OZG4",
     "Milestone": "Finitura, Verniciatura e Assemblaggio Final",
     "Progetto": [
       "recQfUWcES81PFvJ8"
@@ -126,6 +140,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "rec58QKZLFKB7FBgw",
     "Milestone": "Ispezione Finale e Certificazione",
     "Progetto": [
       "recQfUWcES81PFvJ8"
@@ -135,6 +150,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "rec5xEsfRJ8gc8nDR",
     "Milestone": "Spedizione e Consegna al Cliente",
     "Progetto": [
       "recQfUWcES81PFvJ8"
@@ -144,6 +160,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "recsRQLZuHa8htQEQ",
     "Milestone": "Approvazione Progettazione Preliminare",
     "Progetto": [
       "recE63KeYDyZSJq89"
@@ -153,6 +170,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "recUwifX5HiDRbdE7",
     "Milestone": "Ordine Materiali e Componenti Critici",
     "Progetto": [
       "recE63KeYDyZSJq89"
@@ -162,6 +180,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "recB9uVX5JlWH6B0G",
     "Milestone": "Fabbricazione1: Taglio - Calandra - Saldatura",
     "Progetto": [
       "recE63KeYDyZSJq89"
@@ -171,6 +190,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "recwUITRkTbbhdzcW",
     "Milestone": "Fabbricazione2: Assemblaggio Separatori - NDT",
     "Progetto": [
       "recE63KeYDyZSJq89"
@@ -180,6 +200,7 @@
     "Stato": "In corso"
   },
   {
+    "id": "rec5fyWMToRcNaW8f",
     "Milestone": "Collaudo: Test Funzionali - Calibrazione Strumenti",
     "Progetto": [
       "recE63KeYDyZSJq89"
@@ -189,6 +210,7 @@
     "Stato": "Pianificata"
   },
   {
+    "id": "recIwSgfFgUIUDLMz",
     "Milestone": "Completamento: Finitura - Verniciatura - Assemblaggio",
     "Progetto": [
       "recE63KeYDyZSJq89"
@@ -198,6 +220,7 @@
     "Stato": "Pianificata"
   },
   {
+    "id": "rec9BesTqCaxq9nSC",
     "Milestone": "Ispezione Finale",
     "Progetto": [
       "recE63KeYDyZSJq89"
@@ -207,6 +230,7 @@
     "Stato": "Pianificata"
   },
   {
+    "id": "recLSc3JVJIgTiS2S",
     "Milestone": "Spedizione e Consegna",
     "Progetto": [
       "recE63KeYDyZSJq89"
@@ -216,6 +240,7 @@
     "Stato": "Pianificata"
   },
   {
+    "id": "recYN5jeXq2QzazxE",
     "Milestone": "Approvazione Progettazione Preliminare",
     "Progetto": [
       "recQ9e73aqoD5c71t"
@@ -225,6 +250,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "recqG8U9BFIdaJNki",
     "Milestone": "Ordine Materiali e Tubazioni",
     "Progetto": [
       "recQ9e73aqoD5c71t"
@@ -234,6 +260,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "recDOwLJwOhzqZoWt",
     "Milestone": "Preparazione Sito e Scavi",
     "Progetto": [
       "recQ9e73aqoD5c71t"
@@ -243,6 +270,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "rec7Y91wUsKOf1OuH",
     "Milestone": "Posa Tubazioni - Tratto 1",
     "Progetto": [
       "recQ9e73aqoD5c71t"
@@ -252,6 +280,7 @@
     "Stato": "In corso"
   },
   {
+    "id": "recY260q2psUuYlZz",
     "Milestone": "Posa Tubazioni - Tratto 2",
     "Progetto": [
       "recQ9e73aqoD5c71t"
@@ -261,6 +290,7 @@
     "Stato": "Pianificata"
   },
   {
+    "id": "recn7eWFfHNgBso1s",
     "Milestone": "Saldature e Test di Pressione",
     "Progetto": [
       "recQ9e73aqoD5c71t"
@@ -270,6 +300,7 @@
     "Stato": "Pianificata"
   },
   {
+    "id": "recSOHJVL9HflZYEv",
     "Milestone": "Installazione Stazioni di Controllo",
     "Progetto": [
       "recQ9e73aqoD5c71t"
@@ -279,6 +310,7 @@
     "Stato": "Pianificata"
   },
   {
+    "id": "recIXen4dWsPzqJPL",
     "Milestone": "Commissioning e Avviamento",
     "Progetto": [
       "recQ9e73aqoD5c71t"
@@ -288,6 +320,7 @@
     "Stato": "Pianificata"
   },
   {
+    "id": "rectawGSh7VuyGHNu",
     "Milestone": "Approvazione Progettazione Preliminare",
     "Progetto": [
       "recI5CcCweinr4QcG"
@@ -297,6 +330,7 @@
     "Stato": "In corso"
   },
   {
+    "id": "recvhrsWvvn7CEy7G",
     "Milestone": "Ordine Strutture Metalliche e Equipaggiamenti",
     "Progetto": [
       "recI5CcCweinr4QcG"
@@ -306,6 +340,7 @@
     "Stato": "Pianificata"
   },
   {
+    "id": "recTaj2OIO3ArWsxB",
     "Milestone": "Fabbricazione Jacket e Topside",
     "Progetto": [
       "recI5CcCweinr4QcG"
@@ -315,6 +350,7 @@
     "Stato": "Pianificata"
   },
   {
+    "id": "recSgcCg05PT0ZxKH",
     "Milestone": "Assemblaggio Moduli Offshore",
     "Progetto": [
       "recI5CcCweinr4QcG"
@@ -324,6 +360,7 @@
     "Stato": "Pianificata"
   },
   {
+    "id": "rec4XLQiarjWCNUcP",
     "Milestone": "Test e Collaudi a Terra",
     "Progetto": [
       "recI5CcCweinr4QcG"
@@ -333,6 +370,7 @@
     "Stato": "Pianificata"
   },
   {
+    "id": "rec2mO0bABtBB9k6p",
     "Milestone": "Trasporto e Installazione Offshore",
     "Progetto": [
       "recI5CcCweinr4QcG"
@@ -342,6 +380,7 @@
     "Stato": "Pianificata"
   },
   {
+    "id": "rec56pjO781X8zsDM",
     "Milestone": "Commissioning e Hook-up",
     "Progetto": [
       "recI5CcCweinr4QcG"
@@ -351,6 +390,7 @@
     "Stato": "Pianificata"
   },
   {
+    "id": "rec7uvglo6wGHsLev",
     "Milestone": "Approvazione Progettazione Esecutiva",
     "Progetto": [
       "reclvoCbPDdaj8mbg"
@@ -360,6 +400,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "reccIphJua50DGGVw",
     "Milestone": "Ordine Materiali e Componenti Principali",
     "Progetto": [
       "reclvoCbPDdaj8mbg"
@@ -369,6 +410,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "recyXkdQiwPIahkIY",
     "Milestone": "Avanzamento Fabbricazione Skid (50%)",
     "Progetto": [
       "reclvoCbPDdaj8mbg"
@@ -378,6 +420,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "recikObYtEYOJaxci",
     "Milestone": "Completamento Fabbricazione Skid",
     "Progetto": [
       "reclvoCbPDdaj8mbg"
@@ -387,6 +430,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "rec6arQRRImgDYhvu",
     "Milestone": "Collaudo Funzionale e FAT",
     "Progetto": [
       "reclvoCbPDdaj8mbg"
@@ -396,6 +440,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "rec8tvIcaVW9hdkz9",
     "Milestone": "Spedizione e Consegna",
     "Progetto": [
       "reclvoCbPDdaj8mbg"
@@ -405,6 +450,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "reclL5jB8kKZEVWY7",
     "Milestone": "Approvazione Progettazione Esecutiva",
     "Progetto": [
       "recCIG6SqTtDxExaF"
@@ -414,6 +460,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "recEftKKmNcyiPtMj",
     "Milestone": "Ordine Materiali e Componenti Critici",
     "Progetto": [
       "recCIG6SqTtDxExaF"
@@ -423,6 +470,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "recVSkQy3ZN5GtSxY",
     "Milestone": "Completamento Fabbricazione Guscio e Fondi",
     "Progetto": [
       "recCIG6SqTtDxExaF"
@@ -432,6 +480,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "recm1uBTFfWtbqmCr",
     "Milestone": "Completamento Saldature e NDT",
     "Progetto": [
       "recCIG6SqTtDxExaF"
@@ -441,6 +490,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "rec3lci6mbnDdoOj8",
     "Milestone": "Collaudo Funzionale e Test Idraulico",
     "Progetto": [
       "recCIG6SqTtDxExaF"
@@ -450,6 +500,7 @@
     "Stato": "Completata"
   },
   {
+    "id": "recwJYagf0zCPx8Cv",
     "Milestone": "Spedizione e Consegna",
     "Progetto": [
       "recCIG6SqTtDxExaF"
