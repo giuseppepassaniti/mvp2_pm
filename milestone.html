@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Milestone Progetti - MVP2 Corretto</title>
+    <title>Dashboard Milestone - MVP2 Finale</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/frappe-gantt@0.6.1/dist/frappe-gantt.min.css">
     <script src="https://cdn.jsdelivr.net/npm/frappe-gantt@0.6.1/dist/frappe-gantt.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
 
     <style>
@@ -44,8 +45,8 @@
         </div>
 
         <div id="initial-message" class="text-center py-12 bg-white rounded-lg shadow-md">
-            <svg class="mx-auto h-12 w-12 text-gray-400 animate-spin" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
-            <h3 class="mt-2 text-sm font-medium text-gray-900">Caricamento dati centralizzato...</h3>
+            <i data-lucide="loader-2" class="mx-auto h-12 w-12 text-slate-400 animate-spin"></i>
+            <h3 class="mt-2 text-sm font-medium text-slate-900">Caricamento dati...</h3>
         </div>
         
         <main id="dashboard-content" class="transition-opacity duration-500"></main>
@@ -54,10 +55,7 @@
     <script type="module">
         import { getDataManager } from './utils/datamanager.js';
 
-        let allProcessedMilestones = [];
-        let projectsWithMilestones = {};
-        let currentView = 'cards';
-
+        let allProcessedMilestones = [], projectsWithMilestones = {}, currentView = 'cards';
         const dom = {
             initialMessage: document.getElementById('initial-message'),
             controlsPanel: document.getElementById('controls-panel'),
@@ -112,10 +110,8 @@
         }
 
         function handleUrlParams(dm) {
-            const urlParams = new URLSearchParams(window.location.search);
-            const projectRecordId = urlParams.get('id');
+            const projectRecordId = new URLSearchParams(window.location.search).get('id');
             if (!projectRecordId) return;
-
             const project = dm.progettiMap.get(projectRecordId);
             if (project) {
                 const projectIdReadable = project['Id Progetto'];
@@ -131,6 +127,7 @@
             setTimeout(() => {
                 currentView === 'cards' ? renderCardView() : renderGanttView();
                 dom.dashboardContent.style.opacity = 1;
+                lucide.createIcons();
             }, 200);
         }
 
@@ -143,11 +140,13 @@
             const selectedProject = dom.projectFilter.value;
             const projectsToRender = (selectedProject === 'all') ? Object.keys(projectsWithMilestones) : [selectedProject];
             if (projectsToRender.length === 0 || !projectsWithMilestones[projectsToRender[0]]) {
-                dom.dashboardContent.innerHTML = `<div class="text-center py-10"><p>Nessun dato per il progetto selezionato.</p></div>`; return;
+                dom.dashboardContent.innerHTML = `<div class="text-center py-10 bg-white rounded-lg shadow"><p>Nessun dato per il progetto selezionato.</p></div>`; return;
             }
             const grid = document.createElement('div');
             grid.className = 'grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6';
             projectsToRender.forEach(projectId => {
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-lg shadow-md p-5 flex flex-col';
                 const milestones = projectsWithMilestones[projectId];
                 if (!milestones) return;
                 const completedCount = milestones.filter(m => m.status === 'Completata').length;
@@ -160,23 +159,32 @@
         }
 
         function renderGanttView() {
-            dom.dashboardContent.innerHTML = '<div id="gantt-container"><svg id="gantt"></svg></div>';
+            dom.dashboardContent.innerHTML = '<div id="gantt-container" class="bg-white rounded-lg shadow-md"><svg id="gantt"></svg></div>';
             const selectedProject = dom.projectFilter.value;
             let filteredMilestones = (selectedProject === 'all') ? [...allProcessedMilestones] : allProcessedMilestones.filter(m => m.projectId === selectedProject);
             if (filteredMilestones.length === 0) {
-                document.getElementById('gantt-container').innerHTML = `<div class="text-center py-10 bg-white rounded-lg"><p>Nessuna milestone da visualizzare.</p></div>`; return;
+                document.getElementById('gantt-container').innerHTML = `<div class="text-center py-10"><p>Nessuna milestone da visualizzare.</p></div>`; return;
             }
             filteredMilestones.sort((a, b) => a.startDate - b.startDate);
-            let tasks = filteredMilestones.map((m, i) => ({ id: `m_${i}`, name: `${m.projectId} - ${m.name}`, start: m.startDate.toISOString().split('T')[0], end: m.deadline.toISOString().split('T')[0], progress: m.status === 'Completata' ? 100 : (m.status === 'In corso' ? 50 : 0), custom_class: `bar-${m.calculatedStatus.toLowerCase().replace(/\s+/g, '-')}` }));
-            new Gantt("#gantt", tasks, { header_height: 50, bar_height: 25, custom_popup_html: (task) => { const original = filteredMilestones.find(m => `${m.projectId} - ${m.name}` === task.name); return original ? `<div class="p-2">${createTooltipText(original)}</div>` : ''; } });
+            let tasks = filteredMilestones.map((m, i) => ({ id: `m_${i}`, name: m.name, start: m.startDate.toISOString().split('T')[0], end: m.deadline.toISOString().split('T')[0], progress: m.status === 'Completata' ? 100 : (m.status === 'In corso' ? 50 : 0), custom_class: `bar-${m.calculatedStatus.toLowerCase().replace(/\s+/g, '-')}` }));
+            
+            // Logica per il padding del Gantt (da MVP1)
+            const firstDate = new Date(filteredMilestones[0].startDate);
+            const lastDate = filteredMilestones.reduce((max, m) => m.deadline > max ? m.deadline : max, new Date(filteredMilestones[0].deadline));
+            const timelineStart = new Date(firstDate); timelineStart.setMonth(timelineStart.getMonth() - 1);
+            const timelineEnd = new Date(lastDate); timelineEnd.setMonth(timelineEnd.getMonth() + 1);
+            tasks.unshift({id:'dummy_start',name:'',start:timelineStart.toISOString().split('T')[0],end:timelineStart.toISOString().split('T')[0],progress:0,custom_class:'dummy-task'});
+            tasks.push({id:'dummy_end',name:'',start:timelineEnd.toISOString().split('T')[0],end:timelineEnd.toISOString().split('T')[0],progress:0,custom_class:'dummy-task'});
+            
+            new Gantt("#gantt", tasks, { header_height: 50, bar_height: 25, bar_corner_radius: 10, view_mode: 'Month', custom_popup_html: (task) => { if(task.custom_class === 'dummy-task') return; const original = filteredMilestones.find(m => m.name === task.name); return original ? `<div class="p-2">${createTooltipText(original)}</div>` : ''; } });
         }
         
         const getStatusClasses = (status) => ({ 'Completata': 'bg-green-100 text-green-800 border-green-300', 'In corso': 'bg-yellow-100 text-yellow-800 border-yellow-300', 'Pianificata': 'bg-blue-100 text-blue-800 border-blue-300', 'In ritardo': 'bg-red-100 text-red-800 border-red-300' }[status] || 'bg-gray-100');
         const createTooltipText = (m) => `<strong class="block">${m.name}</strong><span class="block">Progetto: ${m.projectId}</span><span class="block">Inizio: ${m.startDate.toLocaleDateString('it-IT')}</span><span class="block">Fine: ${m.deadline.toLocaleDateString('it-IT')}</span>`;
 
         dom.projectFilter.addEventListener('change', renderCurrentView);
-        dom.viewCardsBtn.addEventListener('click', () => { currentView = 'cards'; dom.viewCardsBtn.classList.add('bg-white', 'shadow', 'text-blue-600'); dom.viewGanttBtn.classList.remove('bg-white', 'shadow', 'text-blue-600'); renderCurrentView(); });
-        dom.viewGanttBtn.addEventListener('click', () => { currentView = 'gantt'; dom.viewGanttBtn.classList.add('bg-white', 'shadow', 'text-blue-600'); dom.viewCardsBtn.classList.remove('bg-white', 'shadow', 'text-blue-600'); renderCurrentView(); });
+        dom.viewCardsBtn.addEventListener('click', () => { currentView = 'cards'; dom.viewCardsBtn.classList.add('bg-white','shadow','text-blue-600'); dom.viewGanttBtn.classList.remove('bg-white','shadow','text-blue-600'); renderCurrentView(); });
+        dom.viewGanttBtn.addEventListener('click', () => { currentView = 'gantt'; dom.viewGanttBtn.classList.add('bg-white','shadow','text-blue-600'); dom.viewCardsBtn.classList.remove('bg-white','shadow','text-blue-600'); renderCurrentView(); });
 
         initializeDashboard();
     </script>
