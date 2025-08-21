@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Task Operativi - MVP2 Corretto</title>
+    <title>Dashboard Task Operativi - MVP2 Completo</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.10/dayjs.min.js"></script>
@@ -27,27 +27,33 @@
         
         <header class="mb-6">
             <h1 class="text-3xl md:text-4xl font-bold text-slate-900">Dashboard Task Operativi</h1>
-            <p class="text-slate-600 mt-1">Analisi dei task (Dati da JSON).</p>
+            <p class="text-slate-600 mt-1">Analisi dello stato di avanzamento dei task (Dati da JSON).</p>
         </header>
 
         <div class="bg-white p-4 rounded-lg shadow-md mb-6">
-            <div id="filters-panel" class="hidden-on-start grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div id="filters-panel" class="hidden-on-start grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 items-end">
                 <select id="project-filter" class="p-2 border rounded-md bg-white shadow-sm w-full"></select>
                 <select id="owner-filter" class="p-2 border rounded-md bg-white shadow-sm w-full"></select>
-                <select id="status-filter" class="p-2 border rounded-md bg-white shadow-sm w-full">
-                    <option value="all">Tutti gli Stati</option>
-                    <option value="In corso">In corso</option>
-                    <option value="Completato">Completato</option>
-                    <option value="Pianificato">Pianificato</option>
-                    <option value="Non Iniziata">Non Iniziata</option>
-                    <option value="In Ritardo">In Ritardo</option>
-                </select>
-                <select id="criticality-filter" class="p-2 border rounded-md bg-white shadow-sm w-full">
-                    <option value="all">Tutte le Criticità</option>
-                    <option value="Alta">Alta</option>
-                    <option value="Media">Media</option>
-                    <option value="Bassa">Bassa</option>
-                </select>
+                <div class="grid grid-cols-2 gap-2">
+                    <div>
+                        <label for="date-start-filter" class="text-xs text-slate-500">Da (Inizio)</label>
+                        <input type="date" id="date-start-filter" class="p-2 border rounded-md bg-white shadow-sm w-full text-sm">
+                    </div>
+                    <div>
+                        <label for="date-end-filter" class="text-xs text-slate-500">A (Fine)</label>
+                        <input type="date" id="date-end-filter" class="p-2 border rounded-md bg-white shadow-sm w-full text-sm">
+                    </div>
+                </div>
+                <div class="flex items-center justify-end gap-4">
+                    <div class="flex items-center">
+                        <input id="status-filter-late" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-red-600 focus:ring-red-500">
+                        <label for="status-filter-late" class="ml-2 block text-sm text-gray-900">Solo in Ritardo</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input id="criticality-filter" type="checkbox" class="h-4 w-4 rounded border-gray-300 text-orange-600 focus:ring-orange-500">
+                        <label for="criticality-filter" class="ml-2 block text-sm text-gray-900">Solo Criticità Alta 🔥</label>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -73,8 +79,10 @@
             filtersPanel: document.getElementById('filters-panel'),
             projectFilter: document.getElementById('project-filter'),
             ownerFilter: document.getElementById('owner-filter'),
-            statusFilter: document.getElementById('status-filter'),
+            statusFilterLate: document.getElementById('status-filter-late'),
             criticalityFilter: document.getElementById('criticality-filter'),
+            dateStartFilter: document.getElementById('date-start-filter'),
+            dateEndFilter: document.getElementById('date-end-filter'),
             kpiSection: document.getElementById('kpi-section'),
             previewSection: document.getElementById('preview-section'),
             dashboardContent: document.getElementById('dashboard-content'),
@@ -91,15 +99,17 @@
                     const project = dm.progettiMap.get(t.Progetto[0]);
                     const owner = dm.risorseMap.get(t.Owner[0]);
                     const deadline = new Date(t.Deadline);
-                    const isLate = deadline < today && t.Stato !== 'Completato';
-
+                    
                     return {
                         id: t.ID, title: t['Titolo Task'], description: t['Descrizione Task'] || 'N/D',
                         projectName: project ? project['Id Progetto'] : 'N/D',
                         ownerName: owner ? owner['Nome e Cognome'] : 'N/A',
                         startDate: new Date(t['Start Date']), deadline: deadline,
-                        status: isLate ? 'In Ritardo' : (t.Stato || 'Pianificato'),
-                        criticality: t.Criticità || 'Bassa',
+                        status: t.Stato || 'Pianificato', criticality: t.Criticità || 'Bassa',
+                        estimatedTime: t['Tempo Stimato'] || 0, actualTime: t['Tempo Effettivo'] || 0,
+                        completion: t['% Completamento'] || (t.Stato === 'Completato' ? 100 : 0),
+                        productivity: t['Produttività Stimata'] || '⚪️ Non disponibile',
+                        isLate: deadline < today && t.Stato !== 'Completato'
                     };
                 }).filter(Boolean);
                 
@@ -110,17 +120,13 @@
                 populateFilters();
                 handleUrlParams(dm);
                 renderDashboard();
-            } catch(error) {
-                console.error("Errore:", error);
-                dom.initialMessage.innerHTML = `<h3>Errore nel caricamento dei dati.</h3>`;
-            }
+            } catch(error) { console.error("Errore:", error); dom.initialMessage.innerHTML = `<h3>Errore nel caricamento dei dati.</h3>`; }
         }
         
         function handleUrlParams(dm) {
             const urlParams = new URLSearchParams(window.location.search);
             const projectRecordId = urlParams.get('id');
             if (!projectRecordId) return;
-
             const project = dm.progettiMap.get(projectRecordId);
             if (project) {
                 const projectIdReadable = project['Id Progetto'];
@@ -142,18 +148,26 @@
             applyFiltersAndSort();
             renderKpis();
             renderTableView();
-            lucide.createIcons(); // Assicura che le icone vengano sempre renderizzate
+            lucide.createIcons();
         }
         
         function applyFiltersAndSort() {
+            const startDate = dom.dateStartFilter.value ? new Date(dom.dateStartFilter.value) : null;
+            if(startDate) startDate.setHours(0,0,0,0);
+            const endDate = dom.dateEndFilter.value ? new Date(dom.dateEndFilter.value) : null;
+            if(endDate) endDate.setHours(23,59,59,999);
+
             filteredTasks = allProcessedTasks.filter(task => 
                 (dom.projectFilter.value === 'all' || task.projectName === dom.projectFilter.value) &&
                 (dom.ownerFilter.value === 'all' || task.ownerName === dom.ownerFilter.value) &&
-                (dom.statusFilter.value === 'all' || task.status === dom.statusFilter.value) &&
-                (dom.criticalityFilter.value === 'all' || task.criticality === dom.criticalityFilter.value)
+                (!dom.statusFilterLate.checked || task.isLate) &&
+                (!dom.criticalityFilter.checked || task.criticality === 'Alta') &&
+                (!startDate || task.startDate >= startDate) &&
+                (!endDate || task.deadline <= endDate)
             );
             filteredTasks.sort((a, b) => {
                 let valA = a[sortConfig.key], valB = b[sortConfig.key];
+                if (sortConfig.key === 'criticality') { const order = {'Alta':0,'Media':1,'Bassa':2}; valA = order[valA]??99; valB = order[valB]??99; }
                 if (valA < valB) return sortConfig.direction === 'asc' ? -1 : 1;
                 if (valA > valB) return sortConfig.direction === 'asc' ? 1 : -1;
                 return 0;
@@ -161,36 +175,44 @@
         }
 
         function renderKpis() {
-            const total = filteredTasks.length;
-            const completed = filteredTasks.filter(t => t.status === 'Completato').length;
-            const late = filteredTasks.filter(t => t.status === 'In Ritardo').length;
-            const critical = filteredTasks.filter(t => t.criticality === 'Alta').length;
+            const total = filteredTasks.length, completed = filteredTasks.filter(t=>t.status==='Completato').length, late = filteredTasks.filter(t=>t.isLate).length, critical = filteredTasks.filter(t=>t.criticality==='Alta').length, estimated = filteredTasks.reduce((s,t)=>s+t.estimatedTime,0), productive = filteredTasks.filter(t=>t.productivity.includes('🟢')).length;
             const kpis = [
-                { label: 'Task Totali', value: total, icon: 'list-checks' },
-                { label: '% Completati', value: `${total > 0 ? Math.round((completed / total) * 100) : 0}%`, icon: 'check-circle-2' },
-                { label: 'In Ritardo', value: late, icon: 'siren', color: 'text-red-600' },
-                { label: 'Criticità Alta', value: critical, icon: 'flame', color: 'text-orange-600' }
+                {l:'Task Totali', v:total, i:'list-checks'}, {l:'% Completati', v:`${total>0?Math.round(completed/total*100):0}%`, i:'check-circle-2'},
+                {l:'In Ritardo', v:late, i:'siren', c:'text-red-600'}, {l:'Criticità Alta', v:critical, i:'flame', c:'text-orange-600'},
+                {l:'Ore Stimate', v:`${estimated.toFixed(0)}h`, i:'hourglass'}, {l:'Task Produttivi', v:productive, i:'trending-up', c:'text-green-600'}
             ];
-            dom.kpiSection.innerHTML = kpis.map(kpi => `<div class="bg-white p-4 rounded-lg shadow flex items-center"><div class="p-3 rounded-full bg-blue-100 ${kpi.color || 'text-blue-600'}"><i data-lucide="${kpi.icon}"></i></div><div class="ml-4"><p class="text-sm text-slate-500">${kpi.label}</p><p class="text-xl font-bold text-slate-900">${kpi.value}</p></div></div>`).join('');
+            dom.kpiSection.innerHTML = kpis.map(k=>`<div class="bg-white p-4 rounded-lg shadow flex items-center"><div class="p-3 rounded-full bg-blue-100 ${k.c||'text-blue-600'}"><i data-lucide="${k.i}"></i></div><div class="ml-4"><p class="text-sm text-slate-500">${k.l}</p><p class="text-xl font-bold">${k.v}</p></div></div>`).join('');
         }
 
         function renderTableView() {
             dom.previewSection.innerHTML = `Mostrando ${filteredTasks.length} su ${allProcessedTasks.length} task.`;
-            if (filteredTasks.length === 0) {
-                dom.dashboardContent.innerHTML = `<div class="text-center py-10 bg-white rounded-lg shadow"><p>Nessun task corrisponde ai filtri.</p></div>`;
-                return;
-            }
-            const headers = [ { key: 'title', label: 'Task' }, { key: 'projectName', label: 'Progetto' }, { key: 'ownerName', label: 'Owner' }, { key: 'deadline', label: 'Deadline' }, { key: 'status', label: 'Stato' } ];
-            dom.dashboardContent.innerHTML = `<div class="overflow-x-auto bg-white rounded-lg shadow"><table class="min-w-full divide-y divide-slate-200"><thead class="bg-slate-50"><tr>${headers.map(h => `<th class="px-4 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider sortable" data-sort-key="${h.key}">${h.label}</th>`).join('')}</tr></thead><tbody class="divide-y divide-slate-200">${filteredTasks.map(createTaskRow).join('')}</tbody></table></div>`;
-            document.querySelectorAll('.sortable').forEach(header => header.addEventListener('click', () => { const key = header.dataset.sortKey; sortConfig.direction = (sortConfig.key === key && sortConfig.direction === 'asc') ? 'desc' : 'asc'; sortConfig.key = key; renderDashboard(); }));
+            if (filteredTasks.length === 0) { dom.dashboardContent.innerHTML = `<div class="text-center py-10 bg-white rounded-lg shadow"><p>Nessun task corrisponde ai filtri.</p></div>`; return; }
+            const headers = [ {k:'title',l:'Task'}, {k:'projectName',l:'Progetto'}, {k:'ownerName',l:'Owner'}, {k:'deadline',l:'Deadline'}, {k:'criticality',l:'Criticità'}, {k:'completion',l:'% Compl.'}, {k:'productivity',l:'Produttività'}, {k:'status',l:'Stato'} ];
+            dom.dashboardContent.innerHTML = `<div class="overflow-x-auto bg-white rounded-lg shadow"><table class="min-w-full divide-y divide-slate-200"><thead class="bg-slate-50"><tr>${headers.map(h => `<th class="px-4 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider sortable" data-sort-key="${h.k}">${h.l}</th>`).join('')}</tr></thead><tbody class="divide-y divide-slate-200">${filteredTasks.map(createTaskRow).join('')}</tbody></table></div>`;
+            document.querySelectorAll('.sortable').forEach(h => h.addEventListener('click', () => { const key=h.dataset.sortKey; sortConfig.direction=(sortConfig.key===key&&sortConfig.direction==='asc')?'desc':'asc'; sortConfig.key=key; renderDashboard(); }));
         }
         
-        function createTaskRow(task) {
-            const statusInfo = { 'In Ritardo': 'bg-red-100 text-red-800', 'Completato': 'bg-green-100 text-green-800', 'In corso': 'bg-yellow-100 text-yellow-800', 'Pianificato': 'bg-blue-100 text-blue-800', 'Non Iniziata': 'bg-slate-200 text-slate-800' }[task.status] || 'bg-gray-100';
-            return `<tr class="hover:bg-slate-50"><td class="px-4 py-4"><div class="tooltip"><span class="font-medium text-slate-900">${task.title}</span><div class="tooltip-text">${task.description}</div></div></td><td class="px-4 py-4 text-sm text-slate-500">${task.projectName}</td><td class="px-4 py-4 text-sm text-slate-500">${task.ownerName}</td><td class="px-4 py-4 text-sm text-slate-500">${dayjs(task.deadline).format('DD/MM/YYYY')}</td><td class="px-4 py-4"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${statusInfo}">${task.status}</span></td></tr>`;
+        function getStatusInfo(task) {
+            if (task.isLate) return { text: 'In Ritardo', badge: 'bg-red-100 text-red-800', progress: 'bg-red-600' };
+            const statuses = { 'Completato':{text:'Completato',badge:'bg-green-100 text-green-800',progress:'bg-green-600'}, 'In corso':{text:'In Corso',badge:'bg-yellow-100 text-yellow-800',progress:'bg-yellow-500'}, 'Pianificato':{text:'Pianificato',badge:'bg-blue-100 text-blue-800',progress:'bg-blue-600'}, 'Non Iniziata':{text:'Non Iniziata',badge:'bg-slate-200 text-slate-800',progress:'bg-slate-400'} };
+            return statuses[task.status] || {text:'Sconosciuto',badge:'bg-slate-100',progress:'bg-slate-500'};
         }
 
-        [dom.projectFilter, dom.ownerFilter, dom.statusFilter, dom.criticalityFilter].forEach(el => el.addEventListener('change', renderDashboard));
+        function createTaskRow(task) {
+            const status = getStatusInfo(task);
+            return `<tr class="hover:bg-slate-50">
+                        <td class="px-4 py-4"><div class="tooltip"><span class="font-medium text-slate-900">${task.title}</span><div class="tooltip-text">${task.description}</div></div></td>
+                        <td class="px-4 py-4 text-sm text-slate-500">${task.projectName}</td>
+                        <td class="px-4 py-4 text-sm text-slate-500">${task.ownerName}</td>
+                        <td class="px-4 py-4 text-sm text-slate-500">${dayjs(task.deadline).format('DD/MM/YYYY')}</td>
+                        <td class="px-4 py-4 text-center">${task.criticality==='Alta'?'<i data-lucide="flame" class="inline-block h-4 w-4 text-orange-500"></i>':''}</td>
+                        <td class="px-4 py-4"><div class="w-full bg-slate-200 rounded-full h-2.5"><div class="${status.progress} h-2.5 rounded-full" style="width: ${task.completion}%"></div></div></td>
+                        <td class="px-4 py-4 text-sm text-slate-500">${task.productivity}</td>
+                        <td class="px-4 py-4"><span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${status.badge}">${status.text}</span></td>
+                    </tr>`;
+        }
+
+        [dom.projectFilter, dom.ownerFilter, dom.dateStartFilter, dom.dateEndFilter, dom.statusFilterLate, dom.criticalityFilter].forEach(el => el.addEventListener('change', renderDashboard));
         initializeDashboard();
     </script>
 </body>
