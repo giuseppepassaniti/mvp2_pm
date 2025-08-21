@@ -4,7 +4,7 @@
  */
 
 const fs       = require('fs');
-const path     = require('path');
+const path     = 'path');
 const Airtable = require('airtable');
 
 /*───────────────────────────────*/
@@ -51,7 +51,10 @@ async function exportTable(tableName, view, fileName) {
       throw err;
     });
 
-  const rows = records.map(r => r.fields);
+  // --- MODIFICA CHIAVE QUI ---
+  // Aggiungiamo l'ID del record a fianco dei campi (fields)
+  const rows = records.map(r => ({ id: r.id, ...r.fields }));
+  
   const filePath = path.join(OUT_DIR, fileName);
   fs.writeFileSync(filePath, JSON.stringify(rows, null, 2));
   console.log(`✔  ${tableName} salvata in ${filePath}`);
