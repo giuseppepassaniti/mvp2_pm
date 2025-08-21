@@ -1,1 +1,192 @@
-<!-- TODO: add HTML/JS for dashboard -->
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <title>Dashboard Time Log - MVP2</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+    <style>
+        :root { font-family: 'Inter', sans-serif; }
+        body { background-color: #f8fafc; color: #334155; }
+        .chart-container { position: relative; width: 100%; height: 24rem; }
+        .spinner { border-top-color: #3b82f6; animation: spin 1s linear infinite; }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .hidden-on-start { display: none; }
+    </style>
+</head>
+<body>
+    <div class="container mx-auto p-4 md:p-6">
+        <header class="mb-6">
+            <h1 class="text-2xl md:text-3xl font-bold text-slate-900">Dashboard Time Log</h1>
+            <p class="text-sm text-slate-500">Analisi interattiva delle ore lavorate (Dati da JSON).</p>
+        </header>
+
+        <div id="initial-message" class="text-center py-12">
+            <div class="spinner h-12 w-12 rounded-full border-4 border-slate-200 mx-auto"></div>
+            <p class="mt-4 text-slate-600">Caricamento dati centralizzato...</p>
+        </div>
+
+        <div id="dashboard-container" class="hidden-on-start">
+            <div id="filters-panel" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6 p-4 bg-white rounded-lg shadow-sm">
+                <select id="project-filter" class="w-full p-2 border rounded-md shadow-sm"></select>
+                <select id="resource-filter" class="w-full p-2 border rounded-md shadow-sm"></select>
+            </div>
+
+            <div id="kpi-section" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-6"></div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+                <div class="bg-white p-4 rounded-lg shadow-sm"><h3 class="font-bold mb-4">Ore per Progetto</h3><div class="chart-container"><canvas id="projects-chart"></canvas></div></div>
+                <div class="bg-white p-4 rounded-lg shadow-sm"><h3 class="font-bold mb-4">Ore per Risorsa</h3><div class="chart-container"><canvas id="resources-chart"></canvas></div></div>
+            </div>
+
+            <div class="bg-white p-4 rounded-lg shadow-sm">
+                 <h3 class="font-bold text-slate-800 mb-4">Dettaglio Log</h3>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm text-left"><thead id="table-head"></thead><tbody id="table-body"></tbody></table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { getDataManager } from './utils/datamanager.js';
+
+        let allProcessedLogs = [];
+        let filteredLogs = [];
+        let chartInstances = {};
+
+        const dom = {
+            initialMessage: document.getElementById('initial-message'),
+            dashboardContainer: document.getElementById('dashboard-container'),
+            projectFilter: document.getElementById('project-filter'),
+            resourceFilter: document.getElementById('resource-filter'),
+            kpiSection: document.getElementById('kpi-section'),
+            tableHead: document.getElementById('table-head'),
+            tableBody: document.getElementById('table-body'),
+        };
+
+        async function initializeDashboard() {
+            try {
+                const dm = await getDataManager();
+
+                allProcessedLogs = dm.timelog.map(log => {
+                    if (!log.Data || !log.Risorse?.[0] || !log.Task?.[0] || !log['Ore Effettive']) return null;
+
+                    const risorsa = dm.risorseMap.get(log.Risorse[0]);
+                    const task = dm.taskMap.get(log.Task[0]);
+                    if (!risorsa || !task) return null; // Salta il log se non trova task o risorsa
+                    
+                    const progetto = dm.progettiMap.get(task.Progetto?.[0]);
+
+                    return {
+                        date: new Date(log.Data),
+                        resourceName: risorsa['Nome e Cognome'],
+                        taskTitle: task['Titolo Task'],
+                        projectName: progetto ? progetto['Id Progetto'] : 'N/D',
+                        hours: log['Ore Effettive'],
+                    };
+                }).filter(Boolean).sort((a, b) => b.date - a.date); // Ordina dal più recente
+
+                dom.initialMessage.style.display = 'none';
+                dom.dashboardContainer.classList.remove('hidden-on-start');
+
+                populateFilters();
+                renderDashboard();
+
+            } catch (error) {
+                console.error("Errore Dashboard Time Log:", error);
+                dom.initialMessage.innerHTML = '<h3>Errore nel caricamento dei dati.</h3>';
+            }
+        }
+        
+        function populateFilters() {
+            const projects = ['all', ...new Set(allProcessedLogs.map(l => l.projectName).sort())];
+            const resources = ['all', ...new Set(allProcessedLogs.map(l => l.resourceName).sort())];
+            dom.projectFilter.innerHTML = projects.map(p => `<option value="${p}">${p === 'all' ? 'Tutti i Progetti' : p}</option>`).join('');
+            dom.resourceFilter.innerHTML = resources.map(r => `<option value="${r}">${r === 'all' ? 'Tutte le Risorse' : r}</option>`).join('');
+        }
+
+        function renderDashboard() {
+            applyFilters();
+            renderKPIs();
+            renderCharts();
+            renderTable();
+        }
+
+        function applyFilters() {
+            filteredLogs = allProcessedLogs.filter(log => {
+                const projectMatch = dom.projectFilter.value === 'all' || log.projectName === dom.projectFilter.value;
+                const resourceMatch = dom.resourceFilter.value === 'all' || log.resourceName === dom.resourceFilter.value;
+                return projectMatch && resourceMatch;
+            });
+        }
+
+        function renderKPIs() {
+            const totalHours = filteredLogs.reduce((sum, log) => sum + log.hours, 0);
+            const activeResources = new Set(filteredLogs.map(l => l.resourceName)).size;
+            const involvedProjects = new Set(filteredLogs.map(l => l.projectName)).size;
+            
+            const kpis = [
+                { label: 'Ore Totali', value: totalHours.toFixed(2), icon: 'clock' },
+                { label: 'Risorse Attive', value: activeResources, icon: 'users' },
+                { label: 'Progetti Coinvolti', value: involvedProjects, icon: 'folder-kanban' },
+            ];
+
+            dom.kpiSection.innerHTML = kpis.map(kpi => `
+                <div class="bg-white p-4 rounded-lg shadow-sm flex items-start gap-4">
+                    <div class="p-3 rounded-full bg-blue-100 text-blue-600"><i data-lucide="${kpi.icon}"></i></div>
+                    <div><p class="text-sm text-slate-500">${kpi.label}</p><p class="text-xl font-bold">${kpi.value}</p></div>
+                </div>`).join('');
+            lucide.createIcons();
+        }
+        
+        function renderCharts() {
+            const aggregateBy = (key) => filteredLogs.reduce((acc, log) => {
+                acc[log[key]] = (acc[log[key]] || 0) + log.hours;
+                return acc;
+            }, {});
+
+            renderBarChart('projects-chart', aggregateBy('projectName'));
+            renderBarChart('resources-chart', aggregateBy('resourceName'));
+        }
+
+        function renderBarChart(canvasId, data) {
+            const sortedData = Object.entries(data).sort(([,a],[,b]) => b-a).slice(0, 15);
+            const chartData = {
+                labels: sortedData.map(([key]) => key),
+                datasets: [{ data: sortedData.map(([, value]) => value), backgroundColor: '#3b82f6' }]
+            };
+            createOrUpdateChart(canvasId, 'bar', chartData);
+        }
+
+        function renderTable() {
+            dom.tableHead.innerHTML = `<tr>${['Data', 'Risorsa', 'Progetto', 'Task', 'Ore'].map(h => `<th class="p-2 text-left text-xs uppercase">${h}</th>`).join('')}</tr>`;
+            dom.tableBody.innerHTML = filteredLogs.slice(0, 100).map(log => `
+                <tr class="hover:bg-slate-50 border-b">
+                    <td class="p-2">${new Date(log.date).toLocaleDateString('it-IT')}</td>
+                    <td class="p-2">${log.resourceName}</td>
+                    <td class="p-2">${log.projectName}</td>
+                    <td class="p-2">${log.taskTitle}</td>
+                    <td class="p-2 text-right font-semibold">${log.hours.toFixed(2)}</td>
+                </tr>
+            `).join('');
+        }
+
+        function createOrUpdateChart(canvasId, type, data) {
+            if (chartInstances[canvasId]) chartInstances[canvasId].destroy();
+            const ctx = document.getElementById(canvasId).getContext('2d');
+            chartInstances[canvasId] = new Chart(ctx, { type, data, options: { maintainAspectRatio: false, responsive: true, plugins: { legend: { display: false } } } });
+        }
+
+        [dom.projectFilter, dom.resourceFilter].forEach(el => el.addEventListener('change', renderDashboard));
+
+        initializeDashboard();
+    </script>
+</body>
+</html>
