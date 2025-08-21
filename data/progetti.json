@@ -367,5 +367,23 @@
     ],
     "Conteggio Variante": 4,
     "Conteggio Imprevisti": 5
+  },
+  {
+    "id": "rec1iALq0miS5LwaD",
+    "Id Progetto": "PRV999",
+    "Nome Progetto": "Prova agosto",
+    "Cliente": "Centro Studi lambda",
+    "PM responsabile": [
+      "recT4SoREDCktZWmb"
+    ],
+    "Stato": "Non Iniziato",
+    "% Avanzamento": 0,
+    "Budget Iniziale": 750000,
+    "Costi Sostenuti": 200000,
+    "Previsione Finale Costi": 750000,
+    "Data Inizio": "2025-09-01",
+    "Data Fine": "2025-09-30",
+    "Conteggio Variante": 0,
+    "Conteggio Imprevisti": 0
   }
 ]
