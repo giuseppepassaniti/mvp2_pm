@@ -28,18 +28,21 @@
 <body class="text-gray-800">
 
     <div class="container mx-auto p-4 md:p-8">
+        
         <header class="mb-8">
             <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Dashboard Milestone Progetti</h1>
             <p class="text-gray-600 mt-1">Visualizzazione delle milestone (Dati da JSON).</p>
         </header>
 
         <div class="bg-white p-4 rounded-lg shadow-md mb-6">
-            <div id="controls-panel" class="hidden-on-start flex flex-col md:flex-row md:items-center gap-4 w-full justify-end">
-                <div class="flex items-center bg-gray-200 rounded-lg p-1">
-                    <button id="view-cards-btn" class="px-4 py-1 text-sm font-semibold rounded-md bg-white shadow text-blue-600">Card</button>
-                    <button id="view-gantt-btn" class="px-4 py-1 text-sm font-semibold rounded-md text-gray-600">Gantt</button>
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+                <div id="controls-panel" class="hidden-on-start flex flex-col md:flex-row md:items-center gap-4 w-full justify-end">
+                    <div class="flex items-center bg-gray-200 rounded-lg p-1">
+                        <button id="view-cards-btn" class="px-4 py-1 text-sm font-semibold rounded-md bg-white shadow text-blue-600">Card</button>
+                        <button id="view-gantt-btn" class="px-4 py-1 text-sm font-semibold rounded-md text-gray-600">Gantt</button>
+                    </div>
+                    <select id="project-filter" class="p-2 border rounded-md bg-white shadow-sm"></select>
                 </div>
-                <select id="project-filter" class="p-2 border rounded-md bg-white shadow-sm"></select>
             </div>
         </div>
 
@@ -49,6 +52,7 @@
         </div>
         
         <main id="dashboard-content" class="transition-opacity duration-500"></main>
+
     </div>
 
     <script type="module">
@@ -57,6 +61,7 @@
         let allProcessedMilestones = [];
         let projectsWithMilestones = {};
         let currentView = 'cards';
+        let ganttChart = null;
 
         const dom = {
             initialMessage: document.getElementById('initial-message'),
@@ -78,7 +83,8 @@
                     if (!m.Milestone || !projectId || !m['Start Date'] || !m.Deadline) return null;
                     
                     const project = dm.progettiMap.get(projectId);
-                    const projectIdReadable = project ? project['Id Progetto'] : 'Sconosciuto';
+                    // Usiamo l'ID Progetto leggibile per coerenza, non il nome
+                    const projectIdReadable = project ? project['Id Progetto'] : 'Progetto Sconosciuto';
 
                     const startDate = new Date(m['Start Date']);
                     const deadline = new Date(m.Deadline);
@@ -87,7 +93,14 @@
                     let calculatedStatus = m.Stato;
                     if (m.Stato !== 'Completata' && deadline < today) calculatedStatus = 'In ritardo';
 
-                    return { name: m.Milestone, projectId: projectIdReadable, startDate, deadline, status: m.Stato, calculatedStatus };
+                    return {
+                        name: m.Milestone,
+                        projectId: projectIdReadable,
+                        startDate,
+                        deadline,
+                        status: m.Stato,
+                        calculatedStatus,
+                    };
                 }).filter(Boolean);
 
                 projectsWithMilestones = allProcessedMilestones.reduce((acc, m) => {
@@ -99,29 +112,34 @@
                 if (allProcessedMilestones.length > 0) {
                     dom.initialMessage.style.display = 'none';
                     dom.controlsPanel.style.display = 'flex';
+                    
                     populateProjectFilter();
-                    handleUrlParams(dm);
+                    handleUrlParams(dm); // Passiamo il data manager
                     renderCurrentView();
                 } else {
                     dom.initialMessage.innerHTML = `<h3>Nessun dato valido trovato.</h3>`;
                 }
+
             } catch (error) {
-                console.error("Errore:", error);
+                console.error("Errore dashboard:", error);
                 dom.initialMessage.innerHTML = `<h3>Errore nel caricamento dei dati.</h3>`;
             }
         }
 
+        // --- CORREZIONE CHIAVE QUI ---
         function handleUrlParams(dm) {
             const urlParams = new URLSearchParams(window.location.search);
-            const projectRecordId = urlParams.get('id');
+            const projectRecordId = urlParams.get('id'); // Questo è l'ID "recXXXXX"
             if (!projectRecordId) return;
 
+            // Usiamo la mappa per trovare il progetto partendo dal suo record ID
             const project = dm.progettiMap.get(projectRecordId);
             if (project) {
-                const projectIdReadable = project['Id Progetto'];
+                const projectIdReadable = project['Id Progetto']; // Es. "PV-2025-01"
+                // Controlliamo se questo progetto ha milestone e se esiste nel filtro
                 if (projectsWithMilestones[projectIdReadable]) {
                      dom.projectFilter.value = projectIdReadable;
-                     dom.projectFilter.disabled = true;
+                     dom.projectFilter.disabled = true; // Blocchiamo il filtro
                 }
             }
         }
@@ -136,23 +154,39 @@
 
         function populateProjectFilter() {
             const projectIds = Object.keys(projectsWithMilestones).sort();
-            dom.projectFilter.innerHTML = `<option value="all">Tutti i Progetti</option>` + projectIds.map(id => `<option value="${id}">${id}</option>`).join('');
+            dom.projectFilter.innerHTML = `<option value="all">Tutti i Progetti</option>` + 
+                                          projectIds.map(id => `<option value="${id}">${id}</option>`).join('');
         }
         
         function renderCardView() {
             const selectedProject = dom.projectFilter.value;
             const projectsToRender = (selectedProject === 'all') ? Object.keys(projectsWithMilestones) : [selectedProject];
+            
             if (projectsToRender.length === 0 || !projectsWithMilestones[projectsToRender[0]]) {
-                dom.dashboardContent.innerHTML = `<div class="text-center py-10"><p>Nessun dato per il progetto selezionato.</p></div>`; return;
+                dom.dashboardContent.innerHTML = `<div class="text-center py-10"><p>Nessun dato per il progetto selezionato.</p></div>`;
+                return;
             }
+
             const grid = document.createElement('div');
             grid.className = 'grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6';
+
             projectsToRender.forEach(projectId => {
                 const milestones = projectsWithMilestones[projectId];
                 if (!milestones) return;
                 const completedCount = milestones.filter(m => m.status === 'Completata').length;
                 const progress = milestones.length > 0 ? (completedCount / milestones.length) * 100 : 0;
-                card.innerHTML = `<h3 class="text-xl font-bold text-gray-800">${projectId}</h3><div class="mt-2 mb-3"><div class="flex justify-between mb-1"><span class="text-sm font-medium text-gray-700">Avanzamento</span><span class="text-sm font-medium text-gray-700">${Math.round(progress)}%</span></div><div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-blue-600 h-2.5 rounded-full" style="width: ${progress}%"></div></div></div><div class="flex-grow"><div class="flex flex-wrap gap-2 py-2">${milestones.map(m => `<div class="tooltip"><span class="inline-block px-3 py-1 text-sm font-medium rounded-full border ${getStatusClasses(m.calculatedStatus)}">${m.name}</span><div class="tooltip-text">${createTooltipText(m)}</div></div>`).join('')}</div></div>`;
+                
+                const card = document.createElement('div');
+                card.className = 'bg-white rounded-lg shadow-md p-5 flex flex-col';
+                card.innerHTML = `
+                    <h3 class="text-xl font-bold text-gray-800">${projectId}</h3>
+                    <div class="mt-2 mb-3">
+                        <div class="flex justify-between mb-1"><span class="text-sm font-medium text-gray-700">Avanzamento</span><span class="text-sm font-medium text-gray-700">${Math.round(progress)}%</span></div>
+                        <div class="w-full bg-gray-200 rounded-full h-2.5"><div class="bg-blue-600 h-2.5 rounded-full" style="width: ${progress}%"></div></div>
+                    </div>
+                    <div class="flex-grow"><div class="flex flex-wrap gap-2 py-2">
+                        ${milestones.map(m => `<div class="tooltip"><span class="inline-block px-3 py-1 text-sm font-medium rounded-full border ${getStatusClasses(m.calculatedStatus)}">${m.name}</span><div class="tooltip-text">${createTooltipText(m)}</div></div>`).join('')}
+                    </div></div>`;
                 grid.appendChild(card);
             });
             dom.dashboardContent.innerHTML = '';
@@ -162,13 +196,32 @@
         function renderGanttView() {
             dom.dashboardContent.innerHTML = '<div id="gantt-container"><svg id="gantt"></svg></div>';
             const selectedProject = dom.projectFilter.value;
-            let filteredMilestones = (selectedProject === 'all') ? [...allProcessedMilestones] : allProcessedMilestones.filter(m => m.projectId === selectedProject);
+
+            let filteredMilestones = (selectedProject === 'all')
+                ? [...allProcessedMilestones]
+                : allProcessedMilestones.filter(m => m.projectId === selectedProject);
+
             if (filteredMilestones.length === 0) {
-                document.getElementById('gantt-container').innerHTML = `<div class="text-center py-10 bg-white rounded-lg"><p>Nessuna milestone da visualizzare.</p></div>`; return;
+                document.getElementById('gantt-container').innerHTML = `<div class="text-center py-10 bg-white rounded-lg"><p>Nessuna milestone da visualizzare.</p></div>`;
+                return;
             }
+
             filteredMilestones.sort((a, b) => a.startDate - b.startDate);
-            let tasks = filteredMilestones.map((m, i) => ({ id: `m_${i}`, name: `${m.projectId} - ${m.name}`, start: m.startDate.toISOString().split('T')[0], end: m.deadline.toISOString().split('T')[0], progress: m.status === 'Completata' ? 100 : (m.status === 'In corso' ? 50 : 0), custom_class: `bar-${m.calculatedStatus.toLowerCase().replace(/\s+/g, '-')}` }));
-            new Gantt("#gantt", tasks, { header_height: 50, bar_height: 25, custom_popup_html: (task) => { const original = filteredMilestones.find(m => `${m.projectId} - ${m.name}` === task.name); return original ? `<div class="p-2">${createTooltipText(original)}</div>` : ''; } });
+            let tasks = filteredMilestones.map((m, i) => ({
+                id: `m_${i}`, name: `${m.projectId} - ${m.name}`,
+                start: m.startDate.toISOString().split('T')[0],
+                end: m.deadline.toISOString().split('T')[0],
+                progress: m.status === 'Completata' ? 100 : (m.status === 'In corso' ? 50 : 0),
+                custom_class: `bar-${m.calculatedStatus.toLowerCase().replace(/\s+/g, '-')}`
+            }));
+
+            ganttChart = new Gantt("#gantt", tasks, {
+                header_height: 50, bar_height: 25,
+                custom_popup_html: (task) => {
+                    const original = filteredMilestones.find(m => `${m.projectId} - ${m.name}` === task.name);
+                    return original ? `<div class="p-2">${createTooltipText(original)}</div>` : '';
+                }
+            });
         }
         
         const getStatusClasses = (status) => ({ 'Completata': 'bg-green-100 text-green-800 border-green-300', 'In corso': 'bg-yellow-100 text-yellow-800 border-yellow-300', 'Pianificata': 'bg-blue-100 text-blue-800 border-blue-300', 'In ritardo': 'bg-red-100 text-red-800 border-red-300' }[status] || 'bg-gray-100');
