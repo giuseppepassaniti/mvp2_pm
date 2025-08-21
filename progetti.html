@@ -2,8 +2,8 @@
 <html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale-1.0">
-    <title>Dashboard Progetti - MVP2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Progetti - MVP2 Corretto</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
@@ -45,115 +45,149 @@
     </div>
 
     <script type="module">
-        // Importiamo il nostro nuovo "cervello" centrale
         import { getDataManager } from './utils/datamanager.js';
 
-        // Stato locale della pagina
         let processedProjects = [];
 
-        // Riferimenti agli elementi DOM
         const searchInput = document.getElementById('search-input');
         const container = document.getElementById('projects-container');
         const initialMessage = document.getElementById('initial-message');
         
-        /**
-         * Funzione principale che orchestra il caricamento e la visualizzazione
-         */
+        // --- FUNZIONI HELPER (prese da MVP1 e adattate) ---
+        
+        // Funzione per la navigazione, ora globale per essere accessibile dall'HTML
+        window.navigateToSection = function(fileUrl, projectId) {
+            window.location.href = `${fileUrl}?id=${projectId}`;
+        }
+
+        const getProgressColor = (progress) => {
+            if (progress >= 80) return 'bg-green-500';
+            if (progress >= 40) return 'bg-yellow-500';
+            return 'bg-red-500';
+        };
+
+        const getCostColor = (budget, forecast) => forecast > budget ? 'text-red-600' : 'text-green-600';
+
+        const getStatusInfo = (status) => {
+            const statuses = {
+                'In progress': { icon: 'clock', color: 'bg-yellow-100 text-yellow-800' },
+                'Completato': { icon: 'check-circle', color: 'bg-green-100 text-green-800' },
+                'In ritardo': { icon: 'alert-triangle', color: 'bg-red-100 text-red-800' },
+                'Da approvare': { icon: 'help-circle', color: 'bg-blue-100 text-blue-800' },
+                'Non Iniziato': { icon: 'circle-off', color: 'bg-slate-100 text-slate-800' }
+            };
+            return statuses[status] || statuses['Non Iniziato'];
+        };
+
+
         async function initializeDashboard() {
             try {
-                // 1. OTTENERE I DATI DAL MANAGER
-                // Chiamiamo il nostro gestore, che caricherà i dati (se non già in cache)
-                // e ci restituirà gli array e le mappe di cui abbiamo bisogno.
                 const dm = await getDataManager();
 
-                // 2. ELABORARE E "ARRICCHIRE" I DATI
-                // Ora trasformiamo i dati grezzi in dati pronti per la visualizzazione.
                 processedProjects = dm.progetti.map(proj => {
-                    // Risolviamo la relazione: troviamo il nome del PM usando la mappa delle risorse.
-                    const pmId = proj['PM responsabile']?.[0]; // Prendiamo il primo ID, se esiste
+                    const pmId = proj['PM responsabile']?.[0];
                     const pmObject = pmId ? dm.risorseMap.get(pmId) : null;
                     const pmName = pmObject ? pmObject['Nome e Cognome'] : 'Non assegnato';
                     
-                    // Creiamo un nuovo oggetto pulito, pronto per essere renderizzato
                     return {
-                        id: proj['Id Progetto'],
+                        recordId: proj.id, // ID di Airtable per la navigazione (es. recXXXXX)
+                        id: proj['Id Progetto'], // ID leggibile (es. PV-2025-01)
                         name: proj['Nome Progetto'],
                         client: proj.Cliente,
                         pm: pmName,
                         status: proj.Stato,
                         budget: proj['Budget Iniziale'] || 0,
+                        costs: proj['Costi Sostenuti'] || 0,
                         forecast: proj['Previsione Finale Costi'] || 0,
-                        progress: (proj['% Avanzamento'] || 0) * 100, // Converte 0.62 in 62
+                        progress: (proj['% Avanzamento'] || 0) * 100,
                     };
-                }).filter(Boolean); // Filtra eventuali righe non valide
+                }).filter(Boolean);
 
-                // 3. RENDERIZZARE I DATI
-                // Una volta che i dati sono pronti, li mostriamo a schermo.
                 renderProjects(processedProjects);
 
             } catch (error) {
-                // Se qualcosa va storto nel caricamento (es. file non trovato), lo mostriamo.
-                initialMessage.innerHTML = `<p class="text-red-600 font-semibold">Errore critico nel caricamento dei dati. Controlla la console per i dettagli.</p>`;
+                console.error("Errore caricamento dati:", error);
+                initialMessage.innerHTML = `<p class="text-red-600 font-semibold">Errore critico. Controlla la console.</p>`;
             }
-        }
-
-        /**
-         * Genera l'HTML per le card dei progetti e lo inserisce nella pagina.
-         * @param {Array} projects - L'array di progetti elaborati da visualizzare.
-         */
-        function renderProjects(projects) {
-            const currencyFormatter = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', minimumFractionDigits: 0 });
-
-            initialMessage.classList.add('hidden'); // Nascondiamo il messaggio di caricamento
-
-            if (projects.length === 0) {
-                container.innerHTML = `<p class="col-span-full text-center text-slate-500">Nessun progetto trovato.</p>`;
-                return;
-            }
-
-            container.innerHTML = projects.map(p => {
-                 const statusInfo = {
-                    'In progress': { icon: 'clock', color: 'bg-yellow-100 text-yellow-800' },
-                    'Completato': { icon: 'check-circle', color: 'bg-green-100 text-green-800' },
-                 }[p.status] || { icon: 'circle-off', color: 'bg-slate-100 text-slate-800' };
-
-                const costDelta = p.forecast - p.budget;
-                const costColor = costDelta > 0 ? 'text-red-600' : 'text-green-600';
-                
-                // Nota: I bottoni di navigazione sono stati rimossi per semplicità in questo step
-                // Li reintrodurremo quando convertiremo le altre pagine.
-                return `
-                <div class="project-card bg-white rounded-lg shadow-sm flex flex-col">
-                    <div class="p-4 border-b border-slate-200">
-                        <div class="flex justify-between items-start gap-2">
-                            <h3 class="text-lg font-semibold text-slate-900">${p.name}</h3>
-                            <span class="flex items-center gap-1.5 text-xs font-semibold rounded-full whitespace-nowrap px-2 py-0.5 ${statusInfo.color}">
-                                <i data-lucide="${statusInfo.icon}" class="w-3.5 h-3.5"></i> ${p.status}
-                            </span>
-                        </div>
-                        <p class="text-sm text-slate-500">${p.id} | ${p.client}</p>
-                    </div>
-                    <div class="p-4 flex-grow space-y-4">
-                        <div class="text-sm"><strong>PM:</strong> ${p.pm}</div>
-                        <div>
-                            <div class="flex justify-between text-xs font-medium text-slate-500 mb-1">
-                                <span>Avanzamento</span>
-                                <span>${Math.round(p.progress)}%</span>
-                            </div>
-                            <div class="w-full bg-slate-200 rounded-full h-2"><div class="bg-blue-600 h-2 rounded-full" style="width: ${p.progress}%"></div></div>
-                        </div>
-                        <div class="grid grid-cols-3 gap-4 text-center border-t pt-4">
-                             <div><p class="text-xs text-slate-500">Budget</p><p class="font-semibold">${currencyFormatter.format(p.budget)}</p></div>
-                             <div><p class="text-xs text-slate-500">Previsione</p><p class="font-semibold">${currencyFormatter.format(p.forecast)}</p></div>
-                             <div><p class="text-xs text-slate-500">Scostamento</p><p class="font-semibold ${costColor}">${currencyFormatter.format(costDelta)}</p></div>
-                        </div>
-                    </div>
-                </div>`;
-            }).join('');
-            lucide.createIcons(); // Attiva le icone
         }
         
-        // Aggiungiamo un listener per la barra di ricerca
+        function createProjectCardHTML(project) {
+            const status = getStatusInfo(project.status);
+            const progressColor = getProgressColor(project.progress);
+            const costColor = getCostColor(project.budget, project.forecast);
+            const costDelta = project.forecast - project.budget;
+            const currencyFormatter = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', minimumFractionDigits: 0 });
+            
+            const sections = [
+                { name: 'Milestone', file: 'milestone.html', icon: 'flag' },
+                { name: 'Task', file: 'task.html', icon: 'list-checks' },
+                { name: 'Imprevisti', file: 'imprevisti.html', icon: 'siren' },
+                { name: 'Varianti', file: 'varianti.html', icon: 'git-pull-request-draft' },
+                { name: 'Decisioni', file: 'decisionlog.html', icon: 'gavel' }
+            ];
+
+            return `
+            <div class="project-card bg-white rounded-lg shadow-sm flex flex-col">
+                <div class="p-4 border-b border-slate-200">
+                    <div class="flex justify-between items-start gap-4">
+                        <h3 class="text-lg font-semibold text-slate-900">${project.name}</h3>
+                        <span class="flex items-center gap-1.5 text-xs font-semibold rounded-full whitespace-nowrap px-2 py-0.5 ${status.color}">
+                            <i data-lucide="${status.icon}" class="w-3.5 h-3.5"></i>
+                            ${project.status}
+                        </span>
+                    </div>
+                    <p class="text-sm text-slate-500">${project.id} | ${project.client}</p>
+                </div>
+                <div class="p-4 flex-grow space-y-4">
+                    <div>
+                        <div class="flex justify-between text-xs text-slate-500 uppercase tracking-wide mb-1">
+                            <span>Avanzamento</span>
+                            <span class="font-semibold text-slate-600">${Math.round(project.progress)}%</span>
+                        </div>
+                        <div class="w-full bg-slate-200 rounded-full h-2.5">
+                            <div class="${progressColor} h-2.5 rounded-full" style="width: ${project.progress}%"></div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4 text-center">
+                        <div>
+                            <p class="text-xs text-slate-500 uppercase tracking-wide">Budget</p>
+                            <p class="font-semibold text-slate-800">${currencyFormatter.format(project.budget)}</p>
+                        </div>
+                        <div>
+                            <p class="text-xs text-slate-500 uppercase tracking-wide">Previsione</p>
+                            <p class="font-semibold text-slate-800">${currencyFormatter.format(project.forecast)}</p>
+                        </div>
+                         <div>
+                            <p class="text-xs text-slate-500 uppercase tracking-wide">Scostamento</p>
+                            <p class="font-semibold ${costColor}">${currencyFormatter.format(costDelta)}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="p-4 bg-slate-50 rounded-b-lg border-t border-slate-200">
+                    <p class="text-xs font-semibold text-slate-600 mb-2 uppercase tracking-wide">Dashboard Operative</p>
+                    <div class="flex flex-wrap gap-2">
+                        ${sections.map(sec => `
+                            <button onclick="navigateToSection('${sec.file}', '${project.recordId}')" class="flex-1 text-center bg-white border border-slate-300 text-slate-700 hover:bg-slate-100 px-3 py-1.5 text-xs font-semibold rounded-md transition-colors">
+                                <i data-lucide="${sec.icon}" class="inline-block h-3 w-3 mr-1"></i>
+                                ${sec.name}
+                            </button>
+                        `).join('')}
+                    </div>
+                </div>
+            </div>`;
+        }
+
+
+        function renderProjects(projects) {
+            initialMessage.classList.add('hidden');
+            if (projects.length === 0) {
+                container.innerHTML = `<p class="col-span-full text-center text-slate-500">Nessun progetto trovato.</p>`;
+            } else {
+                container.innerHTML = projects.map(createProjectCardHTML).join('');
+            }
+            lucide.createIcons();
+        }
+        
         searchInput.addEventListener('input', (e) => {
             const searchTerm = e.target.value.toLowerCase();
             const filteredProjects = processedProjects.filter(p => 
@@ -163,9 +197,7 @@
             renderProjects(filteredProjects);
         });
 
-        // Avviamo tutto!
         initializeDashboard();
-
     </script>
 </body>
 </html>
