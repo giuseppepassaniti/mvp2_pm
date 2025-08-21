@@ -3,45 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Varianti - MVP2 Corretto</title>
+    <title>Dashboard Varianti - MVP2 Finale</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.10/dayjs.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; }
         .hidden-on-start { display: none; }
+        .modal-overlay { transition: opacity 0.3s ease; }
+        .modal-container { transition: transform 0.3s ease; }
+        .sortable:hover { background-color: #f8fafc; cursor: pointer; }
+        .sort-asc::after { content: ' ▲'; font-size: 0.7em; }
+        .sort-desc::after { content: ' ▼'; font-size: 0.7em; }
     </style>
 </head>
 <body class="text-slate-800">
+
     <div class="container mx-auto p-4 md:p-6">
-        <header class="mb-6"><h1 class="text-3xl md:text-4xl font-bold text-slate-900">Dashboard Varianti Progettuali</h1><p class="text-slate-600 mt-1">Analisi impatto varianti (Dati da JSON).</p></header>
+        
+        <header class="mb-6">
+            <h1 class="text-3xl md:text-4xl font-bold text-slate-900">Dashboard Varianti Progettuali</h1>
+            <p class="text-slate-600 mt-1">Analisi impatto varianti (Dati da JSON).</p>
+        </header>
+
         <div class="bg-white p-4 rounded-lg shadow-md mb-6">
-            <div id="filters-panel" class="hidden-on-start grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div id="filters-panel" class="hidden-on-start grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 items-end">
                 <select id="project-filter" class="p-2 border rounded-md bg-white shadow-sm w-full"></select>
-                <select id="status-filter" class="p-2 border rounded-md bg-white shadow-sm w-full"><option value="all">Tutti gli Stati</option><option value="Approvata">Approvata</option><option value="In valutazione">In valutazione</option><option value="Rifiutata">Rifiutata</option></select>
-                <input type="text" id="search-input" placeholder="Cerca per tipo di variante..." class="p-2 border rounded-md bg-white shadow-sm w-full md:col-span-2">
+                <select id="variant-type-filter" class="p-2 border rounded-md bg-white shadow-sm w-full"></select>
+                <select id="status-filter" class="p-2 border rounded-md bg-white shadow-sm w-full"></select>
+                <div>
+                    <label class="text-xs text-slate-500">Impatto Tempi</label>
+                    <select id="time-impact-filter" class="p-2 border rounded-md bg-white shadow-sm w-full text-sm">
+                        <option value="all">Tutti</option>
+                        <option value="positive">Positivo (riduzione)</option>
+                        <option value="negative">Negativo (aumento)</option>
+                        <option value="zero">Nullo</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="text-xs text-slate-500">Impatto Costi</label>
+                    <select id="cost-impact-filter" class="p-2 border rounded-md bg-white shadow-sm w-full text-sm">
+                        <option value="all">Tutti</option>
+                        <option value="positive">Positivo (risparmio)</option>
+                        <option value="negative">Negativo (aumento)</option>
+                        <option value="zero">Nullo</option>
+                    </select>
+                </div>
             </div>
         </div>
+
         <div id="initial-message" class="text-center py-12 bg-white rounded-lg shadow-md"><i data-lucide="loader-2" class="mx-auto h-12 w-12 text-slate-400 animate-spin"></i><h3 class="mt-2 text-sm font-medium text-slate-900">Caricamento dati...</h3></div>
+
         <div id="dashboard-container" class="hidden-on-start">
             <section id="kpi-section" class="mb-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"></section>
+            <div class="flex flex-col md:flex-row justify-between items-center mb-4 gap-4">
+                <div class="flex items-center bg-slate-200 rounded-lg p-1">
+                    <button id="view-cards-btn" class="px-4 py-1 text-sm font-semibold rounded-md bg-white shadow text-blue-600">Card</button>
+                    <button id="view-table-btn" class="px-4 py-1 text-sm font-semibold rounded-md text-slate-600">Tabella</button>
+                </div>
+                <div class="relative w-full md:w-1/3">
+                    <i data-lucide="search" class="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-400"></i>
+                    <input type="text" id="search-input" placeholder="Cerca per variante, progetto..." class="w-full pl-10 p-2 border rounded-md bg-white shadow-sm">
+                </div>
+            </div>
             <div id="preview-section" class="mb-2 text-sm text-slate-500"></div>
             <main id="main-content"></main>
         </div>
+        
+        <div id="details-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden"><div id="modal-overlay" class="absolute inset-0 bg-black/60 modal-overlay opacity-0"></div><div id="modal-container" class="bg-white rounded-lg shadow-xl w-full max-w-2xl z-10 transform scale-95 modal-container"><div class="p-6"><div class="flex justify-between items-start"><div id="modal-header"></div><button id="modal-close-btn" class="p-1 rounded-full hover:bg-slate-200"><i data-lucide="x" class="h-6 w-6 text-slate-600"></i></button></div><div class="mt-4 border-t pt-4"><p id="modal-description" class="text-slate-700 whitespace-pre-wrap"></p></div></div></div></div>
     </div>
+
     <script type="module">
         import { getDataManager } from './utils/datamanager.js';
-        let allProcessedVariants = [], filteredVariants = [], impactChart = null;
-        const dom = { initialMessage: document.getElementById('initial-message'), dashboardContainer: document.getElementById('dashboard-container'), filtersPanel: document.getElementById('filters-panel'), projectFilter: document.getElementById('project-filter'), statusFilter: document.getElementById('status-filter'), searchInput: document.getElementById('search-input'), kpiSection: document.getElementById('kpi-section'), previewSection: document.getElementById('preview-section'), mainContent: document.getElementById('main-content') };
+
+        let allVariants = [], filteredVariants = [], currentView = 'cards', sortConfig = { key: 'date', direction: 'desc' }, impactChart = null;
+        const dom = { initialMessage: document.getElementById('initial-message'), dashboardContainer: document.getElementById('dashboard-container'), filtersPanel: document.getElementById('filters-panel'), projectFilter: document.getElementById('project-filter'), variantTypeFilter: document.getElementById('variant-type-filter'), statusFilter: document.getElementById('status-filter'), timeImpactFilter: document.getElementById('time-impact-filter'), costImpactFilter: document.getElementById('cost-impact-filter'), searchInput: document.getElementById('search-input'), kpiSection: document.getElementById('kpi-section'), mainContent: document.getElementById('main-content'), previewSection: document.getElementById('preview-section'), viewButtons: { cards: document.getElementById('view-cards-btn'), table: document.getElementById('view-table-btn') }, modal: { element: document.getElementById('details-modal'), overlay: document.getElementById('modal-overlay'), container: document.getElementById('modal-container'), closeBtn: document.getElementById('modal-close-btn'), header: document.getElementById('modal-header'), description: document.getElementById('modal-description') } };
+        const statusInfo = { 'Approvata': {badge:'bg-green-100 text-green-800'}, 'Rifiutata': {badge:'bg-red-100 text-red-800'}, 'In valutazione': {badge:'bg-yellow-100 text-yellow-800'} };
         const formatCurrency = (v) => new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR' }).format(v||0);
-        const formatDays = (v) => `${(v||0)>0?'+':''}${v||0} giorni`;
+        const formatDays = (v) => `${v > 0 ? '+' : ''}${v||0} giorni`;
 
         async function initializeDashboard() {
             try {
                 const dm = await getDataManager();
-                allProcessedVariants = dm.varianti.map((v, i) => {
+                allVariants = dm.varianti.map((v, i) => {
                     if (!v.Variante || !v.Progetto?.[0] || !v['Data Variante']) return null;
                     const project = dm.progettiMap.get(v.Progetto[0]);
                     return { id: i, type: v.Variante, description: v['Descrizione Variante']||'N/D', projectName: project ? project['Id Progetto'] : 'N/D', date: new Date(v['Data Variante']), timeImpact: v['Impatto Tempi (in giorni)']||0, costImpact: v['Impatto Costi']||0, status: v.Stato||'In valutazione' };
@@ -53,7 +101,7 @@
                 populateFilters();
                 handleUrlParams(dm);
                 renderDashboard();
-            } catch (error) { console.error("Errore:", error); dom.initialMessage.innerHTML = `<h3>Errore nel caricamento dei dati.</h3>`; }
+            } catch (error) { console.error("Errore:", error); dom.initialMessage.innerHTML = `<h3>Errore nel caricamento dati.</h3>`; }
         }
 
         function handleUrlParams(dm) {
@@ -69,13 +117,39 @@
             }
         }
 
-        function populateFilters() { const projects = ['all', ...new Set(allProcessedVariants.map(v => v.projectName).sort())]; dom.projectFilter.innerHTML = projects.map(p => `<option value="${p}">${p === 'all' ? 'Tutti i Progetti' : p}</option>`).join(''); }
-        function renderDashboard() { applyFilters(); renderKPIs(); renderTableView(); lucide.createIcons(); }
-        function applyFilters() { const searchTerm = dom.searchInput.value.toLowerCase(); filteredVariants = allProcessedVariants.filter(v => (dom.projectFilter.value==='all'||v.projectName===dom.projectFilter.value) && (dom.statusFilter.value==='all'||v.status===dom.statusFilter.value) && (!searchTerm||v.type.toLowerCase().includes(searchTerm))); }
-        function renderKPIs() { const total = filteredVariants.length; const timeImpact = filteredVariants.reduce((s,v)=>s+v.timeImpact,0); const costImpact = filteredVariants.reduce((s,v)=>s+v.costImpact,0); const byStatus = filteredVariants.reduce((acc,{status})=>{acc[status]=(acc[status]||0)+1;return acc;},{}); dom.kpiSection.innerHTML = `<div class="bg-white p-4 rounded-lg shadow-md flex items-center"><i data-lucide="git-pull-request-draft" class="h-10 w-10 text-blue-500"></i><div class="ml-4"><p class="text-slate-500 text-sm">Totale</p><p class="text-2xl font-bold">${total}</p></div></div><div class="bg-white p-4 rounded-lg shadow-md flex items-center"><i data-lucide="calendar-days" class="h-10 w-10 ${timeImpact>0?'text-red-500':'text-green-500'}"></i><div class="ml-4"><p class="text-slate-500 text-sm">Impatto Tempi</p><p class="text-2xl font-bold">${formatDays(timeImpact)}</p></div></div><div class="bg-white p-4 rounded-lg shadow-md flex items-center"><i data-lucide="coins" class="h-10 w-10 ${costImpact>0?'text-red-500':'text-green-500'}"></i><div class="ml-4"><p class="text-slate-500 text-sm">Impatto Costi</p><p class="text-2xl font-bold">${formatCurrency(costImpact)}</p></div></div><div class="bg-white p-4 rounded-lg shadow-md"><canvas id="impact-chart"></canvas></div>`; if(impactChart)impactChart.destroy(); impactChart=new Chart(document.getElementById('impact-chart').getContext('2d'),{type:'bar',data:{labels:['Approvate','Rifiutate','In Valutazione'],datasets:[{data:[byStatus['Approvata']||0,byStatus['Rifiutata']||0,byStatus['In valutazione']||0],backgroundColor:['#22c55e','#ef4444','#f59e0b']}]},options:{responsive:true,plugins:{legend:{display:false},title:{display:true,text:'Varianti per Stato'}}}}); }
-        function renderTableView() { dom.previewSection.innerHTML = `Mostrando ${filteredVariants.length} su ${allProcessedVariants.length} varianti.`; if (filteredVariants.length === 0) { dom.mainContent.innerHTML = `<div class="text-center py-10 bg-white rounded-lg shadow"><p>Nessuna variante corrisponde ai filtri.</p></div>`; return; } const headers = ['Progetto', 'Variante', 'Data', 'Impatto Tempi', 'Impatto Costi', 'Stato']; dom.mainContent.innerHTML = `<div class="overflow-x-auto bg-white rounded-lg shadow"><table class="min-w-full divide-y divide-slate-200"><thead class="bg-slate-50"><tr>${headers.map(h => `<th class="px-4 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider">${h}</th>`).join('')}</tr></thead><tbody class="divide-y divide-slate-200">${filteredVariants.map(createVariantRow).join('')}</tbody></table></div>`; }
-        function createVariantRow(v) { const statusInfo={'Approvata':'bg-green-100 text-green-800','In valutazione':'bg-yellow-100 text-yellow-800','Rifiutata':'bg-red-100 text-red-800'}[v.status]||'bg-slate-100'; const timeColor=v.timeImpact>0?'text-red-600':(v.timeImpact<0?'text-green-600':''); const costColor=v.costImpact>0?'text-red-600':(v.costImpact<0?'text-green-600':''); return `<tr class="hover:bg-slate-50"><td class="px-4 py-3 text-sm font-medium">${v.projectName}</td><td class="px-4 py-3 text-sm">${v.type}</td><td class="px-4 py-3 text-sm">${dayjs(v.date).format('DD/MM/YYYY')}</td><td class="px-4 py-3 text-sm font-bold ${timeColor}">${formatDays(v.timeImpact)}</td><td class="px-4 py-3 text-sm font-bold ${costColor}">${formatCurrency(v.costImpact)}</td><td class="px-4 py-3 text-sm"><span class="font-semibold ${statusInfo} px-2 py-1 rounded-full text-xs">${v.status}</span></td></tr>`; }
-        [dom.projectFilter, dom.statusFilter, dom.searchInput].forEach(el => el.addEventListener('input', renderDashboard));
+        function populateFilters() {
+            const createOptions = (el, data) => { el.innerHTML = data.map(item => `<option value="${item}">${item === 'all' ? `Tutti i ${el.id.split('-')[0]}` : item}</option>`).join(''); };
+            createOptions(dom.projectFilter, ['all', ...new Set(allVariants.map(v => v.projectName).sort())]);
+            createOptions(dom.variantTypeFilter, ['all', ...new Set(allVariants.map(v => v.type).sort())]);
+            createOptions(dom.statusFilter, ['all', ...new Set(allVariants.map(v => v.status).sort())]);
+        }
+
+        function renderDashboard() { applyFiltersAndSort(); renderKPIs(); renderCurrentView(); lucide.createIcons(); }
+        function applyFiltersAndSort() {
+            const searchTerm = dom.searchInput.value.toLowerCase();
+            filteredVariants = allVariants.filter(v => 
+                (dom.projectFilter.value === 'all' || v.projectName === dom.projectFilter.value) &&
+                (dom.variantTypeFilter.value === 'all' || v.type === dom.variantTypeFilter.value) &&
+                (dom.statusFilter.value === 'all' || v.status === dom.statusFilter.value) &&
+                (dom.timeImpactFilter.value === 'all' || (dom.timeImpactFilter.value === 'positive' && v.timeImpact < 0) || (dom.timeImpactFilter.value === 'negative' && v.timeImpact > 0) || (dom.timeImpactFilter.value === 'zero' && v.timeImpact === 0)) &&
+                (dom.costImpactFilter.value === 'all' || (dom.costImpactFilter.value === 'positive' && v.costImpact < 0) || (dom.costImpactFilter.value === 'negative' && v.costImpact > 0) || (dom.costImpactFilter.value === 'zero' && v.costImpact === 0)) &&
+                (!searchTerm || v.type.toLowerCase().includes(searchTerm) || v.projectName.toLowerCase().includes(searchTerm))
+            );
+            filteredVariants.sort((a,b)=>{ let vA=a[sortConfig.key], vB=b[sortConfig.key]; if(vA<vB)return sortConfig.direction==='asc'?-1:1; if(vA>vB)return sortConfig.direction==='asc'?1:-1; return 0; });
+        }
+
+        function renderCurrentView() { Object.values(dom.viewButtons).forEach(b=>b.classList.remove('bg-white','shadow','text-blue-600')); dom.viewButtons[currentView].classList.add('bg-white','shadow','text-blue-600'); dom.previewSection.innerHTML=`Mostrando ${filteredVariants.length} su ${allVariants.length} varianti.`; if(currentView==='cards')renderCardView(); else if(currentView==='table')renderTableView();}
+        function renderKPIs(){ const total=filteredVariants.length, timeImpact=filteredVariants.reduce((s,v)=>s+v.timeImpact,0), costImpact=filteredVariants.reduce((s,v)=>s+v.costImpact,0), byStatus=filteredVariants.reduce((acc,{status})=>{acc[status]=(acc[status]||0)+1;return acc;},{}); dom.kpiSection.innerHTML=`<div class="bg-white p-4 rounded-lg shadow-md flex items-center"><i data-lucide="git-pull-request-draft" class="h-10 w-10 text-blue-500"></i><div class="ml-4"><p class="text-slate-500 text-sm">Totale Varianti</p><p class="text-2xl font-bold">${total}</p></div></div><div class="bg-white p-4 rounded-lg shadow-md flex items-center"><i data-lucide="calendar-days" class="h-10 w-10 ${timeImpact>0?'text-red-500':'text-green-500'}"></i><div class="ml-4"><p class="text-slate-500 text-sm">Impatto Tempi Totale</p><p class="text-2xl font-bold">${formatDays(timeImpact)}</p></div></div><div class="bg-white p-4 rounded-lg shadow-md flex items-center"><i data-lucide="coins" class="h-10 w-10 ${costImpact>0?'text-red-500':'text-green-500'}"></i><div class="ml-4"><p class="text-slate-500 text-sm">Impatto Costi Totale</p><p class="text-2xl font-bold">${formatCurrency(costImpact)}</p></div></div><div class="bg-white p-4 rounded-lg shadow-md"><canvas id="impact-chart"></canvas></div>`; if(impactChart)impactChart.destroy(); impactChart=new Chart(document.getElementById('impact-chart').getContext('2d'),{type:'bar',data:{labels:['Approvate','Rifiutate','In Valutazione'],datasets:[{data:[byStatus['Approvata']||0,byStatus['Rifiutata']||0,byStatus['In valutazione']||0],backgroundColor:['#22c55e','#ef4444','#f59e0b']}]},options:{responsive:true,plugins:{legend:{display:false},title:{display:true,text:'Varianti per Stato'}},scales:{y:{beginAtZero:true,ticks:{stepSize:1}}}}});}
+        function renderCardView(){if(filteredVariants.length===0){dom.mainContent.innerHTML=`<div class="text-center py-10 bg-white rounded-lg shadow"><p>Nessuna variante.</p></div>`;return;} dom.mainContent.innerHTML=`<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">${filteredVariants.map(v=>{const stat=statusInfo[v.status]||{};const timeColor=v.timeImpact>0?'text-red-600':(v.timeImpact<0?'text-green-600':'text-slate-600');const costColor=v.costImpact>0?'text-red-600':(v.costImpact<0?'text-green-600':'text-slate-600');return `<div class="bg-white rounded-lg shadow p-4 flex flex-col justify-between" data-id="${v.id}" style="cursor: pointer;"><div><div class="flex justify-between items-start"><h4 class="font-bold text-slate-800 pr-2">${v.type}</h4><span class="px-2 py-1 text-xs font-semibold rounded-full whitespace-nowrap ${stat.badge}">${v.status}</span></div><p class="text-sm text-slate-500 mt-1">${v.projectName} &bull; ${dayjs(v.date).format('DD MMM YYYY')}</p></div><div class="mt-4 pt-3 border-t space-y-2 text-sm"><p class="flex justify-between"><span>Impatto Tempi:</span> <span class="font-bold ${timeColor}">${formatDays(v.timeImpact)}</span></p><p class="flex justify-between"><span>Impatto Costi:</span> <span class="font-bold ${costColor}">${formatCurrency(v.costImpact)}</span></p></div></div>`;}).join('')}</div>`; dom.mainContent.querySelectorAll('[data-id]').forEach(card=>card.addEventListener('click',()=>showModal(card.dataset.id)));}
+        function renderTableView(){if(filteredVariants.length===0){dom.mainContent.innerHTML=`<div class="text-center py-10 bg-white rounded-lg shadow"><p>Nessuna variante.</p></div>`;return;} const headers=['Progetto','Variante','Data','Impatto Tempi','Impatto Costi','Stato','']; dom.mainContent.innerHTML=`<div class="overflow-x-auto bg-white rounded-lg shadow"><table class="min-w-full divide-y divide-slate-200"><thead class="bg-slate-50"><tr>${headers.map(h=>`<th class="px-4 py-3 text-left text-xs font-medium text-slate-500 uppercase tracking-wider sortable" data-sort-key="${h.toLowerCase()}">${h}</th>`).join('')}</tr></thead><tbody class="divide-y divide-slate-200">${filteredVariants.map(v=>{const stat=statusInfo[v.status]||{};const timeColor=v.timeImpact>0?'text-red-600':(v.timeImpact<0?'text-green-600':'');const costColor=v.costImpact>0?'text-red-600':(v.costImpact<0?'text-green-600':'');return `<tr class="hover:bg-slate-50"><td class="px-4 py-3 text-sm font-medium">${v.projectName}</td><td class="px-4 py-3 text-sm">${v.type}</td><td class="px-4 py-3 text-sm">${dayjs(v.date).format('DD/MM/YYYY')}</td><td class="px-4 py-3 text-sm font-bold ${timeColor}">${formatDays(v.timeImpact)}</td><td class="px-4 py-3 text-sm font-bold ${costColor}">${formatCurrency(v.costImpact)}</td><td class="px-4 py-3 text-sm"><span class="font-semibold ${stat.badge} px-2 py-1 rounded-full text-xs">${v.status}</span></td><td class="px-4 py-3 text-sm"><button class="text-blue-600 hover:underline" data-id="${v.id}">Dettagli</button></td></tr>`;}).join('')}</tbody></table></div>`; dom.mainContent.querySelectorAll('[data-id]').forEach(btn=>btn.addEventListener('click',()=>showModal(btn.dataset.id))); document.querySelectorAll('.sortable').forEach(h=>h.addEventListener('click',()=>{const key=h.dataset.sortKey;sortConfig.direction=sortConfig.key===key&&sortConfig.direction==='asc'?'desc':'asc';sortConfig.key=key;renderTableView();}));}
+        function showModal(id){const variant=allVariants.find(v=>v.id==id);if(!variant)return; dom.modal.header.innerHTML=`<h3 class="text-2xl font-bold text-slate-900">${variant.type}</h3><p class="text-sm text-slate-500">${variant.projectName}</p>`; dom.modal.description.textContent=variant.description; dom.modal.element.classList.remove('hidden'); setTimeout(()=>{dom.modal.overlay.classList.remove('opacity-0');dom.modal.container.classList.remove('scale-95');},10);}
+        function hideModal(){dom.modal.overlay.classList.add('opacity-0'); dom.modal.container.classList.add('scale-95'); setTimeout(()=>dom.modal.element.classList.add('hidden'),300);}
+        
+        document.querySelectorAll('#filters-panel input, #filters-panel select').forEach(el => el.addEventListener('change', renderDashboard));
+        dom.searchInput.addEventListener('input', renderDashboard);
+        Object.keys(dom.viewButtons).forEach(key => dom.viewButtons[key].addEventListener('click', () => { currentView = key; renderCurrentView(); }));
+        dom.modal.closeBtn.addEventListener('click', hideModal); dom.modal.overlay.addEventListener('click', hideModal);
+
         initializeDashboard();
     </script>
 </body>
