@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Imprevisti - MVP2</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dayjs/1.11.10/dayjs.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; }
+        .hidden-on-start { display: none; }
+    </style>
+</head>
+<body class="text-slate-800">
+
+    <div class="container mx-auto p-4 md:p-6">
+        
+        <header class="mb-6">
+            <h1 class="text-3xl md:text-4xl font-bold text-slate-900">Dashboard Imprevisti di Progetto</h1>
+            <p class="text-slate-600 mt-1">Monitoraggio degli imprevisti (Dati da JSON).</p>
+        </header>
+
+        <div class="bg-white p-4 rounded-lg shadow-md mb-6">
+            <div id="filters-panel" class="hidden-on-start grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                <select id="project-filter" class="p-2 border rounded-md bg-white shadow-sm w-full"></select>
+                <select id="criticality-filter" class="p-2 border rounded-md bg-white shadow-sm w-full">
+                    <option value="all">Tutte le Criticità</option>
+                    <option value="Alta">Alta</option>
+                    <option value="Media">Media</option>
+                    <option value="Bassa">Bassa</option>
+                </select>
+                <select id="status-filter" class="p-2 border rounded-md bg-white shadow-sm w-full">
+                    <option value="all">Tutti gli Stati</option>
+                    <option value="Aperto">Aperto</option>
+                    <option value="Risolto">Risolto</option>
+                </select>
+                <input type="text" id="search-input" placeholder="Cerca per titolo, tipo..." class="w-full p-2 border rounded-md bg-white shadow-sm">
+            </div>
+        </div>
+
+        <div id="initial-message" class="text-center py-12 bg-white rounded-lg shadow-md">
+             <i data-lucide="loader-2" class="mx-auto h-12 w-12 text-slate-400 animate-spin"></i>
+            <h3 class="mt-2 text-sm font-medium text-slate-900">Caricamento dati centralizzato...</h3>
+        </div>
+
+        <div id="dashboard-container" class="hidden-on-start">
+            <section id="kpi-section" class="mb-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4"></section>
+            <div id="preview-section" class="mb-2 text-sm text-slate-500"></div>
+            <main id="main-content"></main>
+        </div>
+    </div>
+
+    <script type="module">
+        import { getDataManager } from './utils/datamanager.js';
+
+        let allProcessedIncidents = [];
+        let filteredIncidents = [];
+        let typeChart = null;
+
+        const dom = {
+            initialMessage: document.getElementById('initial-message'),
+            dashboardContainer: document.getElementById('dashboard-container'),
+            filtersPanel: document.getElementById('filters-panel'),
+            projectFilter: document.getElementById('project-filter'),
+            criticalityFilter: document.getElementById('criticality-filter'),
+            statusFilter: document.getElementById('status-filter'),
+            searchInput: document.getElementById('search-input'),
+            kpiSection: document.getElementById('kpi-section'),
+            previewSection: document.getElementById('preview-section'),
+            mainContent: document.getElementById('main-content'),
+        };
+
+        async function initializeDashboard() {
+            try {
+                const dm = await getDataManager();
+
+                allProcessedIncidents = dm.imprevisti.map((inc, index) => {
+                    if (!inc['Titolo Imprevisto'] || !inc.Progetto?.[0] || !inc['Data Imprevisti']) return null;
+
+                    const project = dm.progettiMap.get(inc.Progetto[0]);
+                    const projectName = project ? project['Id Progetto'] : 'N/D';
+
+                    return {
+                        id: index,
+                        title: inc['Titolo Imprevisto'],
+                        description: inc['Descrizione Problema'] || 'Nessuna descrizione.',
+                        projectName: projectName,
+                        type: inc.Tipo || 'Non specificato',
+                        criticality: inc.Criticità || 'Bassa',
+                        date: new Date(inc['Data Imprevisti']),
+                        status: inc.Stato || 'Aperto',
+                        risk: inc['Rischio Previsionale'] || 'Non definito',
+                    };
+                }).filter(Boolean);
+                
+                dom.initialMessage.style.display = 'none';
+                dom.dashboardContainer.classList.remove('hidden-on-start');
+                dom.filtersPanel.classList.remove('hidden-on-start');
+
+                populateFilters();
+                renderDashboard();
+
+            } catch (error) {
+                console.error("Errore inizializzazione dashboard Imprevisti:", error);
+                dom.initialMessage.innerHTML = `<h3>Errore nel caricamento dei dati.</h3>`;
+            }
+        }
+
+        function populateFilters() {
+            const projects = ['all', ...new Set(allProcessedIncidents.map(i => i.projectName).sort())];
+            dom.projectFilter.innerHTML = projects.map(p => `<option value="${p}">${p === 'all' ? 'Tutti i Progetti' : p}</option>`).join('');
+        }
+
+        function renderDashboard() {
+            applyFilters();
+            renderKPIs();
+            renderCardView();
+        }
+
+        function applyFilters() {
+            const searchTerm = dom.searchInput.value.toLowerCase();
+            filteredIncidents = allProcessedIncidents.filter(inc => {
+                const projectMatch = dom.projectFilter.value === 'all' || inc.projectName === dom.projectFilter.value;
+                const criticalityMatch = dom.criticalityFilter.value === 'all' || inc.criticality === dom.criticalityFilter.value;
+                const statusMatch = dom.statusFilter.value === 'all' || inc.status === dom.statusFilter.value;
+                const searchMatch = !searchTerm || inc.title.toLowerCase().includes(searchTerm) || inc.type.toLowerCase().includes(searchTerm);
+                return projectMatch && criticalityMatch && statusMatch && searchMatch;
+            });
+        }
+
+        function renderKPIs() {
+            const total = filteredIncidents.length;
+            const open = filteredIncidents.filter(i => i.status === 'Aperto').length;
+            const highCrit = filteredIncidents.filter(i => i.criticality === 'Alta' && i.status === 'Aperto').length;
+            
+            const byType = filteredIncidents.reduce((acc, { type }) => { acc[type] = (acc[type] || 0) + 1; return acc; }, {});
+
+            dom.kpiSection.innerHTML = `
+                <div class="bg-white p-4 rounded-lg shadow flex items-center col-span-1"><i data-lucide="list-todo" class="h-10 w-10 text-blue-500"></i><div class="ml-4"><p class="text-slate-500 text-sm">Totale</p><p class="text-2xl font-bold">${total}</p></div></div>
+                <div class="bg-white p-4 rounded-lg shadow flex items-center col-span-1"><i data-lucide="folder-open" class="h-10 w-10 text-orange-500"></i><div class="ml-4"><p class="text-slate-500 text-sm">Aperti</p><p class="text-2xl font-bold">${open}</p></div></div>
+                <div class="bg-white p-4 rounded-lg shadow flex items-center col-span-1"><i data-lucide="alert-triangle" class="h-10 w-10 text-red-500"></i><div class="ml-4"><p class="text-slate-500 text-sm">Aperti Critici</p><p class="text-2xl font-bold">${highCrit}</p></div></div>
+                <div class="bg-white p-4 rounded-lg shadow col-span-1"><canvas id="type-chart"></canvas></div>`;
+            
+            if(typeChart) typeChart.destroy();
+            typeChart = new Chart(document.getElementById('type-chart').getContext('2d'), {
+                type: 'doughnut', data: { labels: Object.keys(byType), datasets: [{ data: Object.values(byType), backgroundColor: ['#3b82f6', '#f59e0b', '#10b981', '#ef4444', '#8b5cf6'] }] },
+                options: { responsive: true, plugins: { legend: { display: false }, title: { display: true, text: 'Imprevisti per Tipo' } } }
+            });
+            lucide.createIcons();
+        }
+        
+        function renderCardView() {
+            dom.previewSection.innerHTML = `Mostrando ${filteredIncidents.length} su ${allProcessedIncidents.length} imprevisti totali.`;
+            if (filteredIncidents.length === 0) {
+                dom.mainContent.innerHTML = `<div class="text-center py-10 bg-white rounded-lg shadow"><p>Nessun imprevisto corrisponde ai filtri.</p></div>`;
+                return;
+            }
+
+            const criticalityInfo = { 'Alta': 'border-red-500', 'Media': 'border-orange-500', 'Bassa': 'border-green-500' };
+            const statusInfo = { 'Aperto': 'bg-red-100 text-red-800', 'Risolto': 'bg-green-100 text-green-800' };
+
+            dom.mainContent.innerHTML = `<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">${filteredIncidents.map(inc => `
+                <div class="bg-white rounded-lg shadow p-4 border-l-4 ${criticalityInfo[inc.criticality] || 'border-slate-400'}">
+                    <div class="flex justify-between items-start">
+                        <h4 class="font-bold text-slate-800">${inc.title}</h4>
+                        <span class="px-2 py-1 text-xs font-semibold rounded-full ${statusInfo[inc.status] || 'bg-slate-100'}">${inc.status}</span>
+                    </div>
+                    <p class="text-sm text-slate-500 mt-1">${inc.projectName} &bull; ${inc.type}</p>
+                    <div class="mt-3 pt-3 border-t text-sm text-slate-600">
+                        <p><strong>Rischio:</strong> ${inc.risk}</p>
+                        <p class="mt-1"><strong>Data:</strong> ${dayjs(inc.date).format('DD/MM/YYYY')}</p>
+                    </div>
+                </div>
+            `).join('')}</div>`;
+        }
+
+        // Eventi
+        [dom.projectFilter, dom.criticalityFilter, dom.statusFilter, dom.searchInput].forEach(el => el.addEventListener('input', renderDashboard));
+
+        // Avvio
+        initializeDashboard();
+    </script>
+</body>
+</html>
