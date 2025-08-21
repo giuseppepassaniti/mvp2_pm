@@ -16,26 +16,22 @@
     <div class="flex flex-col min-h-screen">
         <header class="bg-white/80 backdrop-blur-lg border-b border-slate-200 z-10 w-full">
             <div class="container mx-auto flex justify-between items-center p-4">
-                <div class="flex items-center">
-                    <h1 class="text-2xl font-bold text-gray-800">Centro di Controllo Progetti</h1>
-                </div>
+                <h1 class="text-2xl font-bold text-gray-800">Centro di Controllo Progetti</h1>
                 <div id="current-datetime" class="text-sm text-gray-600 font-medium"></div>
             </div>
         </header>
         <main class="container mx-auto p-6 flex-grow">
-            <section id="navigation">
-                <h2 class="text-2xl font-semibold text-gray-700">Pannelli di Controllo</h2>
-                <p class="text-slate-500 mt-1">Seleziona una dashboard per analizzare i dati di progetto.</p>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-                    <a href="progetti.html" class="nav-card"><div class="w-12 h-12 bg-sky-100 text-sky-600 p-3 rounded-full flex items-center justify-center mb-4"><i data-lucide="folder-kanban"></i></div><h3 class="text-lg font-bold text-gray-900 mb-2">Progetti</h3><p class="text-sm text-gray-600 flex-grow">Stato di avanzamento, budget e performance di tutti i progetti.</p></a>
-                    <a href="milestone.html" class="nav-card"><div class="w-12 h-12 bg-amber-100 text-amber-600 p-3 rounded-full flex items-center justify-center mb-4"><i data-lucide="flag"></i></div><h3 class="text-lg font-bold text-gray-900 mb-2">Milestone</h3><p class="text-sm text-gray-600 flex-grow">Monitoraggio delle scadenze chiave e dei punti critici.</p></a>
-                    <a href="task.html" class="nav-card"><div class="w-12 h-12 bg-emerald-100 text-emerald-600 p-3 rounded-full flex items-center justify-center mb-4"><i data-lucide="check-square"></i></div><h3 class="text-lg font-bold text-gray-900 mb-2">Task</h3><p class="text-sm text-gray-600 flex-grow">Dettaglio delle attività operative e assegnazioni del team.</p></a>
-                    <a href="timelog.html" class="nav-card"><div class="w-12 h-12 bg-indigo-100 text-indigo-600 p-3 rounded-full flex items-center justify-center mb-4"><i data-lucide="timer"></i></div><h3 class="text-lg font-bold text-gray-900 mb-2">Timelog</h3><p class="text-sm text-gray-600 flex-grow">Distribuzione delle ore lavorate per risorsa, progetto e attività.</p></a>
-                    <a href="imprevisti.html" class="nav-card"><div class="w-12 h-12 bg-red-100 text-red-600 p-3 rounded-full flex items-center justify-center mb-4"><i data-lucide="siren"></i></div><h3 class="text-lg font-bold text-gray-900 mb-2">Imprevisti</h3><p class="text-sm text-gray-600 flex-grow">Tracciamento e gestione degli eventi che impattano la pianificazione.</p></a>
-                    <a href="varianti.html" class="nav-card"><div class="w-12 h-12 bg-slate-100 text-slate-600 p-3 rounded-full flex items-center justify-center mb-4"><i data-lucide="git-pull-request-draft"></i></div><h3 class="text-lg font-bold text-gray-900 mb-2">Varianti</h3><p class="text-sm text-gray-600 flex-grow">Registro delle modifiche di progetto e del loro impatto.</p></a>
-                    <a href="decisionlog.html" class="nav-card"><div class="w-12 h-12 bg-fuchsia-100 text-fuchsia-600 p-3 rounded-full flex items-center justify-center mb-4"><i data-lucide="gavel"></i></div><h3 class="text-lg font-bold text-gray-900 mb-2">Decisioni</h3><p class="text-sm text-gray-600 flex-grow">Registro centrale delle decisioni strategiche e operative.</p></a>
-                </div>
-            </section>
+            <h2 class="text-2xl font-semibold text-gray-700">Pannelli di Controllo</h2>
+            <p class="text-slate-500 mt-1">Seleziona una dashboard per analizzare i dati di progetto.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+                <a href="progetti.html" class="nav-card"><div class="w-12 h-12 bg-sky-100 text-sky-600 p-3 rounded-full flex items-center justify-center mb-4"><i data-lucide="folder-kanban"></i></div><h3 class="text-lg font-bold text-gray-900 mb-2">Progetti</h3><p class="text-sm text-gray-600 flex-grow">Stato di avanzamento, budget e performance di tutti i progetti.</p></a>
+                <a href="milestone.html" class="nav-card"><div class="w-12 h-12 bg-amber-100 text-amber-600 p-3 rounded-full flex items-center justify-center mb-4"><i data-lucide="flag"></i></div><h3 class="text-lg font-bold text-gray-900 mb-2">Milestone</h3><p class="text-sm text-gray-600 flex-grow">Monitoraggio delle scadenze chiave e dei punti critici.</p></a>
+                <a href="task.html" class="nav-card"><div class="w-12 h-12 bg-emerald-100 text-emerald-600 p-3 rounded-full flex items-center justify-center mb-4"><i data-lucide="check-square"></i></div><h3 class="text-lg font-bold text-gray-900 mb-2">Task</h3><p class="text-sm text-gray-600 flex-grow">Dettaglio delle attività operative e assegnazioni del team.</p></a>
+                <a href="timelog.html" class="nav-card"><div class="w-12 h-12 bg-indigo-100 text-indigo-600 p-3 rounded-full flex items-center justify-center mb-4"><i data-lucide="timer"></i></div><h3 class="text-lg font-bold text-gray-900 mb-2">Timelog</h3><p class="text-sm text-gray-600 flex-grow">Distribuzione delle ore lavorate per risorsa, progetto e attività.</p></a>
+                <a href="imprevisti.html" class="nav-card"><div class="w-12 h-12 bg-red-100 text-red-600 p-3 rounded-full flex items-center justify-center mb-4"><i data-lucide="siren"></i></div><h3 class="text-lg font-bold text-gray-900 mb-2">Imprevisti</h3><p class="text-sm text-gray-600 flex-grow">Tracciamento e gestione degli eventi che impattano la pianificazione.</p></a>
+                <a href="varianti.html" class="nav-card"><div class="w-12 h-12 bg-slate-100 text-slate-600 p-3 rounded-full flex items-center justify-center mb-4"><i data-lucide="git-pull-request-draft"></i></div><h3 class="text-lg font-bold text-gray-900 mb-2">Varianti</h3><p class="text-sm text-gray-600 flex-grow">Registro delle modifiche di progetto e del loro impatto.</p></a>
+                <a href="decisionlog.html" class="nav-card"><div class="w-12 h-12 bg-fuchsia-100 text-fuchsia-600 p-3 rounded-full flex items-center justify-center mb-4"><i data-lucide="gavel"></i></div><h3 class="text-lg font-bold text-gray-900 mb-2">Decisioni</h3><p class="text-sm text-gray-600 flex-grow">Registro centrale delle decisioni strategiche e operative.</p></a>
+            </div>
         </main>
         <footer class="container mx-auto text-center py-6 text-sm text-slate-500"><p>&copy; 2025 Dashboard PMI. Tutti i diritti riservati.</p></footer>
     </div>
