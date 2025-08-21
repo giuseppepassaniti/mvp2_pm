@@ -4,7 +4,7 @@
  */
 
 const fs       = require('fs');
-const path     = 'path');
+const path     = require('path');
 const Airtable = require('airtable');
 
 /*───────────────────────────────*/
@@ -51,7 +51,6 @@ async function exportTable(tableName, view, fileName) {
       throw err;
     });
 
-  // --- MODIFICA CHIAVE QUI ---
   // Aggiungiamo l'ID del record a fianco dei campi (fields)
   const rows = records.map(r => ({ id: r.id, ...r.fields }));
   
