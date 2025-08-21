@@ -3,60 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Time Log - MVP2 Corretto</title>
+    <title>Dashboard Time Log - MVP2 Finale</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-chart-matrix@2.0.1/dist/chartjs-chart-matrix.min.js"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     <style>
         :root { font-family: 'Inter', sans-serif; }
         body { background-color: #f8fafc; color: #334155; }
-        .chart-container { position: relative; width: 100%; height: 24rem; }
         .hidden-on-start { display: none; }
+        .chart-container { position: relative; width: 100%; height: 24rem; }
+        .custom-multiselect { position: relative; }
+        .multiselect-options { position: absolute; z-index: 20; margin-top: 0.25rem; width: 100%; max-height: 15rem; overflow-y: auto; background-color: white; border: 1px solid #e2e8f0; border-radius: 0.375rem; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); }
+        .multiselect-options label { display: block; padding: 0.5rem 1rem; font-size: 0.875rem; cursor: pointer; }
+        .multiselect-options label:hover { background-color: #f1f5f9; }
     </style>
 </head>
 <body>
     <div class="container mx-auto p-4 md:p-6">
         <header class="mb-6"><h1 class="text-2xl md:text-3xl font-bold text-slate-900">Dashboard Time Log</h1><p class="text-sm text-slate-500">Analisi interattiva delle ore lavorate (Dati da JSON).</p></header>
-        <div id="initial-message" class="text-center py-12"><i data-lucide="loader-2" class="h-12 w-12 text-slate-400 animate-spin mx-auto"></i><p class="mt-4 text-slate-600">Caricamento dati centralizzato...</p></div>
+        <div id="initial-message" class="text-center py-12"><i data-lucide="loader-2" class="h-12 w-12 text-slate-400 animate-spin mx-auto"></i><p class="mt-4 text-slate-600">Caricamento dati...</p></div>
         <div id="dashboard-container" class="hidden-on-start">
             <div id="filters-panel" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6 p-4 bg-white rounded-lg shadow-sm">
-                <select id="project-filter" class="w-full p-2 border rounded-md shadow-sm"></select>
-                <select id="resource-filter" class="w-full p-2 border rounded-md shadow-sm"></select>
+                <div><label class="block text-sm font-medium text-slate-700 mb-1">Periodo</label><select id="date-range-filter" class="w-full p-2 border rounded-md shadow-sm"></select></div>
+                <div id="custom-date-filters" class="hidden md:col-span-2 lg:col-span-1 grid grid-cols-2 gap-2">
+                    <div><label class="block text-sm font-medium text-slate-700 mb-1">Da</label><input type="date" id="start-date" class="w-full p-2 border rounded-md shadow-sm"></div>
+                    <div><label class="block text-sm font-medium text-slate-700 mb-1">A</label><input type="date" id="end-date" class="w-full p-2 border rounded-md shadow-sm"></div>
+                </div>
+                <div id="resource-filter-container" class="custom-multiselect"></div>
+                <div id="project-filter-container" class="custom-multiselect"></div>
             </div>
             <div id="kpi-section" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-6"></div>
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
                 <div class="bg-white p-4 rounded-lg shadow-sm"><h3 class="font-bold mb-4">Ore per Progetto</h3><div class="chart-container"><canvas id="projects-chart"></canvas></div></div>
                 <div class="bg-white p-4 rounded-lg shadow-sm"><h3 class="font-bold mb-4">Ore per Risorsa</h3><div class="chart-container"><canvas id="resources-chart"></canvas></div></div>
+                <div class="lg:col-span-2 bg-white p-4 rounded-lg shadow-sm"><h3 class="font-bold mb-4">Trend Settimanale</h3><div class="chart-container"><canvas id="trend-chart"></canvas></div></div>
+                <div class="lg:col-span-2 bg-white p-4 rounded-lg shadow-sm"><h3 class="font-bold mb-4">Heatmap Ore Lavorate</h3><div class="chart-container h-[320px] md:h-[400px]"><canvas id="heatmap-chart"></canvas></div></div>
             </div>
             <div class="bg-white p-4 rounded-lg shadow-sm">
-                 <h3 class="font-bold text-slate-800 mb-4">Dettaglio Log</h3>
+                 <div class="flex flex-col md:flex-row justify-between md:items-center mb-4 gap-4">
+                    <h3 class="font-bold text-slate-800">Dettaglio Log</h3>
+                    <button id="export-csv-btn" class="flex items-center gap-2 px-4 py-2 text-sm font-semibold bg-blue-600 text-white rounded-md hover:bg-blue-700"><i data-lucide="download" class="w-4 h-4"></i>Esporta CSV Filtrato</button>
+                </div>
                 <div class="overflow-x-auto"><table class="w-full text-sm text-left"><thead id="table-head"></thead><tbody id="table-body"></tbody></table></div>
             </div>
         </div>
     </div>
+
     <script type="module">
         import { getDataManager } from './utils/datamanager.js';
-        let allProcessedLogs = [], filteredLogs = [], chartInstances = {};
-        const dom = { initialMessage: document.getElementById('initial-message'), dashboardContainer: document.getElementById('dashboard-container'), projectFilter: document.getElementById('project-filter'), resourceFilter: document.getElementById('resource-filter'), kpiSection: document.getElementById('kpi-section'), tableHead: document.getElementById('table-head'), tableBody: document.getElementById('table-body') };
+        let allLogs = [], filteredLogs = [], chartInstances = {};
+        const dom = { initialMessage: document.getElementById('initial-message'), dashboardContainer: document.getElementById('dashboard-container'), dateRangeFilter: document.getElementById('date-range-filter'), customDateFilters: document.getElementById('custom-date-filters'), startDateInput: document.getElementById('start-date'), endDateInput: document.getElementById('end-date'), resourceFilterContainer: document.getElementById('resource-filter-container'), projectFilterContainer: document.getElementById('project-filter-container'), kpiSection: document.getElementById('kpi-section'), tableHead: document.getElementById('table-head'), tableBody: document.getElementById('table-body'), exportCsvBtn: document.getElementById('export-csv-btn') };
+        const numberFormatter = new Intl.NumberFormat('it-IT', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+        const getWeekNumber = (d) => { d=new Date(Date.UTC(d.getFullYear(),d.getMonth(),d.getDate())); d.setUTCDate(d.getUTCDate()+4-(d.getUTCDay()||7)); const yearStart=new Date(Date.UTC(d.getUTCFullYear(),0,1)); return Math.ceil((((d-yearStart)/86400000)+1)/7); };
 
         async function initializeDashboard() {
             try {
                 const dm = await getDataManager();
-                allProcessedLogs = dm.timelog.map(log => {
+                allLogs = dm.timelog.map(log => {
                     if (!log.Data || !log.Risorse?.[0] || !log.Task?.[0] || !log['Ore Effettive']) return null;
                     const risorsa = dm.risorseMap.get(log.Risorse[0]);
                     const task = dm.taskMap.get(log.Task[0]);
                     if (!risorsa || !task) return null;
                     const progetto = dm.progettiMap.get(task.Progetto?.[0]);
-                    return { date: new Date(log.Data), resourceName: risorsa['Nome e Cognome'], taskTitle: task['Titolo Task'], projectName: progetto ? progetto['Id Progetto'] : 'N/D', hours: log['Ore Effettive'] };
-                }).filter(Boolean).sort((a, b) => b.date - a.date);
+                    const date = new Date(log.Data);
+                    return { date: date, resourceName: risorsa['Nome e Cognome'], taskTitle: task['Titolo Task'], projectName: progetto ? progetto['Id Progetto'] : 'N/D', hours: log['Ore Effettive'], week: getWeekNumber(date) };
+                }).filter(Boolean).sort((a,b) => a.date - b.date);
+                
                 dom.initialMessage.style.display = 'none';
                 dom.dashboardContainer.classList.remove('hidden-on-start');
-                populateFilters();
+                setupFilters();
                 handleUrlParams(dm);
-                renderDashboard();
+                updateDashboard();
+                setupEventListeners();
             } catch (error) { console.error("Errore:", error); dom.initialMessage.innerHTML = '<h3>Errore nel caricamento dati.</h3>'; }
         }
 
@@ -66,22 +87,50 @@
             const project = dm.progettiMap.get(pId);
             if (project) {
                 const pReadableId = project['Id Progetto'];
-                if ([...dom.projectFilter.options].some(o => o.value === pReadableId)) {
-                    dom.projectFilter.value = pReadableId;
-                    dom.projectFilter.disabled = true;
-                }
+                document.querySelectorAll(`.filter-cb[data-type="project"]`).forEach(cb => cb.checked = cb.value === pReadableId);
+                updateMultiSelectButton('project');
             }
         }
 
-        function populateFilters() { const projects = ['all', ...new Set(allProcessedLogs.map(l => l.projectName).sort())]; const resources = ['all', ...new Set(allProcessedLogs.map(l => l.resourceName).sort())]; dom.projectFilter.innerHTML = projects.map(p => `<option value="${p}">${p === 'all' ? 'Tutti i Progetti' : p}</option>`).join(''); dom.resourceFilter.innerHTML = resources.map(r => `<option value="${r}">${r === 'all' ? 'Tutte le Risorse' : r}</option>`).join(''); }
-        function renderDashboard() { applyFilters(); renderKPIs(); renderCharts(); renderTable(); lucide.createIcons(); }
-        function applyFilters() { filteredLogs = allProcessedLogs.filter(log => (dom.projectFilter.value === 'all' || log.projectName === dom.projectFilter.value) && (dom.resourceFilter.value === 'all' || log.resourceName === dom.resourceFilter.value)); }
-        function renderKPIs() { const totalHours = filteredLogs.reduce((s,l)=>s+l.hours,0); const activeResources = new Set(filteredLogs.map(l => l.resourceName)).size; const involvedProjects = new Set(filteredLogs.map(l => l.projectName)).size; const kpis = [{ label: 'Ore Totali', value: totalHours.toFixed(2), icon: 'clock' }, { label: 'Risorse Attive', value: activeResources, icon: 'users' }, { label: 'Progetti Coinvolti', value: involvedProjects, icon: 'folder-kanban' }]; dom.kpiSection.innerHTML = kpis.map(kpi => `<div class="bg-white p-4 rounded-lg shadow-sm flex items-start gap-4"><div class="p-3 rounded-full bg-blue-100 text-blue-600"><i data-lucide="${kpi.icon}"></i></div><div><p class="text-sm text-slate-500">${kpi.label}</p><p class="text-xl font-bold">${kpi.value}</p></div></div>`).join(''); }
-        function renderCharts() { const aggregateBy = (key) => filteredLogs.reduce((acc, log) => { acc[log[key]] = (acc[log[key]] || 0) + log.hours; return acc; }, {}); renderBarChart('projects-chart', aggregateBy('projectName')); renderBarChart('resources-chart', aggregateBy('resourceName')); }
-        function renderBarChart(canvasId, data) { const sortedData = Object.entries(data).sort(([,a],[,b]) => b-a).slice(0, 15); const chartData = { labels: sortedData.map(([key]) => key), datasets: [{ data: sortedData.map(([, value]) => value), backgroundColor: '#3b82f6' }] }; createOrUpdateChart(canvasId, 'bar', chartData); }
-        function renderTable() { dom.tableHead.innerHTML = `<tr>${['Data', 'Risorsa', 'Progetto', 'Task', 'Ore'].map(h => `<th class="p-2 text-left text-xs uppercase">${h}</th>`).join('')}</tr>`; dom.tableBody.innerHTML = filteredLogs.slice(0, 100).map(log => `<tr class="hover:bg-slate-50 border-b"><td class="p-2">${new Date(log.date).toLocaleDateString('it-IT')}</td><td class="p-2">${log.resourceName}</td><td class="p-2">${log.projectName}</td><td class="p-2">${log.taskTitle}</td><td class="p-2 text-right font-semibold">${log.hours.toFixed(2)}</td></tr>`).join(''); }
-        function createOrUpdateChart(canvasId, type, data) { if (chartInstances[canvasId]) chartInstances[canvasId].destroy(); const ctx = document.getElementById(canvasId).getContext('2d'); chartInstances[canvasId] = new Chart(ctx, { type, data, options: { maintainAspectRatio: false, responsive: true, plugins: { legend: { display: false } } } }); }
-        [dom.projectFilter, dom.resourceFilter].forEach(el => el.addEventListener('change', renderDashboard));
+        function setupFilters() {
+            const dateOptions = [{v:'all',t:'Tutto'},{v:'last30days',t:'Ultimi 30 giorni'},{v:'ytd',t:'Da inizio anno'},{v:'lastyear',t:'Anno precedente'},{v:'custom',t:'Personalizzato'}];
+            dom.dateRangeFilter.innerHTML = dateOptions.map(o=>`<option value="${o.v}">${o.t}</option>`).join('');
+            createMultiSelect(dom.projectFilterContainer, 'Progetti', [...new Set(allLogs.map(l => l.projectName).sort())], 'project');
+            createMultiSelect(dom.resourceFilterContainer, 'Risorse', [...new Set(allLogs.map(l => l.resourceName).sort())], 'resource');
+        }
+        function createMultiSelect(container, label, options, type) { container.innerHTML = `<label class="block text-sm font-medium text-slate-700 mb-1">${label}</label><div class="relative"><button id="${type}-btn" class="w-full text-left p-2 border rounded-md shadow-sm flex justify-between items-center"><span id="${type}-btn-text"></span><i data-lucide="chevron-down" class="w-4 h-4"></i></button><div id="${type}-options" class="multiselect-options hidden"><div class="p-2 border-b"><label class="flex items-center"><input type="checkbox" class="select-all-cb" data-type="${type}"> Seleziona Tutto</label></div>${options.map(o=>`<label class="flex items-center"><input type="checkbox" class="filter-cb" data-type="${type}" value="${o}" checked> ${o}</label>`).join('')}</div></div>`; updateMultiSelectButton(type); }
+        function updateMultiSelectButton(type) { const btnText=document.getElementById(`${type}-btn-text`); const selected=getSelectedOptions(type); const total=document.querySelectorAll(`.filter-cb[data-type="${type}"]`).length; if(selected.length===total)btnText.textContent=`Tutti`; else if(selected.length===0)btnText.textContent=`Nessuno`; else if(selected.length===1)btnText.textContent=selected[0]; else btnText.textContent=`${selected.length} selezionati`; }
+        
+        function updateDashboard() { const { filtered, aggregates } = applyFiltersAndAggregate(); filteredLogs = filtered; renderKPIs(aggregates); renderCharts(aggregates); renderTable(filteredLogs); lucide.createIcons(); }
+        function applyFiltersAndAggregate() { const [startDate,endDate]=getDateRange(); const selectedProjects=getSelectedOptions('project'); const selectedResources=getSelectedOptions('resource'); const filtered=allLogs.filter(l=>l.date>=startDate&&l.date<=endDate&&selectedProjects.includes(l.projectName)&&selectedResources.includes(l.resourceName)); const totalHours=filtered.reduce((s,l)=>s+l.hours,0); const hoursByProject=aggregateBy(filtered,'projectName'); const hoursByResource=aggregateBy(filtered,'resourceName'); const hoursByWeek=aggregateBy(filtered,'week'); const hoursByDay=aggregateBy(filtered,'date',true); return {filtered, aggregates:{totalHours,hoursByProject,hoursByResource,hoursByWeek,hoursByDay}}; }
+        function getDateRange() { const now=new Date(); let start,end=new Date(); switch(dom.dateRangeFilter.value){ case 'last30days': start=new Date();start.setDate(now.getDate()-30);break; case 'ytd': start=new Date(now.getFullYear(),0,1);break; case 'lastyear': start=new Date(now.getFullYear()-1,0,1);end=new Date(now.getFullYear()-1,11,31);break; case 'custom': start=dom.startDateInput.value?new Date(dom.startDateInput.value):allLogs[0].date;end=dom.endDateInput.value?new Date(dom.endDateInput.value):new Date();break; default: start=allLogs[0].date;end=allLogs[allLogs.length-1].date; } return [start,end]; }
+        const getSelectedOptions = (type) => Array.from(document.querySelectorAll(`.filter-cb[data-type="${type}"]:checked`)).map(cb => cb.value);
+        const aggregateBy = (logs, key, isDate=false) => logs.reduce((acc,log)=>{const groupKey=isDate?log[key].toISOString().split('T')[0]:log[key]; acc[groupKey]=(acc[groupKey]||0)+log.hours; return acc;},{});
+
+        function renderKPIs(aggr) { const kpis = [{l:'Ore Totali',v:numberFormatter.format(aggr.totalHours)+'h',i:'clock'},{l:'Risorse Attive',v:Object.keys(aggr.hoursByResource).length,i:'users'},{l:'Progetti Coinvolti',v:Object.keys(aggr.hoursByProject).length,i:'folder-kanban'}]; dom.kpiSection.innerHTML = kpis.map(k=>`<div class="bg-white p-4 rounded-lg shadow-sm flex items-start gap-4"><div class="p-3 rounded-full bg-blue-100 text-blue-600"><i data-lucide="${k.i}"></i></div><div><p class="text-sm text-slate-500">${k.l}</p><p class="text-xl font-bold">${k.v}</p></div></div>`).join(''); }
+        function renderCharts(aggr) { const gridColor='#e2e8f0', textColor='#64748b'; renderBarChart('projects-chart',aggr.hoursByProject,textColor,gridColor); renderBarChart('resources-chart',aggr.hoursByResource,textColor,gridColor,true); renderLineChart('trend-chart',aggr.hoursByWeek,textColor,gridColor); renderHeatmap('heatmap-chart',aggr.hoursByDay,textColor,gridColor); }
+        function renderBarChart(id,data,textColor,gridColor,horizontal=false){const sorted=Object.entries(data).sort(([,a],[,b])=>b-a).slice(0,15);const chartData={labels:sorted.map(([k])=>k),datasets:[{data:sorted.map(([,v])=>v),backgroundColor:horizontal?'#10b981':'#3b82f6'}]};createOrUpdateChart(id,'bar',chartData,{indexAxis:horizontal?'y':'x',scales:{y:{ticks:{color:textColor},grid:{color:gridColor}},x:{ticks:{color:textColor},grid:{color:gridColor}}}});}
+        function renderLineChart(id,data,textColor,gridColor){const sortedWeeks=Object.keys(data).map(Number).sort((a,b)=>a-b);const chartData={labels:sortedWeeks.map(w=>`S${w}`),datasets:[{data:sortedWeeks.map(w=>data[w]),borderColor:'#ef4444',tension:0.1}]};createOrUpdateChart(id,'line',chartData,{scales:{y:{ticks:{color:textColor},grid:{color:gridColor}},x:{ticks:{color:textColor},grid:{color:gridColor}}}});}
+        function renderHeatmap(id,data,textColor,gridColor){const [start,end]=getDateRange();const weekDayLabels=['Dom','Lun','Mar','Mer','Gio','Ven','Sab'];const weekMap=new Map();let current=new Date(start);while(current<=end){const week=getWeekNumber(current);if(!weekMap.has(week))weekMap.set(week,{week,year:current.getFullYear()});current.setDate(current.getDate()+7);}const sortedWeeks=[...weekMap.values()].sort((a,b)=>a.year-b.year||a.week-b.week);const weekLabels=sortedWeeks.map(w=>`S${w.week}`);const heatmapData=Object.entries(data).map(([dateStr,hours])=>{const date=new Date(dateStr);return{x:date.getDay(),y:weekLabels.indexOf(`S${getWeekNumber(date)}`),d:date,v:hours};});const chartData={datasets:[{data:heatmapData,backgroundColor:(ctx)=>{const v=ctx.raw?.v;if(!v)return'#f8fafc';const alpha=Math.min(1,0.15+v/10);return`rgba(34,197,94,${alpha})`;},borderColor:gridColor,borderWidth:1,width:({chart})=>(chart.chartArea?.width||0)/7-1,height:({chart})=>(chart.chartArea?.height||0)/weekLabels.length-1}]};const options={plugins:{tooltip:{callbacks:{title:(i)=>new Date(i[0].raw.d).toLocaleDateString('it-IT'),label:(i)=>`Ore: ${numberFormatter.format(i.raw.v)}`}}},scales:{y:{type:'category',labels:weekLabels,offset:true,grid:{display:false},ticks:{color:textColor}},x:{type:'category',labels:weekDayLabels,offset:true,grid:{display:false},ticks:{color:textColor}}}};createOrUpdateChart(id,'matrix',chartData,options);}
+        function renderTable() { dom.tableHead.innerHTML=`<tr>${['Data','Risorsa','Progetto','Task','Ore'].map(h=>`<th class="p-2 text-left text-xs uppercase">${h}</th>`).join('')}</tr>`; dom.tableBody.innerHTML = filteredLogs.slice().reverse().slice(0, 100).map(log=>`<tr class="hover:bg-slate-50 border-b"><td class="p-2">${new Date(log.date).toLocaleDateString('it-IT')}</td><td class="p-2">${log.resourceName}</td><td class="p-2">${log.projectName}</td><td class="p-2">${log.taskTitle}</td><td class="p-2 text-right font-semibold">${numberFormatter.format(log.hours)}</td></tr>`).join(''); }
+        function createOrUpdateChart(id,type,data,options={}){if(chartInstances[id])chartInstances[id].destroy();const ctx=document.getElementById(id).getContext('2d');chartInstances[id]=new Chart(ctx,{type,data,options:{maintainAspectRatio:false,responsive:true,plugins:{legend:{display:false}},...options}});}
+
+        function setupEventListeners() {
+            [dom.dateRangeFilter, dom.startDateInput, dom.endDateInput].forEach(el => el.addEventListener('change', updateDashboard));
+            dom.dateRangeFilter.addEventListener('change', (e) => dom.customDateFilters.classList.toggle('hidden', e.target.value !== 'custom'));
+            document.body.addEventListener('click', (e) => {
+                if (e.target.closest('.custom-multiselect')) {
+                    const type = e.target.closest('.custom-multiselect').querySelector('.filter-cb')?.dataset.type; if (!type) return;
+                    if (e.target.closest('button')) document.getElementById(`${type}-options`).classList.toggle('hidden');
+                    else if (e.target.type === 'checkbox') {
+                        if (e.target.classList.contains('select-all-cb')) document.querySelectorAll(`.filter-cb[data-type="${type}"]`).forEach(cb => cb.checked = e.target.checked);
+                        updateMultiSelectButton(type);
+                        updateDashboard();
+                    }
+                } else { document.querySelectorAll('.multiselect-options').forEach(el => el.classList.add('hidden')); }
+            });
+            dom.exportCsvBtn.addEventListener('click', () => { const headers=['Data','Risorsa','Progetto','Task','Ore']; const rows=filteredLogs.map(l=>[new Date(l.date).toLocaleDateString('it-IT'), l.resourceName, l.projectName, l.taskTitle, String(l.hours).replace('.',',')]); const csvContent=[headers.join(';'),...rows.map(r=>r.join(';'))].join('\n'); const blob=new Blob([csvContent],{type:'text/csv;charset=utf-8;'}); const link=document.createElement("a"); link.setAttribute("href",URL.createObjectURL(blob)); link.setAttribute("download","timelog_filtrato.csv"); document.body.appendChild(link); link.click(); document.body.removeChild(link); });
+        }
         initializeDashboard();
     </script>
 </body>
