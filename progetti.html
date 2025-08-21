@@ -3,10 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Progetti - MVP2 Finale</title>
+    <title>Dashboard Progetti - MVP2 con Filtri</title>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
     <style>
         :root { font-family: 'Inter', sans-serif; }
         body { background-color: #f8fafc; }
@@ -15,20 +17,47 @@
     </style>
 </head>
 <body class="text-slate-700">
+
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <header class="text-center mb-8"><h1 class="text-3xl font-bold text-slate-900">Dashboard Centrale Progetti</h1><p class="text-slate-600 mt-1">Stato di avanzamento e performance (Dati da JSON).</p></header>
-        <div class="max-w-sm mx-auto mb-8"><input id="search-input" type="search" class="w-full rounded-lg border-slate-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm" placeholder="Cerca progetto per nome o ID…"></div>
+        <header class="text-center mb-8">
+            <h1 class="text-3xl font-bold text-slate-900">Dashboard Centrale Progetti</h1>
+            <p class="text-slate-600 mt-1">Stato di avanzamento e performance (Dati da JSON).</p>
+        </header>
+
+        <div class="bg-white p-4 rounded-lg shadow-sm mb-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
+                <div class="md:col-span-1">
+                    <input id="search-input" type="search" class="w-full rounded-lg border-slate-300 focus:ring-blue-500 focus:border-blue-500 shadow-sm" placeholder="Cerca progetto per nome o ID…">
+                </div>
+                <div class="md:col-span-2">
+                    <label class="text-sm font-medium text-slate-700 mb-2 block">Filtra per Stato:</label>
+                    <div id="status-filters-container" class="flex flex-wrap items-center gap-x-4 gap-y-2">
+                        </div>
+                </div>
+            </div>
+        </div>
+
         <main id="projects-container" class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-            <div id="initial-message" class="col-span-full text-center py-12"><i data-lucide="loader-2" class="mx-auto h-12 w-12 text-slate-400 animate-spin"></i><h3 class="mt-2 text-sm font-medium">Caricamento dati...</h3></div>
+            <div id="initial-message" class="col-span-full text-center py-12">
+                <i data-lucide="loader-2" class="mx-auto h-12 w-12 text-slate-400 animate-spin"></i>
+                <h3 class="mt-2 text-sm font-medium">Caricamento dati...</h3>
+            </div>
         </main>
     </div>
+
     <script type="module">
         import { getDataManager } from './utils/datamanager.js';
-        let processedProjects = [];
-        const searchInput = document.getElementById('search-input');
-        const container = document.getElementById('projects-container');
-        const initialMessage = document.getElementById('initial-message');
+
+        let allProjects = []; // Contiene sempre tutti i progetti, non viene mai modificato dopo il caricamento
+
+        const dom = {
+            searchInput: document.getElementById('search-input'),
+            container: document.getElementById('projects-container'),
+            initialMessage: document.getElementById('initial-message'),
+            statusFiltersContainer: document.getElementById('status-filters-container')
+        };
         
+        // Funzioni helper identiche alla versione precedente
         window.navigateToSection = (fileUrl, projectId) => { window.location.href = `${fileUrl}?id=${projectId}`; }
         const getProgressColor = (p) => p >= 80 ? 'bg-green-500' : (p >= 40 ? 'bg-yellow-500' : 'bg-red-500');
         const getCostColor = (b, f) => f > b ? 'text-red-600' : 'text-green-600';
@@ -37,22 +66,77 @@
         async function initializeDashboard() {
             try {
                 const dm = await getDataManager();
-                processedProjects = dm.progetti.map(proj => {
+                allProjects = dm.progetti.map(proj => {
                     const pm = dm.risorseMap.get(proj['PM responsabile']?.[0]);
                     return { recordId: proj.id, id: proj['Id Progetto'], name: proj['Nome Progetto'], client: proj.Cliente, pm: pm ? pm['Nome e Cognome'] : 'N/A', status: proj.Stato || 'Non Iniziato', budget: proj['Budget Iniziale'] || 0, costs: proj['Costi Sostenuti'] || 0, forecast: proj['Previsione Finale Costi'] || 0, progress: (proj['% Avanzamento'] || 0) * 100 };
                 }).filter(Boolean);
-                renderProjects(processedProjects);
-            } catch (error) { console.error("Errore:", error); initialMessage.innerHTML = `<p class="text-red-600 font-semibold">Errore critico.</p>`; }
+                
+                populateStatusFilters();
+                renderFilteredProjects(); // Prima renderizzazione con i filtri di default
+            } catch (error) { console.error("Errore:", error); dom.initialMessage.innerHTML = `<p class="text-red-600 font-semibold">Errore critico.</p>`; }
         }
         
-        function createProjectCardHTML(project) { const status = getStatusInfo(project.status); const progressColor = getProgressColor(project.progress); const costColor = getCostColor(project.budget, project.forecast); const costDelta = project.forecast - project.budget; const currencyFormatter = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', minimumFractionDigits: 0 }); const sections = [ { name: 'Milestone', file: 'milestone.html', icon: 'flag' }, { name: 'Task', file: 'task.html', icon: 'list-checks' }, { name: 'Imprevisti', file: 'imprevisti.html', icon: 'siren' }, { name: 'Varianti', file: 'varianti.html', icon: 'git-pull-request-draft' }, { name: 'Decisioni', file: 'decisionlog.html', icon: 'gavel' } ]; return `<div class="project-card bg-white rounded-lg shadow-sm flex flex-col"><div class="p-4 border-b border-slate-200"><div class="flex justify-between items-start gap-4"><h3 class="text-lg font-semibold text-slate-900">${project.name}</h3><span class="flex items-center gap-1.5 text-xs font-semibold rounded-full whitespace-nowrap px-2 py-0.5 ${status.color}"><i data-lucide="${status.icon}" class="w-3.5 h-3.5"></i> ${project.status}</span></div><p class="text-sm text-slate-500">${project.id} | ${project.client}</p></div><div class="p-4 flex-grow space-y-4"><div><div class="flex justify-between text-xs text-slate-500 uppercase tracking-wide mb-1"><span>Avanzamento</span><span class="font-semibold text-slate-600">${Math.round(project.progress)}%</span></div><div class="w-full bg-slate-200 rounded-full h-2.5"><div class="${progressColor} h-2.5 rounded-full" style="width: ${project.progress}%"></div></div></div><div class="grid grid-cols-3 gap-4 text-center"><div><p class="text-xs text-slate-500 uppercase tracking-wide">Budget</p><p class="font-semibold text-slate-800">${currencyFormatter.format(project.budget)}</p></div><div><p class="text-xs text-slate-500 uppercase tracking-wide">Previsione</p><p class="font-semibold text-slate-800">${currencyFormatter.format(project.forecast)}</p></div><div><p class="text-xs text-slate-500 uppercase tracking-wide">Scostamento</p><p class="font-semibold ${costColor}">${currencyFormatter.format(costDelta)}</p></div></div></div><div class="p-4 bg-slate-50 rounded-b-lg border-t border-slate-200"><p class="text-xs font-semibold text-slate-600 mb-2 uppercase tracking-wide">Dashboard Operative</p><div class="flex flex-wrap gap-2">${sections.map(sec => `<button onclick="navigateToSection('${sec.file}', '${project.recordId}')" class="flex-1 text-center bg-white border border-slate-300 text-slate-700 hover:bg-slate-100 px-3 py-1.5 text-xs font-semibold rounded-md transition-colors"><i data-lucide="${sec.icon}" class="inline-block h-3 w-3 mr-1"></i> ${sec.name}</button>`).join('')}</div></div></div>`; }
-        function renderProjects(projects) { initialMessage.style.display = 'none'; container.innerHTML = projects.length > 0 ? projects.map(createProjectCardHTML).join('') : `<p class="col-span-full text-center text-slate-500">Nessun progetto trovato.</p>`; lucide.createIcons(); }
+        /**
+         * NUOVA FUNZIONE: Popola dinamicamente i checkbox per lo stato
+         */
+        function populateStatusFilters() {
+            const statuses = [...new Set(allProjects.map(p => p.status))].sort();
+            dom.statusFiltersContainer.innerHTML = statuses.map(status => `
+                <div class="flex items-center">
+                    <input id="status-${status.replace(/\s+/g, '')}" name="status-filter" type="checkbox" value="${status}" 
+                           class="h-4 w-4 rounded border-gray-300 text-blue-600 focus:ring-blue-500 status-checkbox"
+                           ${status !== 'Completato' ? 'checked' : ''}>
+                    <label for="status-${status.replace(/\s+/g, '')}" class="ml-2 block text-sm text-gray-900">${status}</label>
+                </div>
+            `).join('');
+
+            // Aggiunge gli event listener ai nuovi checkbox
+            document.querySelectorAll('.status-checkbox').forEach(cb => {
+                cb.addEventListener('change', renderFilteredProjects);
+            });
+        }
+
+        /**
+         * NUOVA FUNZIONE: Applica tutti i filtri (ricerca e stato)
+         */
+        function applyFilters() {
+            const searchTerm = dom.searchInput.value.toLowerCase();
+            const selectedStatuses = Array.from(document.querySelectorAll('.status-checkbox:checked')).map(cb => cb.value);
+
+            return allProjects.filter(p => {
+                const searchMatch = p.name.toLowerCase().includes(searchTerm) || p.id.toLowerCase().includes(searchTerm);
+                const statusMatch = selectedStatuses.includes(p.status);
+                return searchMatch && statusMatch;
+            });
+        }
         
-        searchInput.addEventListener('input', (e) => {
-            const searchTerm = e.target.value.toLowerCase();
-            const filtered = processedProjects.filter(p => p.name.toLowerCase().includes(searchTerm) || p.id.toLowerCase().includes(searchTerm));
-            renderProjects(filtered);
-        });
+        /**
+         * NUOVA FUNZIONE: Funzione centrale per ridisegnare la dashboard
+         */
+        function renderFilteredProjects() {
+            const filteredProjects = applyFilters();
+            renderProjects(filteredProjects);
+        }
+
+        function createProjectCardHTML(project) {
+            // Questa funzione rimane identica
+            const status = getStatusInfo(project.status);
+            const progressColor = getProgressColor(project.progress);
+            const costColor = getCostColor(project.budget, project.forecast);
+            const costDelta = project.forecast - project.budget;
+            const currencyFormatter = new Intl.NumberFormat('it-IT', { style: 'currency', currency: 'EUR', minimumFractionDigits: 0 });
+            const sections = [ { name: 'Milestone', file: 'milestone.html', icon: 'flag' }, { name: 'Task', file: 'task.html', icon: 'list-checks' }, { name: 'Imprevisti', file: 'imprevisti.html', icon: 'siren' }, { name: 'Varianti', file: 'varianti.html', icon: 'git-pull-request-draft' }, { name: 'Decisioni', file: 'decisionlog.html', icon: 'gavel' } ];
+            return `<div class="project-card bg-white rounded-lg shadow-sm flex flex-col"><div class="p-4 border-b border-slate-200"><div class="flex justify-between items-start gap-4"><h3 class="text-lg font-semibold text-slate-900">${project.name}</h3><span class="flex items-center gap-1.5 text-xs font-semibold rounded-full whitespace-nowrap px-2 py-0.5 ${status.color}"><i data-lucide="${status.icon}" class="w-3.5 h-3.5"></i> ${project.status}</span></div><p class="text-sm text-slate-500">${project.id} | ${project.client}</p></div><div class="p-4 flex-grow space-y-4"><div><div class="flex justify-between text-xs text-slate-500 uppercase tracking-wide mb-1"><span>Avanzamento</span><span class="font-semibold text-slate-600">${Math.round(project.progress)}%</span></div><div class="w-full bg-slate-200 rounded-full h-2.5"><div class="${progressColor} h-2.5 rounded-full" style="width: ${project.progress}%"></div></div></div><div class="grid grid-cols-3 gap-4 text-center"><div><p class="text-xs text-slate-500 uppercase tracking-wide">Budget</p><p class="font-semibold text-slate-800">${currencyFormatter.format(project.budget)}</p></div><div><p class="text-xs text-slate-500 uppercase tracking-wide">Previsione</p><p class="font-semibold text-slate-800">${currencyFormatter.format(project.forecast)}</p></div><div><p class="text-xs text-slate-500 uppercase tracking-wide">Scostamento</p><p class="font-semibold ${costColor}">${currencyFormatter.format(costDelta)}</p></div></div></div><div class="p-4 bg-slate-50 rounded-b-lg border-t border-slate-200"><p class="text-xs font-semibold text-slate-600 mb-2 uppercase tracking-wide">Dashboard Operative</p><div class="flex flex-wrap gap-2">${sections.map(sec => `<button onclick="navigateToSection('${sec.file}', '${project.recordId}')" class="flex-1 text-center bg-white border border-slate-300 text-slate-700 hover:bg-slate-100 px-3 py-1.5 text-xs font-semibold rounded-md transition-colors"><i data-lucide="${sec.icon}" class="inline-block h-3 w-3 mr-1"></i> ${sec.name}</button>`).join('')}</div></div></div>`;
+        }
+
+        function renderProjects(projects) {
+            dom.initialMessage.style.display = 'none';
+            dom.container.innerHTML = projects.length > 0 ? projects.map(createProjectCardHTML).join('') : `<p class="col-span-full text-center text-slate-500">Nessun progetto corrisponde ai filtri selezionati.</p>`;
+            lucide.createIcons();
+        }
+        
+        // Aggiorniamo l'evento della ricerca per usare la nuova funzione centrale
+        dom.searchInput.addEventListener('input', renderFilteredProjects);
 
         initializeDashboard();
     </script>
