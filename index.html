@@ -3,47 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard PMI - Centro di Controllo</title>
+    <title>Dashboard PMI</title>
+
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+    
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Font Inter -->
+    <link rel="preconnect" href="https://rsms.me/">
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+
     <style>
         :root { font-family: 'Inter', sans-serif; }
-        .nav-card { @apply bg-white p-6 rounded-xl shadow-sm border border-slate-200 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg flex flex-col; }
+        html { scroll-behavior: smooth; }
+        
+        body {
+            background-color: #f6f8fa;
+        }
+        
+        .nav-card {
+            @apply bg-white p-6 rounded-xl shadow-sm border border-slate-200 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-xl hover:ring-2 hover:ring-sky-400/50 flex flex-col;
+        }
+        .nav-card .card-arrow {
+            @apply opacity-0 transition-opacity duration-300;
+        }
+        .nav-card:hover .card-arrow {
+            @apply opacity-100;
+        }
     </style>
 </head>
 <body class="bg-slate-50">
+
+    <!-- Contenitore Principale -->
     <div class="flex flex-col min-h-screen">
-        <header class="bg-white/80 backdrop-blur-lg border-b border-slate-200 z-10 w-full">
+        
+        <header class="sticky top-0 bg-white/80 backdrop-blur-lg border-b border-slate-200 z-10 w-full">
             <div class="container mx-auto flex justify-between items-center p-4">
-                <h1 class="text-2xl font-bold text-gray-800">Centro di Controllo Progetti</h1>
-                <div id="current-datetime" class="text-sm text-gray-600 font-medium"></div>
+                <div class="flex items-center">
+                    <img src="https://i.imgur.com/vTB6uad.jpeg" alt="Logo AMD International Srl" class="h-12 w-auto mr-4">
+                    <h1 class="text-3xl font-bold text-gray-800">Centro di Controllo - AMD International Srl</h1>
+                </div>
+                <div id="current-datetime" class="text-sm text-gray-600 font-medium flex items-center gap-2">
+                    <i data-lucide="clock" class="w-4 h-4"></i>
+                    <span>Caricamento...</span>
+                </div>
             </div>
         </header>
+
+        <!-- Contenuto della Pagina -->
         <main class="container mx-auto p-6 flex-grow">
-            <h2 class="text-2xl font-semibold text-gray-700">Pannelli di Controllo</h2>
-            <p class="text-slate-500 mt-1">Seleziona una dashboard per analizzare i dati di progetto.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-                <a href="progetti.html" class="nav-card"><div class="w-12 h-12 bg-sky-100 text-sky-600 p-3 rounded-full flex items-center justify-center mb-4"><i data-lucide="folder-kanban"></i></div><h3 class="text-lg font-bold text-gray-900 mb-2">Progetti</h3><p class="text-sm text-gray-600 flex-grow">Stato di avanzamento, budget e performance di tutti i progetti.</p></a>
-                <a href="milestone.html" class="nav-card"><div class="w-12 h-12 bg-amber-100 text-amber-600 p-3 rounded-full flex items-center justify-center mb-4"><i data-lucide="flag"></i></div><h3 class="text-lg font-bold text-gray-900 mb-2">Milestone</h3><p class="text-sm text-gray-600 flex-grow">Monitoraggio delle scadenze chiave e dei punti critici.</p></a>
-                <a href="task.html" class="nav-card"><div class="w-12 h-12 bg-emerald-100 text-emerald-600 p-3 rounded-full flex items-center justify-center mb-4"><i data-lucide="check-square"></i></div><h3 class="text-lg font-bold text-gray-900 mb-2">Task</h3><p class="text-sm text-gray-600 flex-grow">Dettaglio delle attività operative e assegnazioni del team.</p></a>
-                <a href="timelog.html" class="nav-card"><div class="w-12 h-12 bg-indigo-100 text-indigo-600 p-3 rounded-full flex items-center justify-center mb-4"><i data-lucide="timer"></i></div><h3 class="text-lg font-bold text-gray-900 mb-2">Timelog</h3><p class="text-sm text-gray-600 flex-grow">Distribuzione delle ore lavorate per risorsa, progetto e attività.</p></a>
-                <a href="imprevisti.html" class="nav-card"><div class="w-12 h-12 bg-red-100 text-red-600 p-3 rounded-full flex items-center justify-center mb-4"><i data-lucide="siren"></i></div><h3 class="text-lg font-bold text-gray-900 mb-2">Imprevisti</h3><p class="text-sm text-gray-600 flex-grow">Tracciamento e gestione degli eventi che impattano la pianificazione.</p></a>
-                <a href="varianti.html" class="nav-card"><div class="w-12 h-12 bg-slate-100 text-slate-600 p-3 rounded-full flex items-center justify-center mb-4"><i data-lucide="git-pull-request-draft"></i></div><h3 class="text-lg font-bold text-gray-900 mb-2">Varianti</h3><p class="text-sm text-gray-600 flex-grow">Registro delle modifiche di progetto e del loro impatto.</p></a>
-                <a href="decisionlog.html" class="nav-card"><div class="w-12 h-12 bg-fuchsia-100 text-fuchsia-600 p-3 rounded-full flex items-center justify-center mb-4"><i data-lucide="gavel"></i></div><h3 class="text-lg font-bold text-gray-900 mb-2">Decisioni</h3><p class="text-sm text-gray-600 flex-grow">Registro centrale delle decisioni strategiche e operative.</p></a>
-            </div>
+            <!-- Sezione di Navigazione -->
+            <section id="quick-nav">
+                <div class="flex flex-col sm:flex-row justify-between sm:items-center mb-4">
+                    <div>
+                        <h2 class="text-2xl font-semibold text-gray-700">Pannelli di Controllo</h2>
+                        <div class="w-20 h-0.5 bg-sky-500 mt-1"></div>
+                    </div>
+                    <a href="progetti.html" class="mt-4 sm:mt-0 inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors shadow-sm">
+                        Vai alla dashboard Progetti
+                        <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+                    
+                    <a href="progetti.html" class="nav-card">
+                        <div class="flex-grow">
+                            <div class="w-12 h-12 bg-sky-100 text-sky-600 p-3 rounded-full flex items-center justify-center mb-4">
+                                <i data-lucide="folder-kanban" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2">Progetti</h3>
+                            <p class="text-sm text-gray-600 line-clamp-2">Visualizza lo stato di avanzamento di tutti i progetti, dal concepimento alla chiusura.</p>
+                        </div>
+                        <div class="pt-4 mt-4 border-t border-slate-100 flex justify-end">
+                             <i data-lucide="arrow-right-circle" class="w-5 h-5 text-slate-400 card-arrow"></i>
+                        </div>
+                    </a>
+                    <a href="milestone.html" class="nav-card">
+                        <div class="flex-grow">
+                            <div class="w-12 h-12 bg-amber-100 text-amber-600 p-3 rounded-full flex items-center justify-center mb-4">
+                                <i data-lucide="flag" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2">Milestone</h3>
+                            <p class="text-sm text-gray-600 line-clamp-2">Monitora le scadenze chiave e i punti di controllo critici per ogni progetto.</p>
+                        </div>
+                         <div class="pt-4 mt-4 border-t border-slate-100 flex justify-end">
+                             <i data-lucide="arrow-right-circle" class="w-5 h-5 text-slate-400 card-arrow"></i>
+                        </div>
+                    </a>
+                    <a href="task.html" class="nav-card">
+                        <div class="flex-grow">
+                            <div class="w-12 h-12 bg-emerald-100 text-emerald-600 p-3 rounded-full flex items-center justify-center mb-4">
+                                <i data-lucide="check-square" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2">Task</h3>
+                            <p class="text-sm text-gray-600 line-clamp-2">Analizza il dettaglio delle attività operative, assegnazioni e performance del team.</p>
+                        </div>
+                         <div class="pt-4 mt-4 border-t border-slate-100 flex justify-end">
+                             <i data-lucide="arrow-right-circle" class="w-5 h-5 text-slate-400 card-arrow"></i>
+                        </div>
+                    </a>
+                     <a href="timelog.html" class="nav-card">
+                        <div class="flex-grow">
+                            <div class="w-12 h-12 bg-indigo-100 text-indigo-600 p-3 rounded-full flex items-center justify-center mb-4">
+                                <i data-lucide="timer" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2">Timelog</h3>
+                            <p class="text-sm text-gray-600 line-clamp-2">Esplora la distribuzione delle ore lavorate per risorsa, progetto e periodo.</p>
+                        </div>
+                         <div class="pt-4 mt-4 border-t border-slate-100 flex justify-end">
+                             <i data-lucide="arrow-right-circle" class="w-5 h-5 text-slate-400 card-arrow"></i>
+                        </div>
+                    </a>
+                    <a href="imprevisti.html" class="nav-card">
+                        <div class="flex-grow">
+                            <div class="w-12 h-12 bg-red-100 text-red-600 p-3 rounded-full flex items-center justify-center mb-4">
+                               <i data-lucide="siren" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2">Imprevisti</h3>
+                            <p class="text-sm text-gray-600 line-clamp-2">Traccia e gestisci gli eventi inaspettati che impattano la pianificazione.</p>
+                        </div>
+                         <div class="pt-4 mt-4 border-t border-slate-100 flex justify-end">
+                             <i data-lucide="arrow-right-circle" class="w-5 h-5 text-slate-400 card-arrow"></i>
+                        </div>
+                    </a>
+                    <a href="varianti.html" class="nav-card">
+                        <div class="flex-grow">
+                            <div class="w-12 h-12 bg-slate-100 text-slate-600 p-3 rounded-full flex items-center justify-center mb-4">
+                                <i data-lucide="git-pull-request-draft" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2">Varianti</h3>
+                            <p class="text-sm text-gray-600 line-clamp-2">Documenta e approva le modifiche di progetto e il loro impatto su tempi e costi.</p>
+                        </div>
+                         <div class="pt-4 mt-4 border-t border-slate-100 flex justify-end">
+                             <i data-lucide="arrow-right-circle" class="w-5 h-5 text-slate-400 card-arrow"></i>
+                        </div>
+                    </a>
+                    <a href="decisionlog.html" class="nav-card">
+                        <div class="flex-grow">
+                            <div class="w-12 h-12 bg-fuchsia-100 text-fuchsia-600 p-3 rounded-full flex items-center justify-center mb-4">
+                                <i data-lucide="gavel" class="w-6 h-6"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-gray-900 mb-2">Decisioni</h3>
+                            <p class="text-sm text-gray-600 line-clamp-2">Mantieni un registro centrale delle decisioni importanti prese durante il progetto.</p>
+                        </div>
+                         <div class="pt-4 mt-4 border-t border-slate-100 flex justify-end">
+                             <i data-lucide="arrow-right-circle" class="w-5 h-5 text-slate-400 card-arrow"></i>
+                        </div>
+                    </a>
+
+                </div>
+            </section>
         </main>
-        <footer class="container mx-auto text-center py-6 text-sm text-slate-500"><p>&copy; 2025 Dashboard PMI. Tutti i diritti riservati.</p></footer>
+        
+        <footer class="container mx-auto text-center py-6 text-sm text-slate-500">
+            <p>&copy; 2025 Dashboard PMI. Tutti i diritti riservati.</p>
+        </footer>
     </div>
+
     <script>
         (() => {
             const updateDateTime = () => {
                 const now = new Date();
-                const formatted = now.toLocaleDateString('it-IT', { dateStyle: 'full', timeStyle: 'short' });
-                document.getElementById('current-datetime').textContent = formatted;
+                const options = { year: 'numeric', month: 'short', day: 'numeric' };
+                const formattedDate = new Intl.DateTimeFormat('it-IT', options).format(now);
+                const formattedTime = now.toLocaleTimeString('it-IT', { hour: '2-digit', minute: '2-digit' });
+                const dateTimeElement = document.querySelector('#current-datetime span');
+                if (dateTimeElement) {
+                    dateTimeElement.textContent = `${formattedDate} • ${formattedTime}`;
+                }
             };
+
             updateDateTime();
             setInterval(updateDateTime, 60000);
+            
             lucide.createIcons();
         })();
     </script>
