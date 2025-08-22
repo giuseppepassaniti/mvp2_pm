@@ -34,8 +34,7 @@
             cursor: not-allowed;
             background-color: #9ca3af; /* Grigio di Tailwind */
         }
-        #sync-button.loading {
-            position: relative;
+        #sync-button.loading .button-text {
             color: transparent; /* Nasconde il testo originale */
         }
         #sync-button.loading::after {
@@ -53,7 +52,7 @@
             animation: spin 0.8s linear infinite;
         }
         @keyframes spin {
-            to { transform: rotate(300deg); }
+            to { transform: rotate(360deg); }
         }
     </style>
 </head>
@@ -74,9 +73,9 @@
                         <span>Caricamento...</span>
                     </div>
                     <div class="text-right">
-                        <button id="sync-button" class="bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-lg shadow-sm transition duration-300 flex items-center gap-2">
+                        <button id="sync-button" class="relative bg-sky-600 hover:bg-sky-700 text-white font-bold py-2 px-4 rounded-lg shadow-sm transition duration-300 flex items-center gap-2">
                             <i data-lucide="refresh-cw" class="w-4 h-4"></i>
-                            <span>Sincronizza Dati</span>
+                            <span class="button-text">Sincronizza Dati</span>
                         </button>
                         <p id="sync-status" class="text-xs text-gray-500 mt-1 h-4"></p>
                     </div>
@@ -194,7 +193,6 @@
     </div>
 
     <script>
-        // Funzione IIFE (Immediately Invoked Function Expression) per non inquinare lo scope globale
         (() => {
             // --- LOGICA ESISTENTE ---
             const updateDateTime = () => {
@@ -216,19 +214,20 @@
             // --- NUOVA LOGICA PER IL PULSANTE DI AGGIORNAMENTO ---
             const syncButton = document.getElementById('sync-button');
             const syncStatus = document.getElementById('sync-status');
-            const buttonText = syncButton.querySelector('span');
-            const buttonIcon = syncButton.querySelector('i');
-
+            
             syncButton.addEventListener('click', async () => {
+                // Selezioniamo l'icona SVG al momento del click, dopo che lucide l'ha creata
+                const buttonIcon = syncButton.querySelector('svg');
+
                 // Disabilita il pulsante e mostra un'animazione di caricamento
                 syncButton.disabled = true;
-                buttonIcon.style.display = 'none'; // Nasconde l'icona
-                buttonText.classList.add('loading'); // Aggiunge l'animazione al testo
+                syncButton.classList.add('loading');
+                if (buttonIcon) buttonIcon.style.display = 'none'; // Nasconde l'icona SVG
+                
                 syncStatus.textContent = 'Avvio sincronizzazione...';
                 syncStatus.className = 'text-xs text-gray-500 mt-1 h-4'; // Reset stile
 
                 try {
-                    // Chiama la nostra serverless function
                     const response = await fetch('/api/trigger-sync', {
                         method: 'POST',
                     });
@@ -237,7 +236,6 @@
                         throw new Error('La richiesta al server è fallita.');
                     }
 
-                    // Se la richiesta va a buon fine
                     syncStatus.textContent = 'Sincronizzazione avviata!';
                     syncStatus.classList.add('text-green-600');
                     
@@ -249,16 +247,18 @@
                     console.error('Errore durante l\'avvio della sincronizzazione:', error);
                     syncStatus.textContent = 'Errore! Riprova.';
                     syncStatus.classList.add('text-red-600');
-                    // In caso di errore, riabilita subito il pulsante
-                    syncButton.disabled = false;
+                    syncButton.disabled = false; // Riabilita subito in caso di errore
                 } finally {
-                    // Rimuoviamo l'animazione in ogni caso dopo un po'
-                    setTimeout(() => {
-                         buttonText.classList.remove('loading');
-                         buttonIcon.style.display = 'inline-block';
-                         // Lasciamo il pulsante disabilitato per 60 secondi per evitare spam
-                         setTimeout(() => { syncButton.disabled = false; }, 58000);
-                    }, 2000);
+                    // Rimuoviamo l'animazione e ripristiniamo l'icona
+                    syncButton.classList.remove('loading');
+                    if (buttonIcon) buttonIcon.style.display = 'inline-block';
+                    
+                    // Lasciamo il pulsante disabilitato per 60 secondi per evitare spam
+                    setTimeout(() => { 
+                        if (syncStatus.textContent !== 'Errore! Riprova.') {
+                           syncButton.disabled = false; 
+                        }
+                    }, 60000);
                 }
             });
         })();
