@@ -3,11 +3,7 @@
     "id": "recT4SoREDCktZWmb",
     "Nome e Cognome": "Antonio Manduca",
     "Progetti": [
-      "recb97Ftmgx6WsHpt",
-      "recE63KeYDyZSJq89",
-      "recQ9e73aqoD5c71t",
-      "recI5CcCweinr4QcG",
-      "rec1iALq0miS5LwaD"
+      "recb97Ftmgx6WsHpt"
     ],
     "Email": "a.manduca@amdint.com",
     "Ruolo": "Project Manager",
@@ -15,22 +11,15 @@
     "Decision Log": [
       "rec9YwZglPXmeyDwD",
       "recnNjVZORrkoAXhy",
-      "reclCrVcqKTyCu3NU",
-      "recq10iJJAyQCxkYk",
-      "recZn24nQtKj3IJwv",
-      "recxvOCN553ORoZrY"
+      "reclCrVcqKTyCu3NU"
     ]
   },
   {
     "id": "recVKbPhAFaEwr42O",
     "Nome e Cognome": "Luca Bianchi",
     "Task": [
-      "rec5CjQ3LOafuFS0H",
-      "recsah9vupqls0jdI",
       "rec0Ap4nSo2OA4Ewo",
-      "recbTuVu6zEn3zTDw",
-      "recrNKXrt5WkBmvux",
-      "recpjlRX9YhFxL09Q"
+      "recbTuVu6zEn3zTDw"
     ],
     "Email": "l.bianchi@amdint.com",
     "Ruolo": "Saldatore Senior",
@@ -40,33 +29,15 @@
       "rec96tOjkobYVbRN3",
       "reckf50YgX4RV0kP4",
       "recRvWgifuFVy1WQK",
-      "recdqaYxS0xqAvXlq",
-      "recdzqj0aINYHMF0x",
-      "reczmAVvbWCcxus5l",
-      "recuA9OmZPxRrHntk",
-      "recBdVpGg5cALsXGI",
-      "recIq5fp2Tpqhc8WO",
-      "rec67ZzR3fEBHeTdj",
-      "rec9UyOdhrTYMl5Vp",
-      "reccH9kXDzuZQznLB",
-      "recKCI9oZDkvUdez9",
-      "recWIe8QhToSpCBmL",
-      "rec1EUjfoJzOmXEH5",
-      "recAsChpWV6KGT8qd",
-      "recgBp9SGRutASFqY"
+      "recuA9OmZPxRrHntk"
     ]
   },
   {
     "id": "rectNHdN9nE0IKsIT",
     "Nome e Cognome": "Giulia Ferri",
     "Task": [
-      "rec9d51v1pksAdtpX",
-      "recUJXJCyvQI4s1pU",
       "recEPM6HPcWPlGAXU",
-      "recfikmuQZXikEGY0",
-      "rec2l4P4QhhLG21d7",
-      "recHsN9Sm3p6tFShk",
-      "recxYhYKsVCRATiEA"
+      "recfikmuQZXikEGY0"
     ],
     "Email": "g.ferri@amdint.com",
     "Ruolo": "Responsabile QA",
@@ -74,31 +45,17 @@
     "Time Log": [
       "recTGNOpdlE2LxnvO",
       "recTNlj3Wo8PPGQc9",
-      "recd6RwT4UdT9T5CN",
-      "rec9HwC1j3V2o8mjo",
       "recAYPCJId580oH8t",
       "rec6jmLO4hSSEVlUd",
-      "recFto22Lv40eVz6Z",
-      "recatkdIKwKY80m8r",
-      "recruPdb5EGnVUaCT",
-      "reclNFMJsOYT9UsUx",
-      "recpywLvFrv4UFr7o",
-      "recFeJ7WQMcw2Xmrh",
-      "recDzUXtltSox636u",
-      "recU6ihPZ2oBR1Ruk",
-      "recsGyGqmBeFClkFY"
+      "recFto22Lv40eVz6Z"
     ]
   },
   {
     "id": "recpIZOkF0B14ebtq",
     "Nome e Cognome": "Davide Romano",
     "Task": [
-      "recRVh4JlBPjAPJ9D",
-      "recxV8QMGNYzVt8ti",
       "rectVSrVivtIG9nQy",
-      "recAj1fB7v22tUYgy",
-      "recjPQPHooehsF6Ds",
-      "rec6MfK74yvkpXsp4"
+      "recAj1fB7v22tUYgy"
     ],
     "Email": "d.romano@amdint.com",
     "Ruolo": "Addetto Taglio e Assemblaggio",
@@ -106,23 +63,15 @@
     "Time Log": [
       "recL7Bs6GJ30p6BJq",
       "recvrk6HO7jU9WnPj",
-      "rec6HRV6eGsLPplwV",
-      "reczkAMG5gcaWsG1M",
       "recEHugaMSUKbStbo",
       "recR15u5HR5JZraUR",
-      "recHBs0Bi6DPKx9wR",
-      "rectBxsnZ2PMaE3v9",
-      "recWQ3iHGXmU2UPWM",
-      "recB4Kp5kiBQMKYVk",
-      "recuHC7UpINg5q6Fx",
-      "recA8ci2LRrtwTXO7"
+      "recHBs0Bi6DPKx9wR"
     ]
   },
   {
     "id": "recdLjIvh7m55Z4b4",
     "Nome e Cognome": "Sara Greco",
     "Task": [
-      "recwrf9Og12NwiY2X",
       "receAGFLnvymEecWH"
     ],
     "Email": "s.greco@amdint.com",
@@ -130,16 +79,13 @@
     "Competenze Chiave": "Trattamenti Termici - Gestione Forni",
     "Time Log": [
       "reczTuctjzXwpZp8T",
-      "recbKD2XqFkwRmnUO",
-      "recF16F8Gk5HTE6eb",
-      "rec57HT00idMKvIxQ"
+      "recbKD2XqFkwRmnUO"
     ]
   },
   {
     "id": "rechjd5Yk4ZVGe6NI",
     "Nome e Cognome": "Matteo Villa",
     "Task": [
-      "rec2cYKFPydIbwOeW",
       "recggLNOg2LjQVSqj"
     ],
     "Email": "m.villa@amdint.com",
@@ -147,16 +93,13 @@
     "Competenze Chiave": "Verniciatura a Spruzzo - Preparazione Superfici",
     "Time Log": [
       "recgyjCIcq8hN3diA",
-      "rec2ORCOuoFZasgUC",
-      "rectQEO7C7LZcveAH",
-      "recjmNqMS1yunnNL2"
+      "rec2ORCOuoFZasgUC"
     ]
   },
   {
     "id": "recoGknqxGzv8Gu2y",
     "Nome e Cognome": "Elena Marchetti",
     "Task": [
-      "recRNHLAxgKp7yotg",
       "recr6FAZwGGCA8JIK"
     ],
     "Email": "e.marchetti@amdint.com",
@@ -164,284 +107,7 @@
     "Competenze Chiave": "Gestione Spedizioni - Documentazione Trasporto",
     "Time Log": [
       "recWQ6BqxpSTNFxYp",
-      "recvY5fcBfquJSMwh",
-      "reckiw0QXeC0H08hL",
-      "recw8yBrPipajF0zo"
+      "recvY5fcBfquJSMwh"
     ]
-  },
-  {
-    "id": "receFC1ex8OLG8fJd",
-    "Nome e Cognome": "James Wilson",
-    "Task": [
-      "recITV9ChV1LCko8r",
-      "recmbGuGqhDNsK8yK",
-      "reco6humMf7gtaUvO",
-      "reca8mc0COSt2y9wD",
-      "recg3AHFmifW3L9gP"
-    ],
-    "Email": "j.wilson@amdint.com",
-    "Ruolo": "Ingegnere di Progetto",
-    "Competenze Chiave": "Progettazione Meccanica - Analisi Strutturale",
-    "Decision Log": [
-      "recEm2ls5kRf0mvHH",
-      "rec1E3e52VgdJvsFR",
-      "recsMWc73xhk2k3yC",
-      "recBHE7L7xqgQCoXn",
-      "recJjfrpM3pa1OQKM",
-      "recMBjwwI5YIancsu"
-    ],
-    "Time Log": [
-      "reclvkfVn9nUdz6L7",
-      "rec7rrjOh7y4lE1Jy",
-      "recNUUuxVArqiEgXD",
-      "recnAT9WblDe6X3qt",
-      "recI09cvEAy0TpEV4",
-      "recu8bscZEKvIS97E",
-      "recwKcZfux8taWIer",
-      "recxAdqhtzFYgjaqp",
-      "recVeNY5qaQwioKq6",
-      "recAykGj7exHfIMFr",
-      "recozw66XSE40lX8G",
-      "rec5cyucJ7VDT4uQJ",
-      "recqGYbJmoOyrzETG"
-    ]
-  },
-  {
-    "id": "recuUN6quFcAzCWle",
-    "Nome e Cognome": "Emma Thompson",
-    "Task": [
-      "recWRfSfGGSinWZrr",
-      "recCaCYmvamzCmLa7",
-      "recMu409r48Eb8tMf"
-    ],
-    "Email": "e.thompson@amdint.com",
-    "Ruolo": "Responsabile Acquisti",
-    "Competenze Chiave": "Gestione Fornitori - Negoziazione Contratti",
-    "Decision Log": [
-      "rec1ao6JVIgTxooWY",
-      "recifyCvXoKFgzZMe"
-    ],
-    "Time Log": [
-      "recmADiB71oRowp4O",
-      "recqjKZhwuAOO3EG9",
-      "recLGJxmQJtAPO6vQ",
-      "recJq24V9DCPZj1Kt"
-    ]
-  },
-  {
-    "id": "recaab3TdqCsbvLqD",
-    "Nome e Cognome": "Pierre Dubois",
-    "Task": [
-      "recvMKjkmC49WhdSp",
-      "recgaI91l32RXQI9c",
-      "rec4vYAha6owbjDAI"
-    ],
-    "Email": "p.dubois@amdint.com",
-    "Ruolo": "Ingegnere Strutturista",
-    "Competenze Chiave": "Calcoli Strutturali - Modellazione 3D",
-    "Decision Log": [
-      "reckOjue8aXEJa4HF",
-      "recD5CkDvCk8HbXup",
-      "recEhPl6fbxJrtioK"
-    ],
-    "Time Log": [
-      "recGywO9YPfvOesPe",
-      "rectOhkp6S4VXEhiR",
-      "recX8A5ZG3ttQdB3O",
-      "recbLYA9q2H73vzwB",
-      "rec9Z65punpzOG9PK"
-    ]
-  },
-  {
-    "id": "rec5hlBQiR0r5Zj9U",
-    "Nome e Cognome": "Anna Schmidt",
-    "Task": [
-      "recV9eAH9OJY1hZCT",
-      "recMyfiFin7rokoI1"
-    ],
-    "Email": "a.schmidt@amdint.com",
-    "Ruolo": "Specialista HSE",
-    "Competenze Chiave": "Sicurezza Offshore - Normative Ambientali",
-    "Decision Log": [
-      "rectn544q3KFzBJsg"
-    ]
-  },
-  {
-    "id": "recptRaZSw5EatE6Q",
-    "Nome e Cognome": "Carlos Rodriguez",
-    "Task": [
-      "recq8dLAKg7yINKEG",
-      "recstDhJExk8Fb1aN"
-    ],
-    "Email": "c.rodriguez@amdint.com",
-    "Ruolo": "Ingegnere Civile",
-    "Competenze Chiave": "Progettazione Pipeline - Gestione Cantiere",
-    "Decision Log": [
-      "recN4seVmGqEozajM"
-    ],
-    "Time Log": [
-      "recVwlwL4Tp9e4k7l",
-      "recADMMK4axYdAQ2x",
-      "recN6QL6glPggYBOg"
-    ]
-  },
-  {
-    "id": "recQ1XcP7F9MkdLVh",
-    "Nome e Cognome": "Sophie Martin",
-    "Task": [
-      "recrIo04ieFJNpSTX",
-      "recyD4I9bJXhIkDUI",
-      "recVw6eBX51C1TIIY"
-    ],
-    "Email": "s.martin@amdint.com",
-    "Ruolo": "Responsabile Logistica Internazionale",
-    "Competenze Chiave": "Logistica Internazionale - Gestione Doganale",
-    "Decision Log": [
-      "recZxfhgyTMmD15xE"
-    ],
-    "Time Log": [
-      "rec4nKm33U3rgmg7h",
-      "reclS96K6zf8ytHGZ",
-      "recZUD8Ky1pL1trqo",
-      "recnlmfuZoTsJIki0"
-    ]
-  },
-  {
-    "id": "recZ9BLBGx7xretbZ",
-    "Nome e Cognome": "Marco Conti",
-    "Task": [
-      "recYY2ROBvO1A2029",
-      "rec7QSAERP92GUls0",
-      "rec7rBZGCDOpQiQJ2",
-      "rec8z20uFtImMUKtF"
-    ],
-    "Email": "m.conti@amdint.com",
-    "Ruolo": "Capo Officina",
-    "Competenze Chiave": "Saldatura Avanzata - Coordinamento Squadre",
-    "Time Log": [
-      "recLYFbIEjbHvJgn1",
-      "recsLzntGz3lhCcxk",
-      "reca9dA5tcMnlXS7x",
-      "recsnGZk9G5GeJDdP",
-      "recyYzUD6BqrawmWf",
-      "recjN6ZQNrBzUh2KR",
-      "recjxzhbcOz836xiN",
-      "rectbImyZFEFg6Gdc",
-      "recBYwZ5Ta6yiGHrT"
-    ]
-  },
-  {
-    "id": "rec13Qjo8aRAlo3eo",
-    "Nome e Cognome": "Sara Lombardi",
-    "Task": [
-      "recZHPMUbKLrWxW4F",
-      "recGD8zZshyY9bEJp",
-      "recHg40tFUqQeCFeu"
-    ],
-    "Email": "s.lombardi@amdint.com",
-    "Ruolo": "Responsabile Collaudi",
-    "Competenze Chiave": "Test di Pressione - Collaudi Funzionali",
-    "Time Log": [
-      "recjYdf5DFDrTviTx",
-      "receJU40jr2tA7TcQ"
-    ]
-  },
-  {
-    "id": "recoQKICo0cKv3xQB",
-    "Nome e Cognome": "Laura Bianchi",
-    "Progetti": [
-      "reclvoCbPDdaj8mbg",
-      "recQfUWcES81PFvJ8"
-    ],
-    "Email": "l.bianchi@amdint.com",
-    "Ruolo": "Project Manager",
-    "Competenze Chiave": "Gestione Progetti - Coordinamento Team",
-    "Decision Log": [
-      "recSn51XnlzoMStP9",
-      "recIqXorhNI8V9fFS",
-      "recMSP9cirtLnQ1sQ"
-    ]
-  },
-  {
-    "id": "recYghHAsaaEXsLfa",
-    "Nome e Cognome": "Michael Evans",
-    "Task": [
-      "recyzgNrwfrQso2Hm",
-      "rec9wvy1zd4FUfOU3"
-    ],
-    "Email": "m.evans@amdint.com",
-    "Ruolo": "Ingegnere di Processo",
-    "Competenze Chiave": "Process Design - Commissioning",
-    "Decision Log": [
-      "rechfbotX5VyT5rtw",
-      "recAJKyV9CC3nVQUA"
-    ],
-    "Time Log": [
-      "recwJm7RnrCAVEFGQ",
-      "recWlEZPAaBDf4aYI",
-      "recnupU6lbvK47bDJ",
-      "rec5lR4u3YfYagy6o",
-      "recjRelCd2PJ6PD7f",
-      "recIPNuS6hUDLAabB",
-      "recRPea7L3aE5xbkd"
-    ]
-  },
-  {
-    "id": "rec7W8IglxfAutPrg",
-    "Nome e Cognome": "Silvia Romano",
-    "Task": [
-      "recBbQhw5ju2M4OTt"
-    ],
-    "Email": "s.romano@amdint.com",
-    "Ruolo": "Responsabile QA",
-    "Competenze Chiave": "Controllo Qualità - Certificazioni PED/ASME",
-    "Time Log": [
-      "recSwppnAgI3tlPH3",
-      "recpGj5ZFUWseuOnA",
-      "recprWpkFv4azmq1T"
-    ]
-  },
-  {
-    "id": "recuL1bwVWIOaA1Al",
-    "Nome e Cognome": "Roberto Greco",
-    "Task": [
-      "recAT3xIkM8BTRMZH"
-    ],
-    "Email": "r.greco@amdint.com",
-    "Ruolo": "Capo Officina",
-    "Competenze Chiave": "Assemblaggio Skid - Saldatura Avanzata",
-    "Time Log": [
-      "recVDv1N2L577SIN0",
-      "recJ8NT9GjgOxfMUJ",
-      "recRFzTQmsW7ZVVmq",
-      "reccc3dfqoWYSrN92",
-      "recgFYm69N6PmTjM3",
-      "recTIpNtscuymcOP7"
-    ]
-  },
-  {
-    "id": "recDYjP5geiIHFceo",
-    "Nome e Cognome": "Julia Müller",
-    "Task": [
-      "recXFRq8rJEqeiDuQ"
-    ],
-    "Email": "j.mueller@amdint.com",
-    "Ruolo": "Responsabile Logistica",
-    "Competenze Chiave": "Logistica Internazionale - Spedizioni Oil&Gas",
-    "Time Log": [
-      "recvCW2tnnqI2Yn8I",
-      "receCKTY6ff9d4Bab",
-      "recv93FOFfOiLlvg0"
-    ]
-  },
-  {
-    "id": "reco2QRcAv5jVjojt",
-    "Nome e Cognome": "Jack Folie",
-    "Progetti": [
-      "recCIG6SqTtDxExaF"
-    ],
-    "Email": "j.folie@amdint.com",
-    "Ruolo": "Project Manager",
-    "Competenze Chiave": "Organizzazione - Management"
   }
 ]
