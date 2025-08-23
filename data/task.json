@@ -22,7 +22,7 @@
     "Tempo Stimato": 24,
     "Produttività Stimata": "🟡 Quasi nei tempi",
     "ID": 193,
-    "Id Task": "193 | Taglio Lamiere e Assemblaggio Iniziale | PV-2025-01"
+    "Id Task": "193 | Taglio Lamiere e Assemblaggio Iniziale | VV_23_01_Strada_Rosarno_Pizzo"
   },
   {
     "id": "rec0Ap4nSo2OA4Ewo",
@@ -48,7 +48,7 @@
     "Tempo Stimato": 40,
     "Produttività Stimata": "🟢 Produttivo",
     "ID": 194,
-    "Id Task": "194 | Saldatura Guscio Principale | PV-2025-01"
+    "Id Task": "194 | Saldatura Guscio Principale | VV_23_01_Strada_Rosarno_Pizzo"
   },
   {
     "id": "recAj1fB7v22tUYgy",
@@ -72,7 +72,7 @@
     "Tempo Stimato": 16,
     "Produttività Stimata": "🟢 Produttivo",
     "ID": 198,
-    "Id Task": "198 | Assemblaggio Componenti Interni | PV-2025-01"
+    "Id Task": "198 | Assemblaggio Componenti Interni | VV_23_01_Strada_Rosarno_Pizzo"
   },
   {
     "id": "recEPM6HPcWPlGAXU",
@@ -97,7 +97,7 @@
     "Tempo Stimato": 16,
     "Produttività Stimata": "🟢 Produttivo",
     "ID": 195,
-    "Id Task": "195 | Controlli NDT sulle Saldature | PV-2025-01"
+    "Id Task": "195 | Controlli NDT sulle Saldature | VV_23_01_Strada_Rosarno_Pizzo"
   },
   {
     "id": "recbTuVu6zEn3zTDw",
@@ -120,7 +120,7 @@
     "Tempo Stimato": 30,
     "Produttività Stimata": "🟢 Produttivo",
     "ID": 196,
-    "Id Task": "196 | Saldatura Raccordi e Attacchi | PV-2025-01"
+    "Id Task": "196 | Saldatura Raccordi e Attacchi | VV_23_01_Strada_Rosarno_Pizzo"
   },
   {
     "id": "receAGFLnvymEecWH",
@@ -144,7 +144,7 @@
     "Tempo Stimato": 12,
     "Produttività Stimata": "🟢 Produttivo",
     "ID": 199,
-    "Id Task": "199 | Trattamento Termico Post-Saldatura | PV-2025-01"
+    "Id Task": "199 | Trattamento Termico Post-Saldatura | VV_23_01_Strada_Rosarno_Pizzo"
   },
   {
     "id": "recfikmuQZXikEGY0",
@@ -168,7 +168,7 @@
     "Tempo Stimato": 10,
     "Produttività Stimata": "🟢 Produttivo",
     "ID": 197,
-    "Id Task": "197 | Ispezione Qualità Intermedia | PV-2025-01"
+    "Id Task": "197 | Ispezione Qualità Intermedia | VV_23_01_Strada_Rosarno_Pizzo"
   },
   {
     "id": "recggLNOg2LjQVSqj",
@@ -192,7 +192,7 @@
     "Tempo Stimato": 8,
     "Produttività Stimata": "🟡 Quasi nei tempi",
     "ID": 200,
-    "Id Task": "200 | Verniciatura Esterna Pressure Vessel | PV-2025-01"
+    "Id Task": "200 | Verniciatura Esterna Pressure Vessel | VV_23_01_Strada_Rosarno_Pizzo"
   },
   {
     "id": "recr6FAZwGGCA8JIK",
@@ -216,6 +216,6 @@
     "Tempo Stimato": 6,
     "Produttività Stimata": "🟡 Quasi nei tempi",
     "ID": 201,
-    "Id Task": "201 | Preparazione Documentazione di Spedizione | PV-2025-01"
+    "Id Task": "201 | Preparazione Documentazione di Spedizione | VV_23_01_Strada_Rosarno_Pizzo"
   }
 ]

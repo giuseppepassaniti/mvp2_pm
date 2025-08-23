@@ -1,12 +1,12 @@
 [
   {
     "id": "recT4SoREDCktZWmb",
-    "Nome e Cognome": "Antonio Manduca",
+    "Nome e Cognome": "Giovanni Iannotti",
     "Progetti": [
       "recb97Ftmgx6WsHpt"
     ],
-    "Email": "a.manduca@amdint.com",
-    "Ruolo": "Project Manager",
+    "Email": "giovannni.iannotti@ecoec.eu",
+    "Ruolo": "Capo progetto",
     "Competenze Chiave": "Organizzazione - Management",
     "Decision Log": [
       "rec9YwZglPXmeyDwD",
@@ -16,14 +16,14 @@
   },
   {
     "id": "recVKbPhAFaEwr42O",
-    "Nome e Cognome": "Luca Bianchi",
+    "Nome e Cognome": "Alberto Chianello",
     "Task": [
       "rec0Ap4nSo2OA4Ewo",
       "recbTuVu6zEn3zTDw"
     ],
-    "Email": "l.bianchi@amdint.com",
-    "Ruolo": "Saldatore Senior",
-    "Competenze Chiave": "Saldatura TIG - Controlli NDT",
+    "Email": "alberto.chianello@ecoec.eu",
+    "Ruolo": "Vari",
+    "Competenze Chiave": "Rilievi - Sicurezza - Computi metrici",
     "Time Log": [
       "rec1r3JhT9wN5K62R",
       "rec96tOjkobYVbRN3",
@@ -34,14 +34,14 @@
   },
   {
     "id": "rectNHdN9nE0IKsIT",
-    "Nome e Cognome": "Giulia Ferri",
+    "Nome e Cognome": "Concetta Carravetta",
     "Task": [
       "recEPM6HPcWPlGAXU",
       "recfikmuQZXikEGY0"
     ],
-    "Email": "g.ferri@amdint.com",
-    "Ruolo": "Responsabile QA",
-    "Competenze Chiave": "Ispezioni PED/ASME - Certificazioni",
+    "Email": "concetta.carravetta@ecoec.eu",
+    "Ruolo": "Vari",
+    "Competenze Chiave": "xxx yyy",
     "Time Log": [
       "recTGNOpdlE2LxnvO",
       "recTNlj3Wo8PPGQc9",
@@ -52,14 +52,14 @@
   },
   {
     "id": "recpIZOkF0B14ebtq",
-    "Nome e Cognome": "Davide Romano",
+    "Nome e Cognome": "Marylucy Aita",
     "Task": [
       "rectVSrVivtIG9nQy",
       "recAj1fB7v22tUYgy"
     ],
-    "Email": "d.romano@amdint.com",
-    "Ruolo": "Addetto Taglio e Assemblaggio",
-    "Competenze Chiave": "Taglio Plasma - Lettura Disegni",
+    "Email": "marilucy.aita@ecoec.eu",
+    "Ruolo": "xxx - yyy - zzz",
+    "Competenze Chiave": "alfa beta gamma",
     "Time Log": [
       "recL7Bs6GJ30p6BJq",
       "recvrk6HO7jU9WnPj",
